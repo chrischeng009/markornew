@@ -1,0 +1,128 @@
+<button class="btn btn-default" data-toggle="modal" id="editBtn" data-target="#editModal" style="display:none;">编辑</button>
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" style="width:800px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">编辑</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <form action="" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group" id="tbgrade">
+                            <label class="col-sm-2 control-label form-label">淘宝等级</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" name="tbgrade">
+                                    <option value="">请选择</option>
+                                    <?php foreach($enum_tbgrade_arr as $k=>$v){?>
+                                    <option value="{$k}">{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" id="statusremark">
+                            <label class="col-sm-2 control-label form-label">说明</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" name="statusremark"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group" id="sure">
+                            <label class="col-sm-2 control-label form-label">说明</label>
+                            <div class="col-sm-8" style="padding-top:7px;">确认操作吗</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <input type="hidden" class="form-control" name="user_id" value="">
+                                <input type="hidden" class="form-control" name="status" value="">
+                                <button type="button" class="btn btn-primary" id="sub">确认</button>
+                                <button type="button" class="btn btn-default" id="colseBtn" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    function edit_tbgrade(id,status){
+        $("#editBtn").click();
+        $("#tbgrade").show();
+        $("#statusremark").hide();
+        $("#sure").hide();
+        $("[name=user_id]").val(id);
+        $("[name=status]").val(status);
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_find.html',
+            dataType:'text',
+            data:"id="+id,
+            success:function(data)
+            {
+                var res = JSON.parse(data);
+                $("[name=statusremark]").val(res.statusremark);
+                $("[name=tbgrade]").val(res.tbgrade);
+            }
+        });
+    }
+    function edit(id,status){
+        $("#editBtn").click();
+        $("#tbgrade").hide();
+        if(status==3){
+            $("#statusremark").hide();
+            $("#sure").show();
+        }
+        if(status==4){
+            $("#statusremark").show();
+            $("#sure").hide();
+        }
+        $("[name=user_id]").val(id);
+        $("[name=status]").val(status);
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_find.html',
+            dataType:'text',
+            data:"id="+id,
+            success:function(data)
+            {
+                var res = JSON.parse(data);
+                $("[name=statusremark]").val(res.statusremark);
+                $("[name=tbgrade]").val(res.tbgrade);
+            }
+        });
+    }
+    $("#sub").on('click',function(){
+        var tbgrade = $("[name=tbgrade]").children('option:selected').val();
+        var status = $("[name=status]").val();
+        if(tbgrade==undefined || tbgrade==null){
+            if(status==3){
+                $("#colseBtn").click();$("#tipBtn").click();$("#tipText").html("请先设置等级");
+                return false;
+            }
+        }
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_edit_status.html',
+            dataType:'text',
+            data:$("#dx_form").serialize(),
+            success:function(data)
+            {
+                if(data=='success'){
+                    window.location.reload();
+                }else{
+                    $("#tipBtn").click();$("#tipText").html(data);
+                }
+            }
+        });
+    });
+</script>

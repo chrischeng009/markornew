@@ -1,0 +1,226 @@
+<button class="btn btn-default" data-toggle="modal" id="editBtn2" data-target="#editModal2" style="display:none;">评论</button>
+<div class="modal fade" id="editModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" style="width:800px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">评论</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <form action="" class="form-horizontal" method="post" id="dx_form2" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label"></label>
+                            <div class="col-sm-8" style="color:#d21d03"> 提示：评价旺旺号必须显示物流已到货才能评介！！！</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">评语</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" name="comment"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">上传多图</label>
+                            <div class="col-lg-8">
+                                <input type="file" id="dx_file5" name="dx_file5" onchange="img('pic');" style="display:none"/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file5.click()">点击上传</button>
+                                <div id="imgView5">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">评价视频</label>
+                            <div class="col-sm-8">
+                                <input type="file" id="dx_file6" name="dx_file6" onchange="video('pjvideo');" style="display:none"/>
+                                <button type="button" class="btn btn-info" onclick="dx_file6.click()">点击上传</button>
+                                <div id="imgView6">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <input type="hidden" class="form-control" name="id" value="">
+                                <button type="button" class="btn btn-primary" id="sub2">提交</button>
+                                <button   type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    function editcomment(id){
+        $("[name=id]").val(id);
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/iscomment.html',
+            dataType:'text',
+            data:"id="+id,
+            success:function(data)
+            {
+                if(data=='success'){
+
+                    $("#editBtn2").click();
+                }else{
+                    $("#tipBtn").click();$("#tipText").html(data);
+                    $("#editModal2").hide();
+                }
+            }
+        });
+    }
+    $("#sub2").on('click',function(){
+        var comment= $("[name=comment]").val();
+        var pic=$("[name='pic[]']").val();
+        var video= $("[name=video]").val();
+        if(comment==''){
+            layer.msg("评语不能为空！", {icon: 7});
+            return false;
+        }
+//        if(pic==undefined){
+//            layer.msg("请上传多图！", {icon: 7});
+//            return false;
+//        }
+//        if(video==undefined){
+//            layer.msg("请上传视频！", {icon: 7});
+//            return false;
+//            return false;
+//        }
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_comment.html',
+            dataType:'text',
+            data:$("#dx_form2").serialize(),
+            success:function(data)
+            {
+                if(data=='success'){
+                    window.location.reload();
+                }else{
+                    $("#tipBtn").click();$("#tipText").html(data);
+                    $("#editModal2").hide();
+                }
+            }
+        });
+    });
+//    删除
+    $("#dx_form2").on('click', '[rel=del]', function () {
+     var i=$(this).attr('data-value');
+     var order_id=$(this).attr('data-order');
+        $(this).parent().remove();
+       $.ajax({
+           type: 'POST',
+           cache: false,
+           url: '/home.php/{$module}/{$control}/act_comment_del.html',
+           dataType: 'text',
+           data: "pic="+i+"&order_id="+order_id,
+           success: function (data) {
+               if (data == 'success') {
+//                   window.location.reload();
+               } else {
+                   $("#tipBtn").click();
+                   $("#tipText").html(data);
+               }
+           }
+       });
+   });
+    function img(name){
+        var animateimg = $("#dx_file5").val(); //获取上传的图片名 带//
+        var imgarr=animateimg.split('\\'); //分割
+        var myimg=imgarr[imgarr.length-1]; //去掉 // 获取图片名
+        var houzui = myimg.lastIndexOf('.'); //获取 . 出现的位置
+        var ext = myimg.substring(houzui, myimg.length).toUpperCase();  //切割 . 获取文件后缀
+        var file = $('#dx_file5').get(0).files[0]; //获取上传的文件
+        var fileSize = file.size;           //获取上传的文件大小
+        var maxSize = 1048576;              //最大5MB 1MB=1048576
+        if($('[name="pic[]"]').length >4){
+            $("#editModal2").hide();
+            $("#tipBtn").click();$("#tipText").html("上传图片不能超过5张！");
+            return false;
+        }
+        if(ext !='.PNG' && ext !='.GIF' && ext !='.JPG' && ext !='.JPEG' && ext !='.BMP'){
+            $("#editModal2").hide();
+            $("#tipBtn").click();$("#tipText").html("文件类型错误,请上传图片类型");
+            return false;
+        }
+        if(parseInt(fileSize) >= parseInt(maxSize)){
+            $("#editModal2").hide();
+            $("#tipBtn").click();$("#tipText").html("上传的文件不能超过1MB");
+            return false;
+        }
+        var data = new FormData($('#dx_form2')[0]);
+        $.ajax({
+            url: "/home.php/{$module}/config/uploadify5.html",
+            type: 'POST',
+            data: data,
+            dataType: 'text',
+            processData: false,
+            contentType: false,
+            success:function(res)
+            {
+                var jsonobj=JSON.parse(res);
+                if(jsonobj.code=='success'){
+                    var imgUrl = jsonobj.msg;
+                    var html='<div class="pic col-sm-3"><input type="hidden" name="pic[]" '+'value='+ imgUrl+'>'+
+                            '<img src="'+imgUrl+'"style="width:100px;float: left" /><button type="button" class="del btn btn-success" rel="del" data-value="'+imgUrl+'">删除</button></div>';
+                    $('#imgView5').append(html);
+                }else{
+                    $("#tipBtn").click();$("#tipText").html("上传失败");
+                }
+            }
+        });
+    }
+    function video(name){
+        var animateimg = $("#dx_file6").val(); //获取上传的图片名 带//
+        var imgarr=animateimg.split('\\'); //分割
+        var myimg=imgarr[imgarr.length-1]; //去掉 // 获取图片名
+        var houzui = myimg.lastIndexOf('.'); //获取 . 出现的位置
+        var ext = myimg.substring(houzui, myimg.length).toUpperCase();  //切割 . 获取文件后缀
+        var file = $('#dx_file6').get(0).files[0]; //获取上传的文件
+        var fileSize = file.size;           //获取上传的文件大小
+        var maxSize = 5348576;              //最大5MB 1MB=1048576
+        if(ext !='.MP4' && ext !='.MOV' && ext !='.FLY' && ext !='.TS'){
+            $("#editModal2").hide();
+            $("#tipBtn").click();$("#tipText").html("文件类型错误,请上传文件类型");
+            return false;
+        }
+        if(parseInt(fileSize) >= parseInt(maxSize)){
+            $("#editModal2").hide();
+            $("#tipBtn").click();$("#tipText").html("上传的文件不能超过5MB");
+            return false;
+        }
+        var data = new FormData($('#dx_form2')[0]);
+        $.ajax({
+            url: "/home.php/{$module}/config/uploadify6.html",
+            type: 'POST',
+            data: data,
+            dataType: 'text',
+            processData: false,
+            contentType: false,
+            success:function(res)
+            {
+                var jsonobj=JSON.parse(res);
+                if(jsonobj.code=='success'){
+                    var imgUrl = jsonobj.msg;
+                    var html='<div class="video"><input type="hidden" name="video" '+'value='+ imgUrl+'>'+
+                    '<video src="'+imgUrl+'"  style="width:100px;height:100px;float: left" controls="controls" autoplay loop></video><button class="del btn btn-success" rel="del" data-value="'+imgUrl+'"">删除</i></div>';
+                    $('#imgView6').append(html);
+//                    document.getElementById("videoid").play();
+                }else{
+
+                    $("#tipBtn").click();$("#tipText").html("上传失败");
+                }
+            }
+        });
+    }
+</script>

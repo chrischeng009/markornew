@@ -1,0 +1,17 @@
+﻿<span class="label label-primary">编辑</span>
+<span class="label label-success">复制</span>
+<span class="label label-info">详情</span>
+<span class="label label-danger">删除</span>
+<span class="label label-warning">其他</span>
+
+商家端直接参考网站
+www.8861.com
+15999522614
+wqkiss74520
+
+1.首先装好PHP环境，wamp、lamp、lnmp都可以（不懂百度查安装法）。
+2.建立数据库名task，把源码根目录下的task.sql导入到数据库里。
+3.把源码放到部署好的PHP环境里。
+4.修改连接数据库信息即可使用（数据库配置文件在源码的根目录application/database.php里，把数据库的用户名和密码对上即可）。
+
+

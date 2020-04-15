@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                        <?php if($_SESSION['role_id']==1 || $_SESSION['role_id']==3 ){?>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>客服</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="admin_id">
+                                <option value="">请选择</option>
+                                <?php foreach($admin_list as $k=>$v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['admin_id']){ echo 'selected';}?>>{$v['name']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <?php }?>
+                        <div class="col-lg-1">
+                            <h5>开始时间</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="starttime" value="{$_GET['starttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                            <h5>结束时间</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="lasttime" value="{$_GET['lasttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                            </div>
+                        </div>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <?php if($_SESSION['role_id']==2){?>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>操作</h5>
+                        <div class="form-group">
+                            <button class="btn btn-default" data-toggle="modal" data-target="#addModal">每日余额记账</button>
+                        </div>
+                    </div>
+                    <?php }?>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>客服</td>
+                <td>昨日余额</td>
+                <td>申请公款金额</td>
+                <td>完成单数</td>
+                <td>支出总本金</td>
+                <td>支出总佣金</td>
+                <td>退款单数</td>
+                <td>退款总本金</td>
+                <td>退款总佣金</td>
+                <td>线下支出金额</td>
+                <td>使用红包金额</td>
+                <td>今日剩余余额</td>
+                <td>修改剩余余额</td>
+                <td>相差金额</td>
+                <td>备注</td>
+                <td>添加时间</td>
+                <td>截图</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\AdminaccountModel;
+                foreach($lists as $v){
+                $find_admin = AdminModel::find("and id=".$v['admin_id']);
+                ?>
+                <tr>
+                    <td>{$find_admin['admin_name']}</td>
+                    <td>{$v['yest_money']}</td>
+                    <td>{$v['apply_money']}</td>
+                    <td>{$v['order_num']}</td>
+                    <td>{$v['order_price']}</td>
+                    <td>{$v['order_within']}</td>
+                    <td>{$v['refund_order_num']}</td>
+                    <td>{$v['refund_order_price']}</td>
+                    <td>{$v['refund_order_within']}</td>
+                    <td>{$v['offline_money']}</td>
+                    <td>{$v['hongbao_price']}</td>
+                    <td>{$v['money']}</td>
+                    <td>{$v['confirmmoney']}</td>
+                    <td>{$v['differmoney']}</td>
+                    <td>{$v['remark']}</td>
+                    <td >
+                        <?php echo date('Y-m-d H:i:s',$v['intime']);?>
+                    </td>
+                    <td>
+                        <?php
+                      $findimg=DB::table('adminaccountimg')->where("admin_id=".$v['admin_id']." and account_id=".$v['id'])->order('id desc')->select();
+                        foreach($findimg as $im){
+                        ?>
+                        <a style="float: left;margin-right: 10px;" href="javascript:;" onclick="javascript:imger('<?php echo urlencode($im['picpath']);?>');"><img src="{$im['picpath']}" style="height:30px;"/></a>
+                        <?php }?>
+                    </td>
+                    <td>
+                        <a href="javascript:;" onclick="javascript:del({$v['id']});"><span class="label label-danger">删除</span></a>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+<?php if($_SESSION['role_id']==2){?>
+{include file="parent/add"/}
+<?php }?>
+
+<script src="/js/dateCalendar/WdatePicker.js"></script>
+<script type="text/javascript">
+    function del(id){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/del.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
+

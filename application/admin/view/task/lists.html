@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <?php if(empty($_GET['abc'])){?>
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+    <?php }?>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <?php if(empty($_GET['abc'])){?>
+                        <?php if($_SESSION['role_id']==1){?>
+                    <div class="col-sm-1">
+                        <h5>所属业务员</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="aid">
+                                <option value="">请选择</option>
+                                <?php foreach($teacher_list as $v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['aid']){ echo 'selected';}?>>{$v['name']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <?php }?>
+                    <div class="col-sm-1">
+                        <h5>状态</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="status">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_status_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['status']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <div class="col-lg-1">
+                            <h5>手机号</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="mobile" value="{$_GET['mobile']}">
+                            </div>
+                        </div>
+                    <div class="col-sm-1">
+                        <h5>店铺名</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="shop_name" value="{$_GET['shop_name']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>Id</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="tasksn" value="{$_GET['tasksn']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>开始时间</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="starttime" value="{$_GET['starttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>结束时间</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="lasttime" value="{$_GET['lasttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                        </div>
+                    </div>
+                    <?php }?>
+                    <div class="col-lg-1">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <?php if(empty($_GET['abc'])){?>
+                            <button type="submit" class="btn btn-success">搜索</button>
+                            <button type="button" class="btn btn-danger" id="passBtn">通过</button>
+                            <?php }else{?>
+                            <button type="button" class="btn btn-success" onclick="javascript:history.back(-1)">返回</button>
+                            <?php }?>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="col-lg-4">
+                        <h5>任务情况</h5>
+                        <div class="form-group">
+                            合计任务数：{$counttask}  |  总订单数：{$countorder}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                  <td><input type="checkbox" name="sel_all" onclick="selectAllid(this)" style="height:15px;"/></td>
+                <td>Id</td>
+                <td>发布时间</td>
+                <td style="display:none;">所属业务员</td>
+                <td>店铺名</td>
+                <td>主图</td>
+                <td>宝贝详情</td>
+                <td>任务本金/数量/预估服务费</td>
+                <td>赠送礼品</td>
+                <td>完成金额/数量/已扣服务费</td>
+                <td>未完金额/数量</td>
+                <td>状态</td>
+                <td>订单类型</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\MerchantModel;
+                use app\common\model\ShopModel;
+                use app\common\model\OrderModel;
+                use app\common\model\TaskModel;
+                foreach($lists as $v){
+                $find_merchant = MerchantModel::find("and id=".$v['merchant_id']);
+                $find_shop = ShopModel::find("and id=".$v['shop_id']);
+                $status_name = TaskModel::enum_status_text($v['status']);
+                $worktype_name = TaskModel::enum_worktype_text($v['worktype']);
+                $orderArr = OrderModel::get_total($v['id']);
+
+                $find_teacher['name'] = isset($find_teacher['name'])?$find_teacher['name']:'';
+                ?>
+                <tr>
+                    <td><input name="id" value="{$v.id}" type="checkbox" style="height:15px;"></td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>>{$v['tasksn']}</td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>><?php  echo date('Y-m-d H:i:s',$v['intime']).'(任务开始领取时间：'.date('Y-m-d H:i:s',$v['worktime']).')';?></td>
+                    <td style="display:none;" <?php if($v['worktype']==2){?>style="color:red" <?php }?>>{$find_teacher['name']}</td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>>{$find_shop['name']}<br/>(旺旺号：{$find_shop['wangwang']})</td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['mainimage']);?>');"><img src="{$v['mainimage']}" style="height:30px;"/></a></td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>><a href="{$v['goodsurl']}" target="_blank">{$v['goodstitle']}</a></td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>>{$v['money']}/{$v['num']}/{$v['without_money']}</td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>>{$v['present']}</td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>>{$orderArr['money']}/{$orderArr['num']}/{$orderArr['without_money']}</td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>><?php echo round($v['money']-$orderArr['money'], 2)?>/{$v['num']-$orderArr['num']}</td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>>{$status_name}</td>
+                    <td <?php if($v['worktype']==2){?>style="color:red" <?php }?>>{$worktype_name}</td>
+                    <td >
+                        <a href="/home.php/{$module}/{$control}/view.html?id={$v['id']}"><span class="label label-info">详情</span></a>
+                        <a href="/home.php/{$module}/order/lists.html?task_id={$v['id']}&abc=1&intime=<?php echo date('Y-m-d',$v['intime']);?>&shopname={$find_shop['name']}"><span class="label label-default">订单</span></a>
+                        <?php if($v['status']==2){?>
+                        <a href="javascript:;" onclick="javascript:edit_status3({$v['id']});"><span class="label label-success">通过</span></a>
+                        <a href="javascript:;" onclick="javascript:edit_status4({$v['id']});"><span class="label label-warning">拒绝</span></a>
+                        <?php }?>
+                        <?php if(in_array($v['status'],[3])){?>
+                        <a href="javascript:;" onclick="javascript:edit_refundoff({$v['id']});"><span class="label label-danger">下架</span></a>
+                        <?php }?>
+                        <?php if($v['worktype']==2 && $v['status']==3){?>
+                        <a href="javascript:;" onclick="javascript:edit_shelf({$v['id']});"><span class="label label-info">发布</span></a>
+                        <?php }?>
+                        <!--<a href="javascript:;" onclick="javascript:add_task({$v['id']});"><span class="label label-info">复制</span></a>-->
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+
+<script src="/js/dateCalendar/WdatePicker.js"></script>
+<script type="text/javascript">
+    function edit_status3(id){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit_status3.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+    function edit_status4(id){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit_status4.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+    /*
+//    复制当前任务的相关信息
+    function add_task(id){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_add_task.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+    */
+    //    明日单任务紧急发布
+    function edit_shelf(id){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit_shelf.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+    function edit_refundoff(id){
+        if(confirm('确认下架此任务，请联系业务员审核下架!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit_refundoff.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        $("#tipBtn").click();$("#tipText").html("操作成功");
+                        setTimeout(function(){
+                            window.location.reload();
+                        },2000);
+                    }else{
+                        $("#tipBtn").click();$("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+    function checkallid(){
+        var str="";
+        $("[name='id']:checked").each(function(){
+            str= str + $(this).val()+',';
+        });
+        return str.substring(0,str.length-1);
+    }
+    function selectAllid(a){
+        $("[name='id']").each(function(){
+            return this.checked = a.checked ? "checked": "";
+        });
+        $("[name='sel_all']").each(function(){
+            return this.checked = a.checked ? "checked": "";
+        });
+    }
+    $('#passBtn').bind('click',function(){
+        if(checkallid()==''){
+            $("#tipBtn").click();$("#tipText").html("请选择订单对象");
+            return false;
+        }
+        if(confirm('确认通过吗')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit_status3.html',
+                dataType:'text',
+                data:"id="+checkallid(),
+                success:function(data){
+                    if(data=='success'){
+                        $("#tipBtn").click();$("#tipText").html("操作成功");
+                        setTimeout(function(){
+                            window.location.reload();
+                        },2000);
+                    }else{
+                        $("#tipBtn").click();$("#tipText").html(data);
+                        setTimeout(function(){
+                            window.location.reload();
+                        },2000);
+                    }
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
+

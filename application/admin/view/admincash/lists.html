@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                        <?php if($_SESSION['role_id']==1 || $_SESSION['role_id']==3 ){?>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>管理员</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="admin_id">
+                                <option value="">请选择</option>
+                                <?php foreach($admin_list as $k=>$v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['admin_id']){ echo 'selected';}?>>{$v['realname']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <?php }?>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>收款人</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="realname" value="{$_GET['realname']}">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-1">
+                        <h5>状态</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="status">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_status_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['status']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <div class="col-lg-1">
+                            <h5>开始时间</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="starttime" value="{$_GET['starttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                            <h5>结束时间</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="lasttime" value="{$_GET['lasttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                            </div>
+                        </div>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <?php if($_SESSION['role_id']==2){?>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>操作</h5>
+                        <div class="form-group">
+                            <button class="btn btn-default" data-toggle="modal" data-target="#addModal">工款申请</button>
+                        </div>
+                    </div>
+                    <?php }?>
+                    <div class="col-lg-2">
+                        <h5>今日公款总金额 ：{$sum}元</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>管理员</td>
+                <td>收款方式</td>
+                <!--<td>微信收款码</td>-->
+                <!--<td>支付宝收款码</td>-->
+                <td>银行卡号</td>
+                <td>收款人</td>
+                <td>操作前余额</td>
+                <td>申请金额</td>
+                <td>状态</td>
+                <td>添加时间</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\AdmincashModel;
+                foreach($lists as $v){
+                $find_admin = AdminModel::find("and id=".$v['admin_id']);
+                $type_name = AdmincashModel::enum_type_text($v['type']);
+                $status_name = AdmincashModel::enum_status_text($v['status']);
+                ?>
+                <tr>
+                    <td>{$find_admin['admin_name']}</td>
+                    <td>{$type_name}</td>
+                    <!--<td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['weixinmoneycode']);?>');"><img src="{$v.weixinmoneycode}" style="height:32px;"/></a></td>-->
+                    <!--<td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['zfbmoneycode']);?>');"><img src="{$v.zfbmoneycode}" style="height:32px;"/></a></td>-->
+                    <td>{$v['bankname']}{$v['bankcode']}</td>
+                    <td>{$v['realname']}</td>
+                    <td>{$v['admin_money']}</td>
+                    <td>{$v['money']}</td>
+                    <td>{$status_name}</td>
+                    <td title="处理时间：<?php if(!empty($v['uptime'])){ echo date('Y-m-d H:i:s',$v['uptime']);}?>">
+                        <?php echo date('Y-m-d H:i:s',$v['intime']);?>
+                    </td>
+                    <td>
+                        <?php if($v['status']==1 && $_SESSION['role_id']==1 || $_SESSION['role_id']==3){?>
+                        <a href="javascript:;" onclick="javascript:edit({$v['id']},2);"><span class="label label-success">已处理</span></a>
+                        <a href="javascript:;" onclick="javascript:edit({$v['id']},3);"><span class="label label-warning">拒绝</span></a>
+                        <?php }?>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+{include file="parent/add"/}
+
+<script src="/js/dateCalendar/WdatePicker.js"></script>
+<script type="text/javascript">
+    function edit(id,status){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit.html',
+                dataType:'text',
+                data:"id="+id+"&status="+status,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
+

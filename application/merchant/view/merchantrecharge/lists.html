@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo qtitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <div class="col-lg-2">
+                        <h5>充值方式</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="type">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_type_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['type']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>状态</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="status">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_status_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['status']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="col-lg-2">
+                        <h5>操作</h5>
+                        <div class="form-group">
+                            <button class="btn btn-default" data-toggle="modal" data-target="#addModal">充值</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>充值方式</td>
+                <td>充值金额</td>
+                <td>交易单号</td>
+                <td>交易截图</td>
+                <td>状态</td>
+                <td>备注信息</td>
+                <td>添加时间</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\MerchantrechargeModel;
+                foreach($lists as $v){
+                $type_name = MerchantrechargeModel::enum_type_text($v['type']);
+                $status_name = MerchantrechargeModel::enum_status_text($v['status']);
+                ?>
+                <tr>
+                    <td>
+                        {$type_name}：
+                        <?php if($v['type']==1){?>
+                        <a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['zfbmoneycode']);?>');"><img src="{$v.zfbmoneycode}" style="height:32px;"/></a>
+                        <?php }else{?>
+                        {$v['bankname']}-{$v['realname']}-{$v['bankcode']}
+                        <?php }?>
+                    </td>
+                    <td>{$v['money']}</td>
+                    <td>{$v['tradeno']}</td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['tradeimg']);?>');"><img src="{$v.tradeimg}" style="height:32px;"/></a></td>
+                    <td>{$status_name}</td>
+                    <td><?php if($v['status']==3){echo $v['remark'];}?></td>
+                    <td title="处理时间：<?php if(!empty($v['uptime'])){ echo date('Y-m-d H:i:s',$v['uptime']);}?>">
+                        <?php echo date('Y-m-d H:i:s',$v['intime']);?>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+{include file="parent/add"/}
+
+<script type="text/javascript">
+    function edit(id,status){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit.html',
+                dataType:'text',
+                data:"id="+id+"&status="+status,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();$("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
+

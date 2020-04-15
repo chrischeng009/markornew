@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+<link href="/css/pc.css" rel="stylesheet">
+</head>
+<body class="pc" style="background:#3d464d;">
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content" style="min-height:500px;">
+    <div class="page-header"><h1 class="title">{$menu_name}</h1></div>
+    <div class="container-padding">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="/home.php/{$module}/{$control}/index.html" method="get" autocomplete="off">
+                        <div class="col-lg-1">
+                            <h5>开始时间</h5>
+                            <div class="form-group">              
+                                <input type="text" class="form-control" name="starttime" value="{$_GET['starttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                            <h5>结束时间</h5>
+                            <div class="form-group">              
+                                <input type="text" class="form-control" name="lasttime" value="{$_GET['lasttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                            <h5>搜索</h5>
+                            <div class="form-group">              
+                                <button type="submit" class="btn btn-success">搜索</button>
+                            </div>
+                        </div>
+                        </form>
+                        <?php if($_SESSION['role_id']==2 ){?>
+                        <div class="col-lg-4">
+                            <h5>订单情况</h5>
+                            <div class="form-group">
+                                完结单数：{$countMerchanorder}  |  异常单数：{$countMerchantunorder} | 账户余额：<span style="color:#D24907">{$admin.money}</span>
+                            </div>
+                        </div>
+                        <?php }?>
+                    
+                </div>
+            </div>
+        </div>
+        <?php if($_SESSION['role_id']==1 && $_SESSION['admin_id']!=21 || $_SESSION['role_id']==5 ){?>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding:15px; 0px">
+                    <div class="panel-body">
+                        <ul class="list_data">
+                            <li class="item">
+                                <i class="icon_total"></i><div class="item_con"><p>{$countOrderToday+$countOrderTomorrow}</p><p>今日总订单</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_today"></i><div class="item_con"><p>{$countOrderToday}</p><p>标签今日单</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_strengthen"></i><div class="item_con"><p>{$countOrderTomorrow}</p><p>标签强化单</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_complete"></i><div class="item_con"><p>{$countOrder14}</p><p>完成订单</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_abnormal"></i><div class="item_con"><p>{$countOrder23}</p><p>异常订单</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_toAudit"></i><div class="item_con"><p>{$countTask2}</p><p>待审核任务</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_shops_recharge"></i><div class="item_con"><p>{$sumMoneyMerchantrecharge12}</p><p>商家充值总额</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_shops_withDraw"></i><div class="item_con"><p>{$sumMoneyMerchantCash12}</p><p>商家提现总额</p></div>
+                            </li>
+
+                            <?php if($_SESSION['role_id']==1){?>
+                            <li class="item">
+                                <i class="icon_aplay"></i><div class="item_con"><p>{$sumMoneyAdminCash12}</p><p>客服申请金额</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_aplay"></i><div class="item_con"><p>{$admintotalmoney}</p><p>客服余额总和</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_aplay"></i><div class="item_con"><p>{$kefuhongbaoprice}</p><p>客服红包使用总和</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_aplay"></i><div class="item_con"><p>{$kefu_offline_money}</p><p>客服线下金额总和</p></div>
+                            </li>
+                            <?php }?>
+                            <li class="item">
+                                <i class="icon_new_shops"></i><div class="item_con"><p>{$countMerchant}</p><p>今日新增商家</p></div>
+                            </li>
+                            <li class="item">
+                                <i class="icon_shops_loans"></i><div class="item_con"><p>{$sumMoneyMerchantloans12}</p><p>今日商家贷款</p></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <?php if($_SESSION['role_id']==1 && $_SESSION['admin_id']!=21){?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <td>所属客服</td>
+                                    <td>银行与卡号</td>
+                                    <td>当前领取单数</td>
+                                    <td>今日完成单数</td>
+                                    <td>今日完成总金额</td>
+                                    <td>今日申请公款金额</td>
+                                    <td>今日线下金额</td>
+                                    <td>今日实时余额</td>
+                                    <td>今日红包使用金额</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                if($zhanshi){
+                               foreach($zhanshi as $v2){
+                              ?>
+                                <tr>
+                                    <td>{$v2['name']}</td>
+                                    <td>
+                                        <?php
+                                        foreach($v2['bank'] as $v3){
+                                        echo $v3['bank_name'].'-'.$v3['bankcode'].'<br/>';
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>{$v2['order_aidnum']}</td>
+                                    <td>{$v2['order_num']}</td>
+                                    <td>{$v2['order_price']+$v2['order_within_price']}</td>
+                                    <td>{$v2['reply_money']}</td>
+                                    <td>{$v2['offline_money']}</td>
+                                    <td>{$v2['money']}</td>
+                                    <td>{$v2['hongbao_money']}</td>
+                                </tr>
+                                <?php }}?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php }}?>
+        </div>
+    </div>
+</div>
+
+{include file="common/footer"/}
+<script src="/js/dateCalendar/WdatePicker.js"></script>
+<script>
+    $("#hongbao").on('click',function(){
+        if(confirm('确定操作吗!')) {
+                $.ajax({
+                    type: 'POST',
+                    cache: false,
+                    async: false,
+                    url: '/home.php/{$module}/{$control}/act_hongbao.html',
+                    dataType: 'text',
+                    data: "cid=1",
+                    success: function (data) {
+//                $("#tipBtn").click();
+//                $("#tipText").html(data);
+                        alert(data);
+//                setTimeout(function(){
+                        // window.location.reload();
+//                },2000);
+                    }
+                });
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo qtitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <div class="col-lg-1">
+                        <h5>审核状态</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="status">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_status_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['status']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>店铺名</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="shop_name" value="{$_GET['shop_name']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>Id</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="tasksn" value="{$_GET['tasksn']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>开始时间</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="starttime" value="{$_GET['starttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>结束时间</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="lasttime" value="{$_GET['lasttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                        </div>
+                    </div>
+                        <div class="col-sm-1">
+                            <h5>分页条数</h5>
+                            <select class="form-control" name="limit">
+                                <option value="" >请选择</option>
+                                <option value="30" <?php if($limit==30) echo 'selected="selected"'?> >30</option>
+                                <option value="50" <?php if($limit==50)echo 'selected="selected"'?> >50</option>
+                                <option value="100" <?php if($limit==100) echo 'selected="selected"'?>>100</option>
+                            </select>
+                        </div>
+                    <div class="col-lg-1">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="col-lg-2">
+                        <h5>操作</h5>
+                        <div class="form-group">
+                            <a href="javascript:;" onclick="javascript:copy_task();" class="btn btn-success">复制</a>
+                            <a href="javascript:;" onclick="javascript:pay_task();" class="btn label-danger" style="color: #fff">付款</a>
+                            <a href="/home.php/{$module}/{$control}/add.html" class="btn btn-default">发布任务</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td><input type="checkbox" name="sel_all" onclick="selectAllid(this)" style="height:15px;"/></td>
+                <td>Id</td>
+                <td>发布时间</td>
+                <td>店铺名</td>
+                <td>主图</td>
+                <td>宝贝详情</td>
+                <td>任务本金/数量/预估服务费</td>
+                <td>赠送礼品</td>
+                <td>完成金额/数量/已扣服务费</td>
+                <td>未完金额/数量/服务费</td>
+                <td>任务状态</td>
+                <td>订单类型</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\ShopModel;
+                use app\common\model\OrderModel;
+                use app\common\model\TaskModel;
+                foreach($lists as $v){
+                $find_shop = ShopModel::find("and id=".$v['shop_id']);
+                $status_name = TaskModel::enum_status_text($v['status']);
+                $worktype_name = TaskModel::enum_worktype_text($v['worktype']);
+                $orderArr = OrderModel::get_total($v['id']);
+                ?>
+                <tr>
+                    <td><input name="id" value="{$v.id}" type="checkbox" style="height:15px;"></td>
+                    <td>{$v['tasksn']}</td>
+                    <td><?php echo date('Y-m-d H:i:s',$v['intime']);?></td>
+                    <td>{$find_shop['name']}</td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['mainimage']);?>');"><img src="{$v['mainimage']}" style="height:30px;"/></a></td>
+                    <td><a href="{$v['goodsurl']}" target="_blank">{$v['goodstitle']}</a></td>
+                    <td>{$v['money']}/{$v['num']}/{$v['without_money']}</td>
+                    <td>{$v['present']}</td>
+                    <td>{$orderArr['money']}/{$orderArr['num']}/{$orderArr['without_money']}</td>
+                    <td><?php echo round($v['money']-$orderArr['money'],2)?>/{$v['num']-$orderArr['num']}/{$v['without_money']-$orderArr['without_money']}</td>
+                    <td>{$status_name}</td>
+                    <td>{$worktype_name}</td>
+                    <td>
+                        <a href="/home.php/{$module}/{$control}/view.html?id={$v['id']}"><span class="label label-info">详情</span></a>
+                        <a href="/home.php/{$module}/order/lists.html?task_id={$v['id']}&abc=1&intime=<?php echo date('Y-m-d',$v['intime']);?>&shopname={$find_shop['name']}"><span class="label label-default">订单</span></a>
+                        <?php if($v['status']==1){?>
+                        <a href="javascript:;" onclick="javascript:edit_status2({$v['id']});"><span class="label label-danger">付款</span></a>
+                        <?php }?>
+                        <?php if($v['status']==1){?>
+                        <a href="/home.php/{$module}/{$control}/edit.html?id={$v['id']}" ><span class="label label-warning">修改</span></a>
+                        <?php }?>
+                        <?php if($v['status']==3){?>
+                        <a href="javascript:;" onclick="javascript:edit_refundoff({$v['id']});"><span class="label label-danger">下架</span></a>
+                        <?php }?>
+                        <a href="javascript:;" onclick="javascript:add_task({$v['id']});"><span class="label label-success">复制</span></a>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+
+<script src="/js/dateCalendar/WdatePicker.js"></script>
+<script type="text/javascript">
+    function checkallid(){
+        var str="";
+        $("[name='id']:checked").each(function(){
+            str= str + $(this).val()+',';
+        });
+        return str.substring(0,str.length-1);
+    }
+    function selectAllid(a){
+        $("[name='id']").each(function(){
+            return this.checked = a.checked ? "checked": "";
+        });
+        $("[name='sel_all']").each(function(){
+            return this.checked = a.checked ? "checked": "";
+        });
+    }
+    function copy_task() {
+        if (checkallid() == '') {
+            $("#tipBtn").click();
+            $("#tipText").html("请选择订单对象");
+            return false;
+        }
+        console.log(checkallid());
+        if (confirm('确定复制此任务吗')) {
+            $.ajax({
+                type: 'POST',
+                cache: false,
+                url: '/home.php/{$module}/{$control}/act_add_task.html',
+                dataType: 'text',
+                data: "id=" + checkallid(),
+                success: function (data) {
+                    if (data == 'success') {
+                        $("#tipBtn").click();
+                        $("#tipText").html("操作成功");
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 2000);
+                    } else {
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+ function pay_task() {
+        if (checkallid() == '') {
+            $("#tipBtn").click();
+            $("#tipText").html("请选择订单对象");
+            return false;
+        }
+        console.log(checkallid());
+        if (confirm('确定要付款吗')) {
+            $.ajax({
+                type: 'POST',
+                cache: false,
+                url: '/home.php/{$module}/{$control}/act_edit_status2.html',
+                dataType: 'text',
+                data: "id=" + checkallid(),
+                success: function (data) {
+                    if (data == 'success') {
+                        $("#tipBtn").click();
+                        $("#tipText").html("操作成功");
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 2000);
+                    } else {
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+
+    function edit_status2(id){
+        if(confirm('确定付款吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit_status2.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();$("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+
+</script>
+<script type="text/javascript">
+    function add_task(id){
+        if(confirm('确定要复制任务吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_add_task.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        $("#confirmColse").click();$("#tipBtn").click();$("#tipText").html("复制成功");
+                        setTimeout(function(){
+                            window.location.reload();
+                        },2000);
+                    }
+                    else{
+                            $("#tipBtn").click();
+                        if(data=='error'){
+                            $("#tipText").html('余额不足，请充值！');
+                        }else {
+                            $("#tipText").html(data);
+                        }
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 2000);
+
+
+                    }
+                }
+            });
+        }
+    }
+    function edit_refundoff(id){
+        if(confirm('确认下架此任务，请联系业务员审核下架!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit_refundoff.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        $("#tipBtn").click();$("#tipText").html("操作成功");
+                        setTimeout(function(){
+                            window.location.reload();
+                        },2000);
+                    }else{
+                        $("#tipBtn").click();$("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
+

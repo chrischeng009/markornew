@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists3.html" method="get" autocomplete="off">
+                        <?php if($_SESSION['role_id']==1){?>
+                        <div class="col-lg-1">
+                        <h5>所属业务员</h5>
+                        <div class="form-group">
+                            <select class="form-control" name="tid">
+                                <option value="">请选择</option>
+                                <?php foreach($teacher_list as $v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['tid']){ echo 'selected';}?>>{$v['name']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>所属客服</h5>
+                        <div class="form-group">
+                            <select class="form-control" name="aid">
+                                <option value="">请选择</option>
+                                <?php foreach($server_list as $v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['aid']){ echo 'selected';}?>>{$v['name']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <?php }?>
+                    <div class="col-lg-1">
+                        <h5>状态</h5>
+                        <div class="form-group">
+                            <select class="form-control" name="status3">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_status3_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['status3']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>店铺名</h5>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="shop_name" value="{$_GET['shop_name']}">
+                        </div>
+                    </div>
+                    <!--<div class="col-lg-1">-->
+                        <!--<h5>手机号</h5>-->
+                        <!--<div class="form-group">              -->
+                            <!--<input type="text" class="form-control" name="mobile" value="{$_GET['mobile']}">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                     <div class="col-lg-1">
+                        <h5>旺旺号</h5>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="wangwang" value="{$_GET['wangwang']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>任务编码</h5>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="verifycode" value="{$_GET['verifycode']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>开始时间</h5>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="starttime" value="{$_GET['starttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>结束时间</h5>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="lasttime" value="{$_GET['lasttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>搜索</h5>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>完成时间</td>
+                <td>创建时间</td>
+                <td>主图</td>
+                <td>店铺名</td>
+                <td>商品标题</td>
+                <td>关键词</td>
+                <td>单价</td>
+                <td>下单价</td>
+                <td style="<?php if($_SESSION['role_id']==2){ echo 'display:none';}?>">服务费</td>
+                <td style="<?php if($_SESSION['role_id']==5){ echo 'display:none';}?>">佣金</td>
+                <td>赠送礼品</td>
+                <td>异常订单截图</td>
+                <!--<td>支付宝订单截图</td>-->
+                <!--<td>手机号</td>-->
+                <td>旺旺</td>
+                <td>编码</td>
+                <td>异常状态</td>
+                <td>异常信息</td>
+                <td >所属业务员</td>
+                <td >所属客服</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\ShopModel;
+                use app\common\model\TaskModel;
+                use app\common\model\TaskdetailModel;
+                use app\common\model\OrderModel;
+                use app\common\model\UserModel;
+                use app\common\model\MerchantModel;
+                foreach($lists as $v){
+                $find_task = TaskModel::find("and id=".$v['task_id']);
+                $find_taskdetail = TaskdetailModel::find("and id=".$v['taskdetail_id']);
+                $find_shop = ShopModel::find("and id=".$v['shop_id']);
+                $status1_name = OrderModel::enum_status1_text($v['status1']);
+                $status2_name = OrderModel::enum_status2_text($v['status2']);
+                $status3_name = OrderModel::enum_status3_text($v['status3']);
+                if(!empty($v['aid'])){
+                    $find_server = AdminModel::find("and id=".$v['aid']);
+                }
+                $find_server['name'] = isset($find_server['name'])?$find_server['name']:'';
+                $find_merchant = MerchantModel::find("and id=".$v['merchant_id']);
+                if(!empty($find_merchant['aid'])){
+                    $find_teacher = AdminModel::find("and id=".$find_merchant['aid']);
+                }
+                $find_teacher['name'] = isset($find_teacher['name'])?$find_teacher['name']:'';
+                ?>
+                <tr>
+                    <td><?php if($v['finishtime']){ echo date('Y-m-d H:i:s',$v['finishtime']);}?></td>
+                    <td><?php if($v['yctime']){ echo date('Y-m-d H:i:s',$v['yctime']);}?></td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($find_task['mainimage']);?>');"><img src="{$find_task['mainimage']}" style="height:30px;"/></a></td>
+                    <td>{$v['shop_name']}<br/>(旺旺号：{$find_shop['wangwang']})</td>
+                    <td><a href="{$find_task['goodsurl']}" target="_blank">{$v['goodstitle']}</a></td>
+                    <td>{$find_taskdetail['searchkeywords']}</td>
+                    <td>{$v['price']}</td>
+                    <td>{$v['payprice']}</td>
+                    <td style="<?php if($_SESSION['role_id']==2){ echo 'display:none';}?>">{$v['without_price']}</td>
+                    <td style="<?php if($_SESSION['role_id']==5){ echo 'display:none';}?>">{$v['within_price']}</td>
+                    <td>{$find_task['present']}</td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['tkimage']);?>');"><img src="{$v['tkimage']}" style="height:30px;"/></a></td>
+                    <!--<td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['payimage']);?>');"><img src="{$v['payimage']}" style="height:30px;"/></a></td>-->
+                    <!--<td>{$v['mobile']}</td>-->
+                    <td>{$v['wangwang']}</td>
+                    <td>{$v['verifycode']}</td>
+                    <td>{$status3_name}</td>
+                    <td>{$v['exceptioninfo']}</td>
+                    <td >{$find_teacher['name']}</td>
+                    <td >{$find_server['name']}</td>
+                    <td>
+                        <?php if($v['status3']==1){?>
+                        <a href="javascript:;" onclick="javascript:edit3({$v.id},2,{$v.payprice},'{$v.wangwang}');"><span class="label label-primary">处理</span></a>
+                        <a href="javascript:;" onclick="javascript:edit4({$v.id},'')"><span class="label label-warning">驳回</span></a>
+                        <?php }?>
+                        <?php if($v['status3']==2 && $_SESSION['role_id']==1){?>
+                        <a href="javascript:;" onclick="javascript:tuikuan({$v.id},'')"><span class="label label-danger">转退款</span></a>
+                        <?php }?>
+                        <a href="/home.php/{$module}/{$control}/view.html?id={$v['id']}"><span class="label label-info">详情</span></a>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+{include file="parent/edit3"/}
+{include file="parent/edit4"/}
+
+<script src="/js/dateCalendar/WdatePicker.js"></script>
+<script type="text/javascript">
+
+</script>
+<script type="text/javascript" >
+    function tuikuan(id) {
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_tuikuan.html',
+            dataType:'text',
+            data:{id:id},
+            success:function(data)
+            {
+                if(data=='success'){
+                    $("#tipBtn").click();
+                    $("#tipText").html("转换成功,请到退款订单列表进行处理");
+                    setTimeout(function(){
+                        window.location.href = "/home.php/admin/order/lists2.html";
+                    },2000);
+                }else{
+                    $("#tipBtn").click();
+                    $("#tipText").html(data);
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
+

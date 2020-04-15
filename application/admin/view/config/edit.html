@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">系统配置</h1>
+    </div>
+    <div class="container-padding">
+        <div class="row">
+            <form action="/home.php/{$module}/{$control}/act_edit.html" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" b="nav-justified">
+                    <li class="active" onclick="javascript:swc(1);" swc="1"><a href="javascript:;">网站参数</a></li>
+                    <li onclick="javascript:swc(2);" swc="2"><a href="javascript:;">收款配置</a></li>
+                    <li onclick="javascript:swc(3);" swc="3"><a href="javascript:;">短信配置</a></li>
+                    <li onclick="javascript:swc(4);" swc="4"><a href="javascript:;">邮箱发送配置</a></li>
+                </ul>
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body" config="1">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">工作时间</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="worktime" value="{$find.worktime}" placeholder="8:00-22:00">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">每天任务数</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="worknum" value="{$find.worknum}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">同步设置</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="synchro">
+                                    <option value="">不同步</option>
+                                    <?php foreach($enum_synchro_arr as $k=>$v){?>
+                                    <option value="{$k}">{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">域名</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="website" value="{$find.website}">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">色调</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="acolor">
+                                    <?php foreach($enum_acolor_arr as $k=>$v){?>
+                                    <option value="{$k}" <?php if($k==$_SESSION['acolor']){ echo 'selected';}?>>{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">后台标题</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="atitle" value="{$find.atitle}">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">标题</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="title" value="{$find.title}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">关键字</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="keywords" value="{$find.keywords}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">描述</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="description" value="{$find.description}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">商家入驻码</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="regcode" value="{$find.regcode}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body" config="2" style="display:none;">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">收款姓名</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="realname" value="{$find.realname}">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">收款银行</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="bankname" value="{$find.bankname}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">收款卡号</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="bankcode" value="{$find.bankcode}">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">支付宝收款码</label>
+                            <div class="col-sm-3">
+                                <input type="file" id="dx_file" name="dx_file" onchange="sc('zfbmoneycode');" style="display:none"/>
+                                <img src="{$find['zfbmoneycode']}" id="imgView" style="height:100px;">
+                                <input type="hidden" name="zfbmoneycode" value="{$find['zfbmoneycode']}"/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file.click()">点击上传</button>
+                            </div>
+                        </div>
+                        <!--div class="form-group">
+                            <label class="col-sm-2 control-label form-label">Appid</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="wx_appid" value="{$find.wx_appid}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">Appsecret</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="wx_appsecret" value="{$find.wx_appsecret}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">商户Id</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="wx_mchid" value="{$find.wx_mchid}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">商户秘钥</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="wx_key" value="{$find.wx_key}">
+                            </div>
+                        </div-->
+                    </div>
+                    <div class="panel-body" config="3" style="display:none;">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">Appid</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="sms_appid" value="{$find.sms_appid}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">Appsecret</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="sms_appsecret" value="{$find.sms_appsecret}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">签名</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="sms_signname" value="{$find.sms_signname}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">模版code</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="sms_code" value="{$find.sms_code}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body" config="4" style="display:none;">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">接收邮箱地址：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="rece_email" value="{$find.rece_email}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">发件邮箱地址：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="email_from" value="{$find.email_from}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">发件人名称：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="email_name" value="{$find.email_name}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">STMP服务器:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="smtp_host" value="{$find.smtp_host}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">服务器端口：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="smtp_port" value="{$find.smtp_port}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">邮箱账号：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="email_user" value="{$find.email_user}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">邮箱密码：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="email_password" value="{$find.email_password}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-3">
+                            <input type="hidden" class="form-control" name="id" value="{$find.id}">
+                            <button type="button" class="btn btn-primary" id="sub">提交</button>
+                            <button type="button" class="btn btn-default" onclick="javascript:history.back(-1)">返回</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{include file="common/footer"/}
+<script type="text/javascript">
+    $("#sub").on('click',function(){
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_edit.html',
+            dataType:'text',
+            data:$("#dx_form").serialize(),
+            success:function(data)
+            {
+                if(data=='success'){
+                    $("#tipBtn").click();
+                    $("#tipText").html("操作成功");
+                    setTimeout(function(){
+                        window.location.reload();
+                    },2000);
+                }else{
+                    $("#tipBtn").click();
+                    $("#tipText").html(data);
+                }
+            }
+        });
+    });
+    
+    function swc(id){
+        if(id==1){
+            $('[config=1]').show();
+            $('[config=2]').hide();
+            $('[config=3]').hide();
+            $('[config=4]').hide();
+            $('[swc=1]').addClass('active');
+            $('[swc=2]').removeClass('active');
+            $('[swc=3]').removeClass('active');
+            $('[swc=4]').removeClass('active');
+        }
+        if(id==2){
+            $('[config=2]').show();
+            $('[config=1]').hide();
+            $('[config=3]').hide();
+            $('[config=4]').hide();
+            $('[swc=2]').addClass('active');
+            $('[swc=1]').removeClass('active');
+            $('[swc=3]').removeClass('active');
+            $('[swc=4]').removeClass('active');
+        }
+        if(id==3){
+            $('[config=3]').show();
+            $('[config=1]').hide();
+            $('[config=2]').hide();
+            $('[config=4]').hide();
+            $('[swc=3]').addClass('active');
+            $('[swc=1]').removeClass('active');
+            $('[swc=2]').removeClass('active');
+            $('[swc=4]').removeClass('active');
+        }
+        if(id==4){
+            $('[config=4]').show();
+            $('[config=1]').hide();
+            $('[config=2]').hide();
+            $('[config=3]').hide();
+            $('[swc=4]').addClass('active');
+            $('[swc=1]').removeClass('active');
+            $('[swc=2]').removeClass('active');
+            $('[swc=3]').removeClass('active');
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+@charset "UTF-8";
+/* 雪碧图引入 同时设置宽高*/
+.bindAlipay {
+  background-color: #fff;
+  color: #737373;
+  font-size: 0.30667rem;
+  min-height: 100vh;
+}
+.bindAlipay .submit_btn {
+  margin: 0;
+  width: 9.14667rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  color: #fff;
+}
+.bindAlipay .header {
+  background-color: #f25f55;
+  height: 1.33333rem;
+  line-height: 1.33333rem;
+  padding: 0 0.4rem;
+}
+.bindAlipay .header .icon_back {
+  position: absolute;
+  left: 0.4rem;
+  top: 0.4rem;
+}
+.bindAlipay .header .text {
+  color: #fff;
+  font-size: 0.48rem;
+}
+.bindAlipay .section {
+  width: 100%;
+  padding: 0 0.4rem;
+}
+.bindAlipay .section .form {
+  width: 100%;
+}
+.bindAlipay .section .form .group {
+  border-bottom: 2px solid #b9b9b9;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  padding: 0.26667rem 0;
+  line-height: 0.8rem;
+}
+.iphone-data-dir-2 .bindAlipay .section .form .group {
+  border-bottom: 1px solid #b9b9b9;
+}
+.iphone-data-dir-3 .bindAlipay .section .form .group {
+  border-bottom: 0.66667px solid #b9b9b9;
+}
+.android-data-dir-2 .bindAlipay .section .form .group {
+  border-bottom: 1px solid #b9b9b9;
+}
+.android-data-dir-3 .bindAlipay .section .form .group {
+  border-bottom: 0.66667px solid #b9b9b9;
+}
+.bindAlipay .section .form .group label {
+  width: 2.4rem;
+  margin-right: 0.13333rem;
+  line-height: 0.8rem;
+  font-size: 0.4rem;
+}
+.bindAlipay .section .form .group input {
+  font-size: 0.4rem;
+  line-height: 0.8rem;
+}
+.bindAlipay .section .form .group.group2 label {
+  line-height: 1.73333rem;
+}
+.bindAlipay .section .form .group .upload {
+  width: 2.37333rem;
+  height: 1.73333rem;
+  line-height: 1.73333rem;
+  margin-right: 2.4rem;
+  position: relative;
+}
+.bindAlipay .section .form .group .upload input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.37333rem;
+  height: 1.73333rem;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.bindAlipay .section .form .group .upload img {
+  width: 100%;
+  height: 1.73333rem;
+}
+.bindAlipay .section .form .group .imgView {
+  line-height: 1.73333rem;
+}
+.bindAlipay .section .form .group .imgView p.text {
+  text-align: right;
+  text-decoration: underline;
+  font-size: 0.33333rem;
+  color: #2a81cc;
+}
+.bindAlipay .section .form .group .tel {
+  width: 3.73333rem;
+  font-size: 0.4rem;
+}
+.bindAlipay .section .form .group .submit_btn {
+  width: 2.56rem;
+  border-radius: 0.10667rem;
+}
+.bindAlipay .footer {
+  padding: 0.32rem;
+  margin-top: 1.6rem;
+}
+.bindAlipay .footer .submit_btn {
+  width: 9.14667rem;
+  height: 1.09333rem;
+  line-height: 1.09333rem;
+  color: #fff;
+  font-size: 0.4rem;
+}

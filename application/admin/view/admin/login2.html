@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title><?php echo atitle();?></title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" href="/css/page_login.css">
+</head>
+<body class="zh_CN">
+    <div class="head" id="header">
+        <div class="head_box">
+            <div class="inner wrp">
+                <div class="account">
+                    <div class="account_meta account_faq"></div>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="inner wrp">
+                <div class="login_frame">
+                    <h3>密码登录</h3>
+                    <div class="login_err_panel" style="display:none;" id="err"> </div>
+                    <form class="login_form" id="loginForm">
+                        <div class="login_input_panel">
+                            <div class="login_input">
+                                <i class="icon_login un"> </i>
+                                <input placeholder="用户名" name="admin_name" id="admin_name" type="text"/>
+                            </div>
+                            <div class="login_input">
+                                <i class="icon_login pwd"> </i>
+                                <input placeholder="密码" name="password" id="password" type="password"/>
+                            </div>
+                        </div>
+                        <div class="login_help_panel">
+                            <label class="frm_checkbox_label" for="rememberCheck">
+                                <input type="checkbox" id="ck_rmbUser"/>记住帐号
+                            </label>
+                        </div>
+                        <div class="login_btn_panel">
+                            <a class="btn_login" title="点击登录" href="javascript:" id="login_btn">登录</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        if ($.cookie("rmbUser") == "true") {
+            $("#ck_rmbUser").prop("checked", true); 
+            $("#admin_name").val($.cookie("admin_name")); 
+            $("#password").val($.cookie("password")); 
+        }
+    }); 
+
+    //记住用户名密码 
+    function save(){
+        if ($("#ck_rmbUser").prop("checked")){
+        var admin_name = $("#admin_name").val(); 
+        var password = $("#password").val(); 
+        $.cookie("rmbUser", "true", { expires: 300 }); //存储一个带300天期限的cookie 
+        $.cookie("admin_name", admin_name, { expires: 300 }); 
+        $.cookie("password", password, { expires: 300 }); 
+        }else{
+        $.cookie("rmbUser", "false", { expire: -1 }); 
+        $.cookie("admin_name", "", { expires: -1 }); 
+        $.cookie("password", "", { expires: -1 }); 
+        }
+    }; 
+
+    $("[name='password']").keydown(function(e){
+        var captcha = e.which; 
+        if(captcha == 13){ 
+            $("#login_btn").click(); 
+            return false; 
+        } 
+    }); 
+
+    $("#login_btn").bind('click',function(){
+        var admin_name = $("[name='admin_name']").val();
+        var password = $("[name='password']").val();
+        save();
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_login.html',
+            dataType:'text',
+            data:"admin_name="+admin_name+"&password="+password,
+            success:function(data)
+            {
+                if(data=='success'){
+                    window.location.href='/home.php/{$module}/{$control}/index.html';
+                }else{
+                    alert(data);
+                }
+            }
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+@charset "UTF-8";
+.extract .section .content .tabs_content .item-tabs.income table tr th, .extract .section .content .tabs_content .item-tabs.income table tr td, .extract .section .content .tabs_content .item-tabs.expend table tr th, .extract .section .content .tabs_content .item-tabs.expend table tr td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 雪碧图引入 同时设置宽高*/
+.extract {
+  background-color: #f5f5f5;
+  color: #737373;
+  font-size: 0.30667rem;
+  min-height: 100vh;
+}
+.extract .submit_btn {
+  margin: 0;
+  width: 9.14667rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  color: #fff;
+}
+.extract .header {
+  background-color: #f25f55;
+  height: 1.33333rem;
+  line-height: 1.33333rem;
+  padding: 0 0.4rem;
+}
+.extract .header .icon_back {
+  position: absolute;
+  left: 0.4rem;
+  top: 0.4rem;
+}
+.extract .header .text {
+  color: #fff;
+  font-size: 0.48rem;
+}
+.extract .section {
+  padding-bottom: 1.65333rem;
+}
+.extract .section .top_item {
+  background-color: #fff;
+  width: 100%;
+  padding: 0.26667rem 0.4rem;
+}
+.extract .section .top_item {
+  margin-bottom: 0.26667rem;
+  width: 100%;
+}
+.extract .section .top_item .rt_con {
+  margin-left: 0.26667rem;
+}
+.extract .section .top_item .rt_con .title {
+  font-size: 0.4rem;
+  margin-bottom: 0.29333rem;
+}
+.extract .section .content {
+  width: 100%;
+}
+.extract .section .content .tabs {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+  height: 0.98667rem;
+  line-height: 0.98667rem;
+  font-size: 0.37333rem;
+  background-color: #fff;
+}
+.extract .section .content .tabs .tabs-item {
+  width: 100%;
+  text-align: center;
+}
+.extract .section .content .tabs .active {
+  color: #f25f55;
+  border-bottom: 4px solid #f25f55;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .extract .section .content .tabs .active {
+  border-bottom: 2px solid #f25f55;
+}
+.iphone-data-dir-3 .extract .section .content .tabs .active {
+  border-bottom: 1.33333px solid #f25f55;
+}
+.android-data-dir-2 .extract .section .content .tabs .active {
+  border-bottom: 2px solid #f25f55;
+}
+.android-data-dir-3 .extract .section .content .tabs .active {
+  border-bottom: 1.33333px solid #f25f55;
+}
+.extract .section .content .tabs span {
+  display: inline-block;
+}
+.extract .section .content .tabs_content {
+  width: 100%;
+}
+.extract .section .content .tabs_content .item-tabs .link {
+  padding: 0.2rem 0.4rem;
+}
+.extract .section .content .tabs_content .item-tabs.income, .extract .section .content .tabs_content .item-tabs.expend {
+  margin-top: 0.26667rem;
+  background-color: #fff;
+  padding: 0 0.4rem;
+  min-height: 6.66667rem;
+}
+.extract .section .content .tabs_content .item-tabs.income table thead, .extract .section .content .tabs_content .item-tabs.expend table thead {
+  font-size: 0.29333rem;
+}
+.extract .section .content .tabs_content .item-tabs.income table tr th, .extract .section .content .tabs_content .item-tabs.income table tr td, .extract .section .content .tabs_content .item-tabs.expend table tr th, .extract .section .content .tabs_content .item-tabs.expend table tr td {
+  width: 25%;
+  padding: 0.37333rem 0.13333rem;
+  text-align: center;
+}
+.extract .section .content .tabs_content .item-tabs.income table tr th.w_120, .extract .section .content .tabs_content .item-tabs.income table tr td.w_120, .extract .section .content .tabs_content .item-tabs.expend table tr th.w_120, .extract .section .content .tabs_content .item-tabs.expend table tr td.w_120 {
+  width: 1.6rem;
+}
+.extract .section .content .tabs_content .item-tabs.income table tr th.w_80, .extract .section .content .tabs_content .item-tabs.income table tr td.w_80, .extract .section .content .tabs_content .item-tabs.expend table tr th.w_80, .extract .section .content .tabs_content .item-tabs.expend table tr td.w_80 {
+  width: 1.06667rem;
+}
+.extract .section .content .tabs_content .item-tabs.income table tr th.w_130, .extract .section .content .tabs_content .item-tabs.income table tr td.w_130, .extract .section .content .tabs_content .item-tabs.expend table tr th.w_130, .extract .section .content .tabs_content .item-tabs.expend table tr td.w_130 {
+  width: 1.73333rem;
+}
+.extract .section .content .tabs_content .item-tabs.income table tr th.w_240, .extract .section .content .tabs_content .item-tabs.income table tr td.w_240, .extract .section .content .tabs_content .item-tabs.expend table tr th.w_240, .extract .section .content .tabs_content .item-tabs.expend table tr td.w_240 {
+  width: 3.2rem;
+}
+.extract .section .content .tabs_content .item-tabs.income table tr th.w_180, .extract .section .content .tabs_content .item-tabs.income table tr td.w_180, .extract .section .content .tabs_content .item-tabs.expend table tr th.w_180, .extract .section .content .tabs_content .item-tabs.expend table tr td.w_180 {
+  width: 2.4rem;
+}
+.extract .section .content .tabs_content .item-tabs.income table tr th.w_90, .extract .section .content .tabs_content .item-tabs.income table tr td.w_90, .extract .section .content .tabs_content .item-tabs.expend table tr th.w_90, .extract .section .content .tabs_content .item-tabs.expend table tr td.w_90 {
+  width: 1.2rem;
+}
+.extract .section .content .tabs_content .item-tabs.income table tbody td, .extract .section .content .tabs_content .item-tabs.expend table tbody td {
+  font-size: 0.26667rem;
+  color: #9f9f9f;
+}
+.extract .section .content .tabs_content .item-tabs.income table tbody td.lv, .extract .section .content .tabs_content .item-tabs.expend table tbody td.lv {
+  color: #3cd64e;
+}
+.extract .section .content .tabs_content .item-tabs.income table tbody td.link, .extract .section .content .tabs_content .item-tabs.expend table tbody td.link {
+  color: #f25f55;
+}
+.extract .section .content .tabs_content .item-tabs.income table tbody td.link a, .extract .section .content .tabs_content .item-tabs.expend table tbody td.link a {
+  color: #f25f55;
+}
+.extract .section .content .tabs_content .item-tabs .list {
+  background-color: #fff;
+  margin-bottom: 0.26667rem;
+}
+.extract .section .content .tabs_content .item-tabs .list .list_item {
+  padding: 0.26667rem 0.4rem;
+  height: 0.86667rem;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.extract .section .content .tabs_content .item-tabs .list .list_item:not(:last-child) {
+  border-bottom: 2px solid #f5f5f5;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .extract .section .content .tabs_content .item-tabs .list .list_item:not(:last-child) {
+  border-bottom: 1px solid #f5f5f5;
+}
+.iphone-data-dir-3 .extract .section .content .tabs_content .item-tabs .list .list_item:not(:last-child) {
+  border-bottom: 0.66667px solid #f5f5f5;
+}
+.android-data-dir-2 .extract .section .content .tabs_content .item-tabs .list .list_item:not(:last-child) {
+  border-bottom: 1px solid #f5f5f5;
+}
+.android-data-dir-3 .extract .section .content .tabs_content .item-tabs .list .list_item:not(:last-child) {
+  border-bottom: 0.66667px solid #f5f5f5;
+}
+.extract .section .content .tabs_content .item-tabs .list .list_item .icon_radio_1 {
+  margin-right: 0.34667rem;
+}
+.extract .section .content .tabs_content .item-tabs .list .list_item .text_content {
+  -webkit-flex: 1;
+  flex: 1;
+  margin-left: 0.18667rem;
+}
+.extract .section .content .tabs_content .item-tabs .list .list_item .text_content .title {
+  font-size: 0.34667rem;
+  color: #737373;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.extract .section .content .tabs_content .item-tabs .list .list_item .btn, .extract .section .content .tabs_content .item-tabs .list .list_item .dis_btn {
+  width: 1.73333rem;
+  height: 0.54667rem;
+  line-height: 0.54667rem;
+  text-align: center;
+  font-size: 0.22667rem;
+  background-color: #f25f55;
+  color: #fff;
+  border-radius: 0.10667rem;
+}
+.extract .section .content .tabs_content .item-tabs .list .list_item .dis_btn {
+  color: #b4b4b4;
+  font-size: 0.33333rem;
+  background-color: transparent;
+}
+.extract .section .content .item {
+  margin-bottom: 0.26667rem;
+  background-color: #fff;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 0 0.4rem;
+}
+.extract .section .content .item.money {
+  padding-top: 0.26667rem;
+  padding-bottom: 0.26667rem;
+  font-size: 0.37333rem;
+}
+.extract .section .content .item.money .text {
+  -webkit-flex: 1;
+  flex: 1;
+  margin-left: 0.36rem;
+}
+.extract .section .content .item.money .link.lan {
+  color: #4aade4;
+  margin-left: 0.36rem;
+}
+.extract .section .content .item.money input {
+  padding-left: 0.26667rem;
+  border: none;
+  line-height: 0.53333rem;
+  font-size: 0.37333rem;
+  -webkit-flex: 1;
+  flex: 1;
+}
+.extract .section .content .item.tips {
+  font-size: 0.37333rem;
+}
+.extract .section .content .item.tips .title {
+  padding: 0.26667rem 0;
+  border-bottom: 2px solid #f5f5f5;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .extract .section .content .item.tips .title {
+  border-bottom: 1px solid #f5f5f5;
+}
+.iphone-data-dir-3 .extract .section .content .item.tips .title {
+  border-bottom: 0.66667px solid #f5f5f5;
+}
+.android-data-dir-2 .extract .section .content .item.tips .title {
+  border-bottom: 1px solid #f5f5f5;
+}
+.android-data-dir-3 .extract .section .content .item.tips .title {
+  border-bottom: 0.66667px solid #f5f5f5;
+}
+.extract .section .content .item.tips .tips_content {
+  padding: 0.26667rem 0;
+  line-height: 0.74667rem;
+}
+.extract .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.32rem;
+  background-color: #f5f5f5;
+}
+.extract .footer .submit_btn {
+  width: 9.14667rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  color: #fff;
+  font-size: 0.34667rem;
+}

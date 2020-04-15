@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo qtitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+<style>.col-sm-3{padding-top:7px;}</style>
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+    <div class="container-padding">
+        <div class="row">
+            <form action="/home.php/{$module}/{$control}/act_add.html" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">商家手机号</label>
+                            <div class="col-sm-3">{$find_merchant['mobile']}</div>
+                            <label class="col-sm-2 control-label form-label">店铺</label>
+                            <div class="col-sm-3">{$find_shop['name']}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">上架时间</label>
+                            <div class="col-sm-3"><?php echo date("Y-m-d H:i:s",$find['intime']);?></div>
+                            <label class="col-sm-2 control-label form-label">完成时间</label>
+                            <div class="col-sm-3"><?php if($find['finishtime']){ echo date("Y-m-d",$find['finishtime']);}?></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">淘宝订单号</label>
+                            <div class="col-sm-3">{$find['tbcode']}</div>
+                            <label class="col-sm-2 control-label form-label">旺旺号</label>
+                            <div class="col-sm-3">{$find['wangwang']}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">任务编码</label>
+                            <div class="col-sm-3">{$find['verifycode']}</div>
+                            <label class="col-sm-2 control-label form-label">实付金额</label>
+                            <div class="col-sm-3"><?php if($find['payprice']>0){ echo $find['payprice'];}?></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">服务费</label>
+                            <div class="col-sm-3">{$find['without_price']}</div>
+                           <!-- <label class="col-sm-2 control-label form-label">粉丝佣金</label> -->
+                            <!-- <div class="col-sm-3">{$find['within_price']}</div>/ -->
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">权重类目号</label>
+                            <div class="col-sm-3">{$cat_name}</div>
+                            <label class="col-sm-2 control-label form-label">标签词</label>
+                            <div class="col-sm-3">{$find_task['tags']}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">商品标题</label>
+                            <div class="col-sm-3">{$find_task['goodstitle']}</div>
+                            <label class="col-sm-2 control-label form-label">商品链接</label>
+                            <div class="col-sm-3"><a href="{$find_task['goodsurl']}" target="_blank">{$find_task['goodsurl']}</a></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">商品主图</label>
+                            <div class="col-sm-3">
+                                <a href="{$find_task['mainimage']}" target="_blank"><img src="{$find_task['mainimage']}" style="height:100px;"></a>
+                            </div>
+                            <label class="col-sm-2 control-label form-label">支付宝订单截图</label>
+                            <div class="col-sm-3">
+                                <a href="{$find['payimage']}" target="_blank"><img src="{$find['payimage']}" style="height:100px;"></a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">付款方式</label>
+                            <div class="col-sm-3">花呗付款：{$ishuabei_name}&nbsp;&nbsp;&nbsp;信用卡付款：{$iscredit_name}</div>
+                            <label class="col-sm-2 control-label form-label">赠品</label>
+                            <div class="col-sm-3">{$find_task['present']}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">订单类型</label>
+                            <div class="col-sm-3">{$type_name}</div>
+                            <label class="col-sm-2 control-label form-label">订单状态</label>
+                            <div class="col-sm-3">{$status1_name}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">退款状态</label>
+                            <div class="col-sm-3">{$status2_name}</div>
+                            <label class="col-sm-2 control-label form-label">异常状态</label>
+                            <div class="col-sm-3">{$status3_name}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">异常信息</label>
+                            <div class="col-sm-3">{$find['exceptioninfo']}</div>
+                            <label class="col-sm-2 control-label form-label">核对商品名称</label>
+                            <div class="col-sm-3">{$find['verifygoodstitle']}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">核对店铺名称</label>
+                            <div class="col-sm-3">{$find['verifyshopname']}</div>
+                            <label class="col-sm-2 control-label form-label">拍下规格</label>
+                            <div class="col-sm-3">
+                                <?php if($find_task['isattr']==2){ echo '任意规格';}?>{$find_task['attrcolor']}&nbsp;{$find_task['attrsize']}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">货比三家标题1</label>
+                            <div class="col-sm-3">{$find['paritytitle1']}</div>
+                            <label class="col-sm-2 control-label form-label">货比三家标题2</label>
+                            <div class="col-sm-3">{$find['paritytitle2']}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">货比三家标题3</label>
+                            <div class="col-sm-3">{$find['paritytitle3']}</div>
+                            <label class="col-sm-2 control-label form-label">更新时间</label>
+                            <div class="col-sm-3"><?php echo date("Y-m-d H:i:s",$find['uptime']);?></div>
+                        </div>
+                        <div class="taskdetail">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">搜索关键词</label>
+                            <div class="col-sm-3">{$find_taskdetail['searchkeywords']}</div>
+                            <label class="col-sm-2 control-label form-label">下单实际价格</label>
+                            <div class="col-sm-3">{$find_taskdetail['price']}<?php if($find_taskdetail['priceremark']){ echo "(".$find_taskdetail['priceremark'].")";} ?></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">需要聊天</label>
+                            <div class="col-sm-3">{$istalk_name}</div>
+                            <label class="col-sm-2 control-label form-label">货比三家</label>
+                            <div class="col-sm-3">{$isparity_name}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">加购物车</label>
+                            <div class="col-sm-3">{$iscart_name}</div>
+                            <label class="col-sm-2 control-label form-label">收藏宝贝</label>
+                            <div class="col-sm-3">{$iscollect_name}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">关注店铺</label>
+                            <div class="col-sm-3">{$isfocus_name}</div>
+                            <label class="col-sm-2 control-label form-label">浏览店内两个宝贝以上</label>
+                            <div class="col-sm-3">{$isbrowseshop_name}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">浏览详情到底5分钟以上</label>
+                            <div class="col-sm-3">{$isbrowseinfo_name}</div>
+                            <label class="col-sm-2 control-label form-label">其他要求</label>
+                            <div class="col-sm-3">{$find_taskdetail['remark']}</div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <button type="button" class="btn btn-default" onclick="javascript:history.back(-1)">返回</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{include file="common/footer"/}
+<script type="text/javascript">
+    
+</script>
+
+</body>
+</html>

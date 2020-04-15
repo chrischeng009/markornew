@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td width="60">Id</td>
+                <td>名称-控制器-方法名</td>
+                <td>显示</td>
+                <td>排序</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach($lists as $v){
+                $isshow_name = MenuModel::enum_isshow_text($v['isshow']);
+                $child = MenuModel::select("and pid=".$v['id']);
+                ?>
+                <tr>
+                    <td>{$v['id']}</td>
+                    <td>{$v['name']}</td>
+                    <td>{$isshow_name}</td>
+                    <td>{$v['sort']}</td>
+                    <td>
+                        <a href="javascript:;" onclick="javascript:edit({$v['id']});"><span class="label label-primary">编辑</span></a>
+                        <a href="javascript:;" onclick="javascript:add({$v['id']});"><span class="label label-success">添加子级</span></a>
+                    </td>
+                </tr>
+                
+                <?php if($child){ foreach($child as $vv){ $isshow_name = MenuModel::enum_isshow_text($vv['isshow']); ?>
+                <tr data-id="{$vv['id']}">
+                    <td>{$vv['id']}</td>
+                    <td>|______{$vv['name']}-{$vv['control']}-{$vv['action']}</td>
+                    <td>{$isshow_name}</td>
+                    <td>{$vv['sort']}</td>
+                    <td>
+                        <a href="javascript:;" onclick="javascript:edit({$vv['id']});"><span class="label label-primary">编辑</span></a>
+                        <a href="javascript:;" onclick="javascript:del({$vv['id']});"><span class="label label-danger">删除</span></a>
+                    </td>
+                </tr>
+                <?php } }?>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+{include file="parent/edit"/}
+
+<script type="text/javascript">
+    function del(id){
+        if(confirm('确定删除吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_del.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        $("[data-id='"+id+"']").remove();
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
+

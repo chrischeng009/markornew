@@ -1,0 +1,176 @@
+@charset "UTF-8";
+.index .section .task_content .item_section .task_list .lf_content .list_item .link {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 雪碧图引入 同时设置宽高*/
+.index {
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  font-size: 0.3rem;
+  color: #555;
+}
+.index .submit_btn {
+  color: #fff;
+  border-radius: 0.13333rem;
+}
+.index .header {
+  line-height: 0.74667rem;
+  padding: 0 0.29333rem;
+}
+.index .header .notice {
+  font-size: 0.34667rem;
+  color: #f25f55;
+}
+.index .header .icon_notice {
+  position: relative;
+  top: 0.26667rem;
+  margin-right: 0.26667rem;
+  margin-left: 0.10667rem;
+}
+.index .header .text {
+  font-size: 0.30667rem;
+  color: #8f8f8f;
+}
+.index .banner {
+  height: 3.74667rem;
+  overflow: hidden;
+}
+.index .banner img {
+  width: 100%;
+}
+.index .section {
+  margin-bottom: 1.41333rem;
+  margin-top: 0.38667rem;
+  padding: 0 0.29333rem;
+}
+.index .section .tabs {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+  height: 1.89333rem;
+  margin-bottom: 0.50667rem;
+  background-color: #fff;
+  border-radius: 0.10667rem;
+  padding: 0.4rem 0;
+}
+.index .section .tabs-item {
+  font-size: 0.34667rem;
+  color: #555;
+}
+.index .section .tabs-item i {
+  margin-bottom: 0.24rem;
+}
+.index .section .task_content {
+  background-color: #fff;
+  border-radius: 0.10667rem;
+  width: 100%;
+}
+.index .section .task_content .item:not(:last-child) {
+  border-bottom: 2px solid #f7f7f7;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .index .section .task_content .item:not(:last-child) {
+  border-bottom: 1px solid #f7f7f7;
+}
+.iphone-data-dir-3 .index .section .task_content .item:not(:last-child) {
+  border-bottom: 0.66667px solid #f7f7f7;
+}
+.android-data-dir-2 .index .section .task_content .item:not(:last-child) {
+  border-bottom: 1px solid #f7f7f7;
+}
+.android-data-dir-3 .index .section .task_content .item:not(:last-child) {
+  border-bottom: 0.66667px solid #f7f7f7;
+}
+.index .section .task_content .item_head {
+  padding: 0.14667rem 0.21333rem;
+  font-size: 0.3rem;
+}
+.index .section .task_content .item_head .link {
+  font-size: 0.3rem;
+}
+.index .section .task_content .item_search {
+  padding: 0.21333rem 0.4rem;
+}
+.index .section .task_content .item_search .submit_btn {
+  width: 1.5rem;
+  height: 0.85333rem;
+  line-height: 0.85333rem;
+  color: #fff;
+  border-radius: 0.13333rem;
+  margin-top: 0;
+}
+.index .section .task_content .item_search .input_group input {
+  width: 3.3rem;
+  height: 0.85333rem;
+  background-color: #e3e3e3;
+  color: #bbb9b9;
+  margin-left: 0.24rem;
+  margin-right: 0.4rem;
+  font-size: 0.3rem;
+  border-radius: 0.10667rem;
+  padding: 0 0.2rem;
+}
+.index .section .task_content .item_section .btns {
+  margin-bottom: 0.4rem;
+}
+.index .section .task_content .item_section .btns .submit_btn {
+  width: 2.46667rem;
+  height: 0.45333rem;
+  line-height: 0.45333rem;
+  font-size: 0.30667rem;
+}
+.index .section .task_content .item_section .btns .submit_btn.one {
+  margin-right: 2.66667rem;
+}
+.index .section .task_content .item_section .task_list {
+  background-color: #f7f7f7;
+  margin: 0.24rem;
+  padding: 0.2rem;
+  border-radius: 0.10667rem;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+.index .section .task_content .item_section .task_list .lf_content {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.index .section .task_content .item_section .task_list .lf_content .list_item {
+  line-height: 0.61333rem;
+  font-size: 0.3rem;
+}
+.index .section .task_content .item_section .task_list .lf_content .list_item .link {
+  color: #d6404a;
+  margin-left: 0.06667rem;
+  max-width: 3.86667rem;
+  word-break: break-all;
+}
+.index .section .task_content .item_section .task_list .rt_content {
+  width: 3.21333rem;
+}
+.index .section .task_content .item_section .task_list .rt_content .submit_btn {
+  width: 1.50667rem;
+  height: 0.52rem;
+  line-height: 0.52rem;
+  font-size: 0.3rem;
+}
+.index .section .task_content .item_section .task_list .rt_content .submit_btn.one {
+  margin-right: 0.18667rem;
+}

@@ -1,0 +1,121 @@
+<div class="sidebar clearfix">
+    <ul class="sidebar-panel nav">
+        <!--li class="sidetitle">MENU</li-->
+        <?php
+        use app\common\model\MenuModel;
+        use app\common\model\AdminModel;
+        use think\Db;
+        $module = request()->module();
+        $control = strtolower(request()->controller());
+        $action = request()->action();
+        $find_menu = MenuModel::find("and control='".$control."' and action='".$action."'");
+        $menu_name = isset($find_menu['name'])?$find_menu['name']:"菜单未配置";
+        $findAdmin = AdminModel::find("and id='".$_SESSION['admin_id']."'");
+        $authArr = !empty($findAdmin['auths'])?json_decode($findAdmin['auths'],true):[];
+        $where='';
+        /*
+        <!--$day = date("Y-m-d");-->
+        <!--$where .= " and uptime >= '" . strtotime($day . " 00:00:00") . "'";-->
+        <!--$where .= " and uptime <= '" . strtotime($day . " 23:59:59") . "'"; -->*/
+        //非超级管理员
+        if($_SESSION['role_id']==5){
+        $tid=$_SESSION['admin_id'];
+        $mcarr = Db::table('merchant')->where("aid=".$tid)->select();
+        if(empty($mcarr)){
+        }else{
+        $str = "";
+        foreach($mcarr as $v){
+        $str .= $v['id'].',';
+        }
+        $strId =substr($str, 0, -1);
+        $where .= " and merchant_id in(".$strId.")";
+        }
+        }
+        if($_SESSION['role_id']==2){
+        $where .= " and aid='".$_SESSION['admin_id']."'";
+        }
+
+        $tkorder=Db::table('order')->where(" type=2 and status2=1 and exceptioninfo !='申请下架' $where")->count();
+        $xjorder=Db::table('order')->where(" type=2 and status2=1 and exceptioninfo ='申请下架' $where")->count();
+        $ycorder=Db::table('order')->where(" type=3 and status3=1 and exceptioninfo !='申请下架' $where")->count();
+        $comorder=Db::table('order')->where(" type in (1,3) and iscomment=2 $where")->count();
+
+        $menu_lists = MenuModel::select("and pid=0");
+        foreach($menu_lists as $v){
+        $auth_name = $v['control']."-".$v['action'];
+        $findMenu = MenuModel::find("and control='".$control."' and action='".$action."'");
+        $active = '';
+        $display = '';
+        if($v['id']==$findMenu['pid']){ $active='active'; $display='display:block';}
+        $child = MenuModel::select("and isshow=1 and pid=".$v['id']);
+        if(in_array($auth_name,$authArr) && $v['isshow']==1){
+        ?>
+        <li>
+            <a href="javascript:;" class="{$active}">
+                <span class="icon color7"><i class="fa {$v['icon']}"></i></span>{$v['name']}<span class="caret"></span>
+            </a>
+            <ul style="{$display}">
+                <?php
+                if($child){
+                foreach($child as $vv){
+                $auth2_name = $vv['control']."-".$vv['action'];
+                if(in_array($auth2_name,$authArr)){
+                ?>
+                <?php if($vv['control']=='user' && $vv['action']=='lists2'){?>
+                <li>
+                    <a href="/home.php/admin/{$vv['control']}/{$vv['action']}.html?status=2">{$vv['name']}</a>
+                </li>
+                <?php }elseif($vv['control']=='order' && $vv['action']=='lists2'){ ?>
+                <li>
+                    <a href="/home.php/admin/{$vv['control']}/{$vv['action']}.html?status2=1">{$vv['name']}<i style="
+                    position: absolute;right: 6px;top: 14px;height: 20px;width: 20px;line-height: 20px;background-color: #fc6d26;z-index: 99;
+                    text-align: center;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-family: arial;
+                    font-size: 14px;
+                    font-weight: bold;">{$tkorder}</i></a>
+                </li>
+                <?php }elseif($vv['control']=='order' && $vv['action']=='offlists2'){ ?>
+                <li>
+                    <a href="/home.php/admin/{$vv['control']}/{$vv['action']}.html?status2=1">{$vv['name']}<i style="
+                    position: absolute;right: 6px;top: 14px;height: 20px;width: 20px;line-height: 20px;background-color: #fc6d26;z-index: 99;
+                    text-align: center;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-family: arial;
+                    font-size: 14px;
+                    font-weight: bold;">{$xjorder}</i></a>
+                </li>
+                <?php }elseif($vv['control']=='order' && $vv['action']=='lists3'){ ?>
+                <li>
+                    <a href="/home.php/admin/{$vv['control']}/{$vv['action']}.html?status3=1">{$vv['name']}<i style="
+                    position: absolute;right: 6px;top: 14px;height: 20px;width: 20px;line-height: 20px;background-color: #fc6d26;z-index: 99;
+                    text-align: center;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-family: arial;
+                    font-size: 14px;
+                    font-weight: bold;">{$ycorder}</i></a>
+                </li>
+                <?php }elseif($vv['control']=='order' && $vv['action']=='comment'){ ?>
+                <li>
+                    <a href="/home.php/admin/{$vv['control']}/{$vv['action']}.html">{$vv['name']}<i style="
+                    position: absolute;right: 6px;top: 14px;height: 20px;width: 20px;line-height: 20px;background-color: #fc6d26;z-index: 99;
+                    text-align: center;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-family: arial;
+                    font-size: 14px;
+                    font-weight: bold;">{$comorder}</i></a>
+                </li>
+                <?php }else{ ?>
+                <li>
+                    <a href="/home.php/admin/{$vv['control']}/{$vv['action']}.html">{$vv['name']}</a>
+                </li>
+                <?php } } } }?>
+            </ul>
+        </li>
+        <?php } }?>
+    </ul>
+</div>

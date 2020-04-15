@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/* 雪碧图引入 同时设置宽高*/
+.validate {
+  min-height: 100vh;
+  font-size: 0.33333rem;
+  color: #555;
+  padding: 0.48rem;
+}
+.validate .submit_btn {
+  color: #fff;
+  border-radius: 0.13333rem;
+}
+.validate .section {
+  margin-bottom: 1.41333rem;
+}
+.validate .section .form .item {
+  border-bottom: 2px solid #a0a0a0;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  padding: 0.34667rem 0;
+}
+.iphone-data-dir-2 .validate .section .form .item {
+  border-bottom: 1px solid #a0a0a0;
+}
+.iphone-data-dir-3 .validate .section .form .item {
+  border-bottom: 0.66667px solid #a0a0a0;
+}
+.android-data-dir-2 .validate .section .form .item {
+  border-bottom: 1px solid #a0a0a0;
+}
+.android-data-dir-3 .validate .section .form .item {
+  border-bottom: 0.66667px solid #a0a0a0;
+}
+.validate .section .form .item .label {
+  font-size: 0.4rem;
+  color: #000;
+  margin-right: 0.4rem;
+}
+.validate .section .form .item_input {
+  line-height: 0.4rem;
+}
+.validate .section .form .item_input input {
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 0.4rem;
+  line-height: 0.4rem;
+}
+.validate .section .form .item_upload {
+  line-height: 1.42667rem;
+}
+.validate .section .form .item_upload .upload {
+  width: 1.56rem;
+  min-height: 1.42667rem;
+  margin-right: 1.06667rem;
+  position: relative;
+}
+.validate .section .form .item_upload .upload img, .validate .section .form .item_upload .upload input {
+  width: 100%;
+  border-radius: 0.13333rem;
+}
+.validate .section .form .item_upload .upload input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  bottom: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.validate .section .form .item_upload .imgView p {
+  color: #4c72d2;
+  text-decoration: underline;
+}
+.validate .section .form .item_radio .input_group {
+  position: relative;
+  margin-left: 0.2rem;
+}
+.validate .section .form .item_radio .input_group.ml_20 {
+  margin-left: 0.26667rem;
+}
+.validate .section .form .item_radio .input_group input {
+  width: 0.34667rem;
+  height: 0.34667rem;
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 5;
+}
+.validate .section .form .item_radio .input_group i {
+  position: relative;
+  top: 0.06667rem;
+}
+.validate .section .form .item_select {
+  line-height: 0.61333rem;
+}
+.validate .section .form .item_select select {
+  margin-left: 0.13333rem;
+  margin-right: 0.06667rem;
+  width: 1.6rem;
+  height: 0.61333rem;
+  font-size: 0.33333rem;
+}
+.validate .section .tips {
+  margin-top: 0.66667rem;
+}
+.validate .section .tips p {
+  line-height: 0.8rem;
+}
+.validate .section .tips .title {
+  font-size: 0.4rem;
+}

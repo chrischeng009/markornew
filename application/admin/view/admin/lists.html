@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <div class="col-lg-2">
+                        <h5>用户名</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="admin_name" value="{$_GET['admin_name']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>昵称</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="name" value="{$_GET['name']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="col-lg-2">
+                        <h5>操作</h5>
+                        <div class="form-group">
+                            <button class="btn btn-default" data-toggle="modal" data-target="#addModal">新增</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>余额总计</h5>
+                        <div class="form-group">
+                            {$totalmoney}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>用户名</td>
+                <td>昵称</td>
+                <td>角色</td>
+                <td>QQ号</td>
+                <td>微信号</td>
+                <td>二维码</td>
+                <td>微信收款码</td>
+                <td>支付收款码</td>
+                <td>金额</td>
+                <td>前一次结账金额</td>
+                <td>任务领取</td>
+                <td>添加时间</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\RoleModel;
+                use app\common\model\ConfigModel;
+                foreach($lists as $v){
+                $find_role = RoleModel::find("and id=".$v['role_id']);
+                $iswork_name = ConfigModel::enum_isnot_text($v['iswork']);
+                ?>
+                <tr>
+                    <td>{$v['admin_name']}</td>
+                    <td>{$v['name']}</td>
+                    <td>{$find_role['name']}</td>
+                    <td>{$v['qq']}</td>
+                    <td>{$v['weixin']}</td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['qrcode']);?>');"><img src="{$v.qrcode}" style="height:32px;"/></a></td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['weixinmoneycode']);?>');"><img src="{$v.weixinmoneycode}" style="height:32px;"/></a></td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['zfbmoneycode']);?>');"><img src="{$v.zfbmoneycode}" style="height:32px;"/></a></td>
+                    <td>{$v['money']}</td>
+                    <td>{$v['freeze_money']}</td>
+                    <td>{$iswork_name}</td>
+                    <td title="更新时间：<?php echo date('Y-m-d H:i:s',$v['uptime']);?>"><?php echo date('Y-m-d',$v['intime']);?></td>
+                    <td>
+                        <a href="/home.php/{$module}/{$control}/edit.html?id={$v['id']}"><span class="label label-primary">编辑</span></a>
+                        <?php if($v['role_id']!==1){?>
+                        <a href="javascript:;" onclick="javascript:del({$v['id']});"><span class="label label-danger">删除</span></a>
+                        <?php }?>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+{include file="parent/add"/}
+
+<script type="text/javascript">
+    function del(id){
+        if(confirm('确定删除吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_del.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload(); 
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+
+</script>
+
+</body>
+</html>
+

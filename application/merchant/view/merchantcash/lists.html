@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo qtitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <div class="col-lg-2">
+                        <h5>状态</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="status">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_status_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['status']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="col-lg-2">
+                        <h5>操作</h5>
+                        <div class="form-group">
+                            <button class="btn btn-default" id="btn2">提现</button>
+                            <button style="display: none" class="btn btn-default" id="btn" data-toggle="modal" data-target="#addModal">提现</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>提现银行</td>
+                <td>收款人</td>
+                <td>银行卡号</td>
+                <td>提现金额</td>
+                <td>状态</td>
+                <td>添加时间</td>
+                <td>处理时间</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\MerchantcashModel;
+                foreach($lists as $v){
+                $find_merchant = MerchantModel::find("and id=".$v['merchant_id']);
+                $status_name = MerchantcashModel::enum_status_text($v['status']);
+                ?>
+                <tr>
+                    <td>{$v['bankname']}</td>
+                    <td>{$v['realname']}</td>
+                    <td>{$v['bankcode']}</td>
+                    <td>{$v['money']}</td>
+                    <td>{$status_name}</td>
+                    <td><?php echo date('Y-m-d H:i:s',$v['intime']);?></td>
+                    <td><?php if(!empty($v['uptime'])){ echo date('Y-m-d H:i:s',$v['uptime']);}?></td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+{include file="parent/add"/}
+
+<script type="text/javascript">
+    
+</script>
+<script type="text/javascript">
+    $("#btn2").on('click',function() {
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_check.html',
+            dataType:'text',
+            data:'',
+            success:function(data)
+            {
+                if(data=='success'){
+                    $("#btn").click();
+                }else{
+                    $("#tipBtn").click();
+                    $("#tipText").html(data);
+                    setTimeout(function(){
+                        window.location.href='/home.php/merchant/merchant/edit_self.html';
+                    },2000);
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+

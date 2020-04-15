@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                        <?php if($_SESSION['role_id']==1 || $_SESSION['role_id']==3){?>
+                        <div class="col-lg-1">
+                            <h5>所属客服</h5>
+                            <div class="form-group">
+                                <select class="form-control" name="aid">
+                                    <option value="">请选择</option>
+                                    <?php foreach($server_list as $v){?>
+                                    <option value="{$v['id']}" <?php if($v['id']==$_GET['aid']){ echo 'selected';}?>>{$v['name']}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <?php }?>
+                        <div class="col-md-12 col-lg-1">
+                        <h5>收款人</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="realname" value="{$_GET['realname']}">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-2">
+                        <h5>提现方式</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="type">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_type_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['type']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>状态</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="status">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_status_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['status']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <div class="col-lg-1">
+                            <h5>开始时间</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="starttime" value="{$_GET['starttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                            <h5>结束时间</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="lasttime" value="{$_GET['lasttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                            </div>
+                        </div>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="col-lg-1">
+                        <h5>今日提现总额 ：</h5>
+                        <div class="form-group">
+                            {$sum}元
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>所属客服</td>
+                <td>手机号</td>
+                <td>旺旺号</td>
+                <td>提现方式</td>
+                <td>微信收款码</td>
+                <td>支付宝号</td>
+                <td>银行卡号</td>
+                <td>收款人</td>
+                <td>提现金额</td>
+                <td>状态</td>
+                <td>添加时间</td>
+                <td>完成时间</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\UsercashModel;
+                use app\common\model\UserModel;
+                use app\common\model\ConfigModel;
+                foreach($lists as $v){
+                $find_user = UserModel::find("and id=".$v['user_id']);
+                $type_name = UsercashModel::enum_type_text($v['type']);
+                $status_name = UsercashModel::enum_status_text($v['status']);
+                if(!empty($find_user['aid'])){
+                $find_server = AdminModel::find("and id=".$find_user['aid']);
+                }
+                $find_server['name'] = isset($find_server['name'])?$find_server['name']:'';
+                ?>
+                <tr>
+                    <td>{$find_server['name']}</td>
+                    <td>{$find_user['mobile']}</td>
+                    <td>{$find_user['wangwang']}</td>
+                    <td>{$type_name}</td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['weixinmoneycode']);?>');"><img src="{$v.weixinmoneycode}" style="height:32px;"/></a></td>
+                    <td>{$v['zfb']}</td>
+                    <td>{$v['bankname']}{$v['bankcode']}</td>
+                    <td>{$v['realname']}</td>
+                    <td>{$v['money']}</td>
+                    <td>{$status_name}</td>
+                    <td title="处理时间：<?php if(!empty($v['uptime'])){ echo date('Y-m-d H:i:s',$v['uptime']);}?>">
+                    <?php echo date('Y-m-d H:i:s',$v['intime']);?>
+                    </td>
+                    <td><?php if($v['uptime']){ echo date('Y-m-d H:i:s',$v['uptime']);}?></td>
+                    <td>
+                        <?php if($v['status']==1){?>
+                        <a href="javascript:;" onclick="javascript:edit({$v['id']},2);"><span class="label label-success">通过</span></a>
+                        <a href="javascript:;" onclick="javascript:edit({$v['id']},3);"><span class="label label-warning">拒绝</span></a>
+                        <?php }?>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+
+<script src="/js/dateCalendar/WdatePicker.js"></script>
+<script type="text/javascript">
+    function edit(id,status){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit.html',
+                dataType:'text',
+                data:"id="+id+"&status="+status,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <div class="col-lg-1">
+                        <h5>Id</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="id" value="{$_GET['id']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>手机号</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="mobile" value="{$_GET['mobile']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>旺旺号</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="wangwang" value="{$_GET['wangwang']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>买家等级</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="tbgrade">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_tbgrade_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['tbgrade']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <div class="col-lg-1">
+                            <h5>实名审核</h5>
+                            <div class="form-group">
+                                <select class="form-control" name="status2">
+                                    <option value="">请选择 </option>
+                                    <?php foreach($enum_status2_arr as $k=>$v){?>
+                                    <option value="{$k}" <?php if($k==$_GET['status2']){ echo 'selected';}?>>{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <?php if($_SESSION['role_id']==1){?>
+                    <div class="col-lg-1">
+                        <h5>所属客服</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="aid">
+                                <option value="">请选择</option>
+                                <?php foreach($server_list as $v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['aid']){ echo 'selected';}?>>{$v['name']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <?php }?>
+                    <div class="col-lg-1">
+                        <h5>地区</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="province">
+                                <option value="">请选择</option>
+                                <?php foreach($area_list as $v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['province']){ echo 'selected';}?>>{$v['name']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>性别</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="sex">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_sex_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['sex']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>做单间隔(天)</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="orderday" value="{$_GET['orderday']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="col-lg-1">
+                        <h5>粉丝数：</h5>
+                        <div class="form-group">
+                            {$usertotal}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>Id</td>
+                <td>所属客服</td>
+                <td>手机号</td>
+                <td>姓名</td>
+                <td>旺旺号</td>
+                <td>买家等级</td>
+                <td>淘气值</td>
+                <td>出生年份</td>
+                <td>性别</td>
+                <td>地区</td>
+                <td>余额</td>
+                <td>冻结余额</td>
+                <td>已做店铺</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\UserModel;
+                use app\common\model\AreaModel;
+                use app\common\model\ConfigModel;
+                foreach($lists as $v){
+                $find_server = AdminModel::find("and id=".$v['aid']);
+                $find_server['name'] = isset($find_server['name'])?$find_server['name']:'';
+                $sex_name = UserModel::enum_sex_text($v['sex']);
+                $tbgrade_name = UserModel::enum_tbgrade_text($v['tbgrade']);
+                $status_name = UserModel::enum_status_text($v['status']);
+                $status2_name = UserModel::enum_status2_text($v['status2']);
+                $isfreeze_name = ConfigModel::enum_isfreeze_text($v['isfreeze']);
+                $find_area['name'] = '';
+                if($v['province']){
+                    $find_area = AreaModel::find("and id=".$v['province']);
+                }
+                ?>
+                <tr>
+                    <td>{$v['id']}</td>
+                    <td>{$find_server['name']}</td>
+                    <td>{$v['mobile']}</td>
+                    <td>{$v['realname']}</td>
+                    <td>{$v['wangwang']}</td>
+                    <td>{$tbgrade_name}</td>
+                    <td>{$v['taoqi']}</td>
+                    <td>{$v['birthyear']}年</td>
+                    <td>{$sex_name}</td>
+                    <td>{$find_area['name']}</td>
+                    <td>{$v['money']}</td>
+                    <td>{$v['freeze_money']}</td>
+                    <td>
+                        <a href="javascript:;" onclick="javascript:ordershopname({$v['id']});"><span class="label label-warning">查看</span></a>
+                    </td>
+                    <td>
+                        <a href="/home.php/{$module}/{$control}/edit.html?id={$v['id']}"><span class="label label-primary">编辑</span></a>
+                        <a href="/home.php/{$module}/order/lists.html?user_id={$v['id']}&abc=1"><span class="label label-info">订单</span></a>
+                        <a href="/home.php/{$module}/usermlogs/lists.html?user_id={$v['id']}&abc=1"><span class="label label-danger">财务</span></a>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+
+<script type="text/javascript">
+    function ordershopname(id){
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_ordershopname.html',
+            dataType:'text',
+            data:"id="+id,
+            success:function(data){
+                $("#tipBtn").click();
+                $("#tipText").html(data);
+            }
+        });
+    }
+    
+</script>
+
+</body>
+</html>
+

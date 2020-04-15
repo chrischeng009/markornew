@@ -1,0 +1,45 @@
+<div class="sidebar clearfix">
+    <ul class="sidebar-panel nav">
+        <!--li class="sidetitle">MENU</li-->
+        <?php
+        use app\common\model\MerchantmenuModel;
+        use app\common\model\MerchantModel;
+        $module = request()->module();
+        $control = strtolower(request()->controller());
+        $action = request()->action();
+        $find_menu = MerchantmenuModel::find("and control='".$control."' and action='".$action."'");
+        $menu_name = isset($find_menu['name'])?$find_menu['name']:"菜单未配置";
+        $findMerchant = MerchantModel::find("and id='".$_SESSION['merchant_id']."'");
+        $authArr = !empty($findMerchant['auths'])?json_decode($findMerchant['auths'],true):[];
+        $authArr = [];
+        
+        $menu_lists = MerchantmenuModel::select("and pid=0");
+        foreach($menu_lists as $v){
+        $auth_name = $v['control']."-".$v['action'];
+        $findMenu = MerchantmenuModel::find("and control='".$control."' and action='".$action."'");
+        $active = '';
+        $display = '';
+        if($v['id']==$findMenu['pid']){ $active='active'; $display='display:block';}
+        $child = MerchantmenuModel::select("and isshow=1 and pid=".$v['id']);
+        if(!in_array($auth_name,$authArr) && $v['isshow']==1){
+        ?>
+        <li>
+            <a href="javascript:;" class="{$active}">
+                <span class="icon color7"><i class="fa {$v['icon']}"></i></span>{$v['name']}<span class="caret"></span>
+            </a>
+            <ul style="{$display}">
+                <?php
+                if($child){
+                foreach($child as $vv){
+                $auth2_name = $vv['control']."-".$vv['action'];
+                if(in_array($auth2_name,$authArr) || 1==1){
+                ?>
+                <li>
+                    <a href="/home.php/merchant/{$vv['control']}/{$vv['action']}.html">{$vv['name']}</a>
+                </li>
+                <?php  } }}?>
+            </ul>
+        </li>
+        <?php } }?>
+    </ul>
+</div>

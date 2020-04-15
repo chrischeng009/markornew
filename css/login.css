@@ -1,0 +1,161 @@
+@charset "UTF-8";
+/* 雪碧图引入 同时设置宽高*/
+.login {
+  color: #fff;
+}
+.login .header {
+  width: 100%;
+  line-height: 1.33333rem;
+  height: 1.33333rem;
+  padding: 0 0.26667rem;
+  background-color: #f25f55;
+  text-align: center;
+  position: relative;
+}
+.login .header .title {
+  font-size: 0.48rem;
+}
+.login .header .back {
+  background: url("../images/icon.png") no-repeat;
+  background-position: 0 -2.52rem;
+  background-size: 13.33333rem 13.33333rem;
+  display: inline-block;
+  width: 0.50667rem;
+  height: 0.48rem;
+  position: absolute;
+  left: 0.26667rem;
+  top: 0.41333rem;
+}
+.login .section {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.login .section .logo {
+  width: 7.28rem;
+  margin-top: 0.53333rem;
+  margin-bottom: 0.93333rem;
+}
+.login .section .logo img {
+  width: 100%;
+}
+.login .section .login_form {
+  font-size: 0.37333rem;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  padding: 0;
+}
+.login .section .login_form .form_item {
+  width: 8.53333rem;
+  margin-top: 30px;
+  border-bottom: 2px solid #ebebeb;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  border-bottom-left-radius: 0.06667rem;
+  border-bottom-right-radius: 0.06667rem;
+  padding-left: 0.13333rem;
+  padding-right: 0.13333rem;
+}
+.iphone-data-dir-2 .login .section .login_form .form_item {
+  border-bottom: 1px solid #ebebeb;
+}
+.iphone-data-dir-3 .login .section .login_form .form_item {
+  border-bottom: 0.66667px solid #ebebeb;
+}
+.android-data-dir-2 .login .section .login_form .form_item {
+  border-bottom: 1px solid #ebebeb;
+}
+.android-data-dir-3 .login .section .login_form .form_item {
+  border-bottom: 0.66667px solid #ebebeb;
+}
+.login .section .login_form .form_item input {
+  font-size: 0.37333rem;
+  padding: 0.29333rem;
+  width: 80%;
+}
+.login .section .login_form .form_item .input_group {
+  width: 4.53333rem;
+  height: 1.05333rem;
+}
+.login .section .login_form .form_item .input_group input {
+  width: 70%;
+}
+.login .section .login_form .form_item .input_code {
+  width: 3.6rem;
+  height: 1.05333rem;
+  /*background-color: #d2d2d2;*/
+}
+.login .section .login_form .form_item .input_code img {
+  width: 3.7rem;
+  height: 1.05333rem;
+}
+.login .section .login_form .submit_btn {
+  width: 8.53333rem;
+  height: 1.33333rem;
+  background-color: #f25f55;
+  border-radius: 0.06667rem;
+  text-align: center;
+  margin-top: 0.4rem;
+  line-height: 1.33333rem;
+}
+.login .section .btns_url {
+  width: 8.53333rem;
+}
+.login .section .btns_url span {
+  display: inline-block;
+  padding: 0.2rem;
+  margin-top: 0.26667rem;
+  font-size: 0.36rem;
+  color: #f25f55;
+}
+.login .footer {
+  margin-top: 0.4rem;
+}
+.login .footer .title {
+  margin-bottom: 0.58667rem;
+}
+.login .footer .title .line {
+  border-bottom: 2px solid #a1a1a1;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  width: 3.06667rem;
+}
+.iphone-data-dir-2 .login .footer .title .line {
+  border-bottom: 1px solid #a1a1a1;
+}
+.iphone-data-dir-3 .login .footer .title .line {
+  border-bottom: 0.66667px solid #a1a1a1;
+}
+.android-data-dir-2 .login .footer .title .line {
+  border-bottom: 1px solid #a1a1a1;
+}
+.android-data-dir-3 .login .footer .title .line {
+  border-bottom: 0.66667px solid #a1a1a1;
+}
+.login .footer .title_msg {
+  color: #a1a1a1;
+  font-size: 0.30667rem;
+  padding: 0 0.4rem;
+}
+.login .footer .login_methods .icon_qq {
+  margin-right: 0.4rem;
+}

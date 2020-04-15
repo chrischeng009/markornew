@@ -1,0 +1,110 @@
+<button class="btn btn-default" data-toggle="modal" id="editBtn" data-target="#editModal" style="display:none;">编辑</button>
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" style="width:800px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">编辑</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <form action="" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">名称</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="name" value="">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">是否展示</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="isshow">
+                                    <option value="">请选择</option>
+                                    <?php foreach($enum_isshow_arr as $k=>$v){?>
+                                    <option value="{$k}">{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">控制器</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="control" value="">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">方法名</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="action" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">排序</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="sort" value="0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <input type="hidden" name="id" value="">
+                                <input type="hidden" name="pid" value="">
+                                <button type="button" class="btn btn-primary" id="sub">提交</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    function add(pid){
+        $("#editBtn").click();
+        $('#dx_form')[0].reset();
+        $("[name=id]").val('');
+        $("[name=pid]").val(pid);
+    }
+    function edit(id){
+        $("#editBtn").click();
+        $("[name=id]").val(id);
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_find.html',
+            dataType:'text',
+            data:$("#dx_form").serialize(),
+            success:function(data)
+            {
+                var res = JSON.parse(data);
+                $("[name=pid]").val(res.pid);
+                $("[name=name]").val(res.name);
+                $("[name=isshow]").val(res.isshow);
+                $("[name=control]").val(res.control);
+                $("[name=action]").val(res.action);
+                $("[name=sort]").val(res.sort);
+            }
+        });
+    }
+    $("#sub").on('click',function(){
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_edit.html',
+            dataType:'text',
+            data:$("#dx_form").serialize(),
+            success:function(data)
+            {
+                if(data=='success'){
+                    window.location.reload();
+                }else{
+                    $("#tipBtn").click();
+                    $("#tipText").html(data);
+                }
+            }
+        });
+    });
+</script>

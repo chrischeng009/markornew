@@ -1,0 +1,65 @@
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" style="width:800px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">{$menu_name}-新增</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <form action="/home.php/{$module}/{$control}/act_add.html" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">价格区间</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="start" value="">
+                            </div>
+                            <div class="col-sm-2" style="padding-top:7px;text-align:center;">至</div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="end" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">佣金</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="price" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <button type="button" class="btn btn-primary" id="sub">提交</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    $("#sub").on('click',function(){
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_add.html',
+            dataType:'text',
+            data:$("#dx_form").serialize(),
+            success:function(data)
+            {
+                if(data=='success'){
+                    window.location.reload();
+                }else{
+                    $("#tipBtn").click();
+                    $("#tipText").html(data);
+                }
+            }
+        });
+    });
+</script>

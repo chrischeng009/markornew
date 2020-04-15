@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <div class="col-lg-2">
+                        <h5>手机号</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="mobile" value="{$_GET['mobile']}">
+                        </div>
+                    </div>
+                        <div class="col-lg-2">
+                            <h5>店铺名称</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" value="{$_GET['name']}">
+                            </div>
+                        </div>
+                    <div class="col-lg-2">
+                        <h5>审核状态</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="status">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_status_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['status']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <?php if($_SESSION['role_id']==1){?>
+                    <div class="col-lg-2">
+                        <h5>所属业务员</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="aid">
+                                <option value="">请选择</option>
+                                <?php foreach($teacher_list as $v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['aid']){ echo 'selected';}?>>{$v['name']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <?php }?>
+                    <div class="col-lg-2">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="col-sm-2">
+                        <h5>余额总计：</h5>
+                        <div class="form-group">
+                           {$totalmoney}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>所属业务员</td>
+                <td>手机号</td>
+                <td>余额</td>
+                <td>贷款金额</td>
+                <td>冻结余额</td>
+                <td>工作时间</td>
+                <td>任务数</td>
+                <td>任务订单</td>
+                <td>店铺</td>
+                <td>审核状态</td>
+                <td>加入时间</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\MerchantModel;
+                use app\common\model\TaskModel;
+                use app\common\model\ShopModel;
+                foreach($lists as $v){
+                if(!empty($v['aid'])){
+                    $find_tearch = AdminModel::find("and id=".$v['aid']);
+                }
+                $find_tearch['name'] = isset($find_tearch['name'])?$find_tearch['name']:'';
+                $type_name = MerchantModel::enum_type_text($v['type']);
+                $status_name = MerchantModel::enum_status_text($v['status']);
+                $dayArr = TaskModel::get_day_count($v['id']);
+                $shopStrName = ShopModel::getStrName($v['id']);
+                ?>
+                <tr>
+                    <td>{$find_tearch['name']}</td>
+                    <td>{$v['mobile']}</td>
+                    <td>{$v['money']}</td>
+                    <td>{$v['loans_money']}</td>
+                    <td>{$v['freeze_money']}</td>
+                    <td>{$v['worktime']}</td>
+                    <td>{$v['worknum']}</td>
+                    <td><a href="/home.php/{$module}/task/lists.html?merchant_id={$v['id']}&abc=1">{$dayArr['count']}-{$dayArr['count_order']}</a></td>
+                    <td>{$shopStrName}</td>
+                    <td>{$status_name}</td>
+                    <td><?php echo date('Y-m-d',$v['intime']);?></td>
+                    <td>
+                        <a href="/home.php/{$module}/{$control}/edit.html?id={$v['id']}"><span class="label label-primary">编辑</span></a>
+                        <a href="/home.php/{$module}/merchantwithout/lists.html?merchant_id={$v['id']}&abc=1"><span class="label label-success">服务费</span></a>
+                        <a href="/home.php/{$module}/merchantmlogs/lists.html?merchant_id={$v['id']}&abc=1"><span class="label label-danger">财务</span></a>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+
+<script type="text/javascript">
+    
+</script>
+
+</body>
+</html>
+

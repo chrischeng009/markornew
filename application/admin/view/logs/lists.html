@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}&nbsp;&nbsp;<button type="button" class="btn btn-success" onclick="javascript:history.back(-1)">返回</button></h1>
+    </div>
+<div class="container-padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td width="60">Id</td>
+                <td>名称</td>
+                <td>内容</td>
+                <td>操作者</td>
+                <td>添加时间</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach($lists as $v){
+                $find_admin = AdminModel::find("and id=".$v['admin_id']);
+                ?>
+                <tr>
+                    <td>{$v['id']}</td>
+                    <td>{$v['name']}</td>
+                    <td>{$v['content']}</td>
+                    <td>{$find_admin['name']}</td>
+                    <td><?php echo date('Y-m-d H:i:s',$v['intime']);?></td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+<script type="text/javascript">
+    
+</script>
+
+</body>
+</html>
+

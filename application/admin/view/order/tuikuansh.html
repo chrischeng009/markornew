@@ -1,0 +1,79 @@
+<button class="btn btn-default" data-toggle="modal" id="editBtn8" data-target="#editModal8" style="display:none;">退款审核</button>
+<div class="modal fade" id="editModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" style="width:800px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">退款审核编辑</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <form action="" class="form-horizontal" method="post" id="dx_form8" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label form-label">退款是否符合要求</label>
+                            <div class="col-sm-8">
+                                <?php foreach($enum_tuikuansh_arr as $k=>$v){?>
+                                <input type="radio" name="tuikuansh" value="{$k}" <?php if($k==1){ echo 'checked';}?> style="margin:0px;height:15px;" >{$v}
+                                <?php }?>
+                            </div>
+                        </div>
+                            <div class="form-group" id="tuikuanshremark" style="display: none;">
+                                <label class="col-sm-2 control-label form-label">审核备注</label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control" name="tuikuanshremark"></textarea>
+                                </div>
+                            </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <input type="hidden" class="form-control" name="id" value="">
+                                <button type="button" class="btn btn-primary" id="sub8">提交</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    $("[name='tuikuansh']").on('click', function () {
+        var tuikuanshremark=$("[name=tuikuansh]:checked").val();
+        if(tuikuanshremark==2){
+            $("#tuikuanshremark").show();
+        }else{
+            $("#tuikuanshremark").hide();
+        }
+    });
+    function tuikuansh(id){
+        $("#editBtn8").click();
+        $("[name=id]").val(id);
+    }
+    $("#sub8").on('click',function(){
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_tuikuansh.html',
+            dataType:'text',
+            data:$("#dx_form8").serialize(),
+            success:function(data)
+            {
+                if(data=='success'){
+                    window.location.reload();
+                }else{
+                    $("#tipBtn").click();
+                    $("#tipText").html(data);
+                }
+            }
+        });
+    });
+</script>

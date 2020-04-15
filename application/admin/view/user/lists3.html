@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists3.html" method="get" autocomplete="off">
+                    <div class="col-lg-1">
+                        <h5>Id</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="id" value="{$_GET['id']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>手机号</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="mobile" value="{$_GET['mobile']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>旺旺号</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="wangwang" value="{$_GET['wangwang']}">
+                        </div>
+                    </div>
+                        <?php if($_SESSION['role_id']==1){?>
+                    <div class="col-lg-1">
+                        <h5>所属客服</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="aid">
+                                <option value="">请选择</option>
+                                <?php foreach($server_list as $v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['aid']){ echo 'selected';}?>>{$v['name']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <?php }?>
+                        <div class="col-lg-1">
+                            <h5>审核状态</h5>
+                            <div class="form-group">
+                                <select class="form-control" name="status2">
+                                    <option value="">请选择 </option>
+                                    <?php foreach($enum_status2_arr as $k=>$v){?>
+                                    <?php if($k== 2 || $k==4){?>
+                                    <option value="{$k}" <?php if($k==$_GET['status2']){ echo 'selected';}?>>{$v}</option>
+                                    <?php }}?>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="col-lg-1">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>Id</td>
+                <td>所属客服</td>
+                <td>手机号</td>
+                <td>姓名</td>
+                <td>身份证号</td>
+                <td>年龄</td>
+                <td>身份证照</td>
+                <td>买家等级</td>
+                <td>状态</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\UserModel;
+                foreach($lists as $v){
+                $find_server = AdminModel::find("and id=".$v['aid']);
+                $find_server['name'] = isset($find_server['name'])?$find_server['name']:'';
+                $sex_name = UserModel::enum_sex_text($v['sex']);
+                $status2_name = UserModel::enum_status2_text($v['status2']);
+                $tbgrade_name = UserModel::enum_tbgrade_text($v['tbgrade']);
+                ?>
+                <tr>
+                    <td>{$v['id']}</td>
+                    <td>{$find_server['name']}</td>
+                    <td>{$v['mobile']}</td>
+                    <td>{$v['realname']}</td>
+                    <td>{$v['bodycard']}</td>
+                    <td>{$v['age']}</td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['bodycardimg']);?>');"><img src="{$v['bodycardimg']}" style="height:30px;"/></a></td>
+                    <td>{$tbgrade_name}</td>
+                    <td>{$status2_name}</td>
+                    <td>
+                        <a href="javascript:;" onclick="javascript:edit_status2({$v['id']},3);"><span class="label label-success">同意</span></a>
+                        <a href="javascript:;" onclick="javascript:editstatus2({$v['id']},4);"><span class="label label-danger">拒绝</span></a>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+
+<script type="text/javascript">
+    function edit_status2(id,status){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_edit_status2.html',
+                dataType:'text',
+                data:"id="+id+"&status2="+status,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+
+
+
+<button class="btn btn-default" data-toggle="modal" id="editBtn" data-target="#editModal" style="display:none;">编辑</button>
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" style="width:800px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">编辑</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <form action="" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">说明</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" name="status2remark"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <input type="hidden" class="form-control" name="user_id" value="">
+                                <button type="button" class="btn btn-primary" id="sub">提交</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    function editstatus2(id){
+        $("#editBtn").click();
+        $("[name=user_id]").val(id);
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_find.html',
+            dataType:'text',
+            data:"id="+id,
+            success:function(data)
+            {
+                var res = JSON.parse(data);
+                $("[name=status2remark]").val(res.status2remark);
+            }
+        });
+    }
+    $("#sub").on('click',function(){
+        var status2 = 4;
+        var id = $("[name=user_id]").val();
+        var status2remark = $("[name=status2remark]").val();
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_edit_status2.html',
+            dataType:'text',
+            data:"id="+id+"&status2="+status2+"&status2remark="+status2remark,
+            success:function(data)
+            {
+                if(data=='success'){
+                    window.location.reload();
+                }else{
+                    $("#tipBtn").click();
+                    $("#tipText").html(data);
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+

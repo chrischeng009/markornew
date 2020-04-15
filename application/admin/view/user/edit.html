@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+    <div class="container-padding">
+        <div class="row">
+            <form action="/home.php/{$module}/{$control}/act_edit.html" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">手机号</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="mobile" value="{$find.mobile}">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">密码</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="password" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">所属客服</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="aid">
+                                    <option value="">请选择</option>
+                                    <?php foreach($teacher_list as $v){?>
+                                    <option value="{$v['id']}" <?php if($v['id']==$find['aid']){ echo 'selected';}?>>{$v['name']}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                            <label class="col-sm-2 control-label form-label">冻结状态</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="isfreeze">
+                                    <option value="">请选择</option>
+                                    <?php foreach($enum_isfreeze_arr as $k=>$v){?>
+                                    <option value="{$k}" <?php if($k==$find['isfreeze']){ echo 'selected';}?>>{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">帐号审核</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="status">
+                                    <option value="">请选择</option>
+                                    <?php foreach($enum_status_arr as $k=>$v){?>
+                                    <option value="{$k}" <?php if($k==$find['status']){ echo 'selected';}?>>{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                            <label class="col-sm-2 control-label form-label">实名认证</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="status2">
+                                    <option value="">请选择</option>
+                                    <?php foreach($enum_status2_arr as $k=>$v){?>
+                                    <option value="{$k}" <?php if($k==$find['status2']){ echo 'selected';}?>>{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">买家等级</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="tbgrade">
+                                    <option value="">请选择</option>
+                                    <?php foreach($enum_tbgrade_arr as $k=>$v){?>
+                                    <option value="{$k}" <?php if($k==$find['tbgrade']){ echo 'selected';}?>>{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">Id</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.id}</div>
+                            <label class="col-sm-2 control-label form-label">注册时间</label>
+                            <div class="col-sm-3" style="padding-top:7px;"><?php echo date("Y-m-d H:i:s",$find['intime']);?></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">登录IP</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.ip}</div>
+                            <label class="col-sm-2 control-label form-label">登录时间</label>
+                            <div class="col-sm-3" style="padding-top:7px;"><?php echo date("Y-m-d H:i:s",$find['logintime']);?></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">真实姓名</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.realname}</div>
+                            <label class="col-sm-2 control-label form-label">旺旺号</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.wangwang}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">qq号</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.qq}</div>
+                            <label class="col-sm-2 control-label form-label">微信号</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.weixin}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">淘气值</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.taoqi}</div>
+                            <label class="col-sm-2 control-label form-label">年龄(岁)</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.age}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">出生年份(年)</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find['birthyear']}</div>
+                            <label class="col-sm-2 control-label form-label">性别</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$sex_name}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">绑定银行</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.bankname}&nbsp;{$find.bankcode}</div>
+                            <label class="col-sm-2 control-label form-label">支付宝号</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.zfb}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">身份证号</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.bodycard}</div>
+                            <label class="col-sm-2 control-label form-label">地址</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.address}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">购物偏好</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$preference_name}</div>
+                            <label class="col-sm-2 control-label form-label">身高(cm)</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.height}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">体重(kg)</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.weight}</div>
+                            <label class="col-sm-2 control-label form-label">鞋码(码)</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$find.size}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">婚姻状况</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$marry_name}</div>
+                            <label class="col-sm-2 control-label form-label">月收入</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$income_name}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">教育程度</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$degree_name}</div>
+                            <label class="col-sm-2 control-label form-label">所属人群</label>
+                            <div class="col-sm-3" style="padding-top:7px;">{$job_name}</div>
+                        </div>
+                        <div class="form-group">
+                                <label class="col-sm-2 control-label form-label">淘气值截图</label>
+                                <div class="col-sm-3">
+                                    <input type="file" id="dx_file" name="dx_file" onchange="sc('taoqiimg');" style="display:none"/>
+                                    <img src="{$find.taoqiimg}" id="imgView" style="height:100px;" onclick="javascript:imger('<?php echo urlencode($find['taoqiimg']);?>');">
+                                    <input type="hidden" name="taoqiimg" value="{$find.taoqiimg}"/>
+                                    <button type="button" class="btn btn-danger" onclick="dx_file.click()">点击上传</button>
+                                </div>
+                                <label class="col-sm-2 control-label form-label">支付宝绑定</label>
+                            <div class="col-sm-3">
+                                <input type="file" id="dx_file2" name="dx_file2" onchange="sc2('zfbimg');" style="display:none"/>
+                                <img src="{$find['zfbimg']}" id="imgView2" style="height:100px;" onclick="javascript:imger('<?php echo urlencode($find['taoqiimg']);?>');">
+                                <input type="hidden" name="zfbimg" value="{$find['zfbimg']}"/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file2.click()">点击上传</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">微信收款码</label>
+                            <div class="col-sm-3">
+                                <input type="file" id="dx_file3" name="dx_file3" onchange="sc3('weixinmoneycode');" style="display:none"/>
+                                <img src="{$find.weixinmoneycode}" id="imgView3" style="height:100px;" onclick="javascript:imger('<?php echo urlencode($find['weixinmoneycode']);?>');">
+                                <input type="hidden" name="weixinmoneycode" value="{$find.weixinmoneycode}"/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file3.click()">点击上传</button>
+                            </div>
+                            <label class="col-sm-2 control-label form-label">身份证</label>
+                            <div class="col-sm-3">
+                                <input type="file" id="dx_file4" name="dx_file4" onchange="sc4('bodycardimg');" style="display:none"/>
+                                <img src="{$find.bodycardimg}" id="imgView4" style="height:100px;" onclick="javascript:imger('<?php echo urlencode($find['bodycardimg']);?>');">
+                                <input type="hidden" name="bodycardimg" value="{$find.bodycardimg}"/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file4.click()">点击上传</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">微信号截图</label>
+                            <div class="col-sm-3">
+                                <input type="file" id="dx_file5" name="dx_file5" onchange="sc5('weixinimg');" style="display:none"/>
+                                <img src="{$find.weixinimg}" id="imgView5" style="height:100px;" onclick="javascript:imger('<?php echo urlencode($find['weixinimg']);?>');">
+                                <input type="hidden" name="weixinimg" value="{$find.weixinimg}"/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file5.click()">点击上传</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">帐号审核说明</label>
+                            <div class="col-sm-3">
+                                <textarea class="form-control" name="statusremark">{$find.statusremark}</textarea>
+                            </div>
+                            <label class="col-sm-2 control-label form-label">实名认证说明</label>
+                            <div class="col-sm-3">
+                                <textarea class="form-control" name="status2remark">{$find.status2remark}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <input type="hidden" class="form-control" name="id" value="{$find.id}">
+                                <button type="button" class="btn btn-primary" id="sub">提交</button>
+                                <button type="button" class="btn btn-default" onclick="javascript:history.back(-1)">返回</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{include file="common/footer"/}
+<script type="text/javascript">
+    $("#sub").on('click',function(){
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_edit.html',
+            dataType:'text',
+            data:$("#dx_form").serialize(),
+            success:function(data)
+            {
+                if(data=='success'){
+                    $("#tipBtn").click();
+                    $("#tipText").html("操作成功");
+                    setTimeout(function(){
+                        window.history.back(-1);
+                    },2000);
+                }else{
+                    $("#tipBtn").click();
+                    $("#tipText").html(data);
+                }
+            }
+        });
+    });
+    function sc4(name){
+        var animateimg = $("#dx_file4").val(); //获取上传的图片名 带//
+        var imgarr=animateimg.split('\\'); //分割
+        var myimg=imgarr[imgarr.length-1]; //去掉 // 获取图片名
+        var houzui = myimg.lastIndexOf('.'); //获取 . 出现的位置
+        var ext = myimg.substring(houzui, myimg.length).toUpperCase();  //切割 . 获取文件后缀
+        var file = $('#dx_file4').get(0).files[0]; //获取上传的文件
+        var fileSize = file.size;           //获取上传的文件大小
+        var maxSize = 5348576;              //最大5MB 1MB=1048576
+        if(ext !='.PNG' && ext !='.GIF' && ext !='.JPG' && ext !='.JPEG' && ext !='.BMP'){
+            $("#tipBtn").click();$("#tipText").html("文件类型错误,请上传图片类型");
+            return false;
+        }
+        if(parseInt(fileSize) >= parseInt(maxSize)){
+            $("#tipBtn").click();$("#tipText").html("上传的文件不能超过5MB");
+            return false;
+        }
+        var data = new FormData($('#dx_form')[0]);
+        $.ajax({
+            url: "/home.php/{$module}/config/uploadify4.html",
+            type: 'POST',
+            data: data,
+            dataType: 'text',
+            processData: false,
+            contentType: false,
+            success:function(res)
+            {
+                var jsonobj=JSON.parse(res);
+                if(jsonobj.code=='success'){
+                    var imgUrl = jsonobj.msg;
+                    $('#imgView4').attr('src',imgUrl);
+                    $('[name="'+name+'"]').val(imgUrl);
+                }else{
+                    $("#tipBtn").click();$("#tipText").html("上传失败");
+                }
+            }
+        });
+    }
+    function sc5(name){
+        var animateimg = $("#dx_file5").val(); //获取上传的图片名 带//
+        var imgarr=animateimg.split('\\'); //分割
+        var myimg=imgarr[imgarr.length-1]; //去掉 // 获取图片名
+        var houzui = myimg.lastIndexOf('.'); //获取 . 出现的位置
+        var ext = myimg.substring(houzui, myimg.length).toUpperCase();  //切割 . 获取文件后缀
+        var file = $('#dx_file5').get(0).files[0]; //获取上传的文件
+        var fileSize = file.size;           //获取上传的文件大小
+        var maxSize = 5348576;              //最大5MB 1MB=1048576
+        if(ext !='.PNG' && ext !='.GIF' && ext !='.JPG' && ext !='.JPEG' && ext !='.BMP'){
+            $("#tipBtn").click();$("#tipText").html("文件类型错误,请上传图片类型");
+            return false;
+        }
+        if(parseInt(fileSize) >= parseInt(maxSize)){
+            $("#tipBtn").click();$("#tipText").html("上传的文件不能超过5MB");
+            return false;
+        }
+        var data = new FormData($('#dx_form')[0]);
+        $.ajax({
+            url: "/home.php/{$module}/config/uploadify5.html",
+            type: 'POST',
+            data: data,
+            dataType: 'text',
+            processData: false,
+            contentType: false,
+            success:function(res)
+            {
+                var jsonobj=JSON.parse(res);
+                if(jsonobj.code=='success'){
+                    var imgUrl = jsonobj.msg;
+                    $('#imgView5').attr('src',imgUrl);
+                    $('[name="'+name+'"]').val(imgUrl);
+                }else{
+                    $("#tipBtn").click();$("#tipText").html("上传失败");
+                }
+            }
+        });
+    }
+ </script>
+
+</body>
+</html>

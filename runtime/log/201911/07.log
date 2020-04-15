@@ -1,0 +1,1818 @@
+---------------------------------------------------------------
+[ 2019-11-07T20:10:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.012171s][吞吐率：82.16req/s] [内存消耗：1,389.43kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T20:10:12+08:00 ] 59.174.107.5 GET /home.php/admin/admin/edit_password.html
+[ info ] 122.152.203.216:10000/home.php/admin/admin/edit_password.html [运行时间：0.030881s][吞吐率：32.38req/s] [内存消耗：2,883.18kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'edit_password',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'rmbUser=false; PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Admin->edit_password[ /www/wwwroot/nouser/application/admin/controller/Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/admin/edit_password.html [ array (
+  0 => 'find',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000276s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000759s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000623s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000513s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit_password' ) LIMIT 1 [ RunTime:0.000180s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000672s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit_password' ) LIMIT 1 [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit_password' ) LIMIT 1 [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit_password' ) LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000194s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit_password' ) LIMIT 1 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit_password' ) LIMIT 1 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit_password' ) LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000131s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:10:20+08:00 ] 59.174.107.5 GET /home.php/admin/shop/lists.html
+[ info ] 122.152.203.216:10000/home.php/admin/shop/lists.html [运行时间：0.034725s][吞吐率：28.80req/s] [内存消耗：3,053.54kb] [文件加载：59]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'shop',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/admin/edit_password.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Shop->lists[ /www/wwwroot/nouser/application/admin/controller/Shop.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/shop/lists.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+  2 => 'merchant_list',
+  3 => 'enum_status_arr',
+  4 => 'teacher_list',
+  5 => 'category_list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000286s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shop` [ RunTime:0.001012s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `shop` `a` INNER JOIN `merchant` `b` ON `a`.`merchant_id`=`b`.`id` INNER JOIN `admin` `c` ON `b`.`aid`=`c`.`id` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.`mobile`,`b`.`aid`,c.name as admin_name FROM `shop` `a` INNER JOIN `merchant` `b` ON `a`.`merchant_id`=`b`.`id` INNER JOIN `admin` `c` ON `b`.`aid`=`c`.`id` WHERE  (  1=1  ) ORDER BY id desc LIMIT 0,10 [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `merchant` [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SELECT * FROM `merchant` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000572s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=5 ) ORDER BY id desc [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shop_category` [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SELECT * FROM `shop_category` WHERE  (  1=1 and pid=0 ) ORDER BY id desc [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shop' and action='lists' ) LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000685s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000158s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shop' and action='lists' ) LIMIT 1 [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shop' and action='lists' ) LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shop' and action='lists' ) LIMIT 1 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shop' and action='lists' ) LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shop' and action='lists' ) LIMIT 1 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shop' and action='lists' ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000150s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:10:28+08:00 ] 59.174.107.5 GET /home.php/admin/merchant/lists.html
+[ info ] 122.152.203.216:10000/home.php/admin/merchant/lists.html [运行时间：0.032254s][吞吐率：31.00req/s] [内存消耗：3,015.19kb] [文件加载：57]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'merchant',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/shop/lists.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Merchant->lists[ /www/wwwroot/nouser/application/admin/controller/Merchant.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/merchant/lists.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+  2 => 'totalmoney',
+  3 => 'enum_type_arr',
+  4 => 'enum_status_arr',
+  5 => 'enum_isfreeze_arr',
+  6 => 'teacher_list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000353s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `merchant` [ RunTime:0.000805s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `merchant` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000197s ]
+[ sql ] [ SQL ] SELECT * FROM `merchant` WHERE  (  1=1  ) ORDER BY id desc LIMIT 0,10 [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `merchant` WHERE  (  status=2 ) ORDER BY id desc LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=5 ) ORDER BY id desc [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000597s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000185s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000485s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='merchant' and action='lists' ) LIMIT 1 [ RunTime:0.000158s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000126s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000122s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='merchant' and action='lists' ) LIMIT 1 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='merchant' and action='lists' ) LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='merchant' and action='lists' ) LIMIT 1 [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='merchant' and action='lists' ) LIMIT 1 [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='merchant' and action='lists' ) LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='merchant' and action='lists' ) LIMIT 1 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000170s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:10:30+08:00 ] 59.174.107.5 GET /home.php/admin/shopcategory/lists.html
+[ info ] 122.152.203.216:10000/home.php/admin/shopcategory/lists.html [运行时间：0.032451s][吞吐率：30.82req/s] [内存消耗：3,001.17kb] [文件加载：58]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'shopcategory',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/merchant/lists.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Shopcategory->lists[ /www/wwwroot/nouser/application/admin/controller/Shopcategory.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/shopcategory/lists.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000362s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shop_category` [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `shop_category` WHERE  (  1=1 and pid=0 ) LIMIT 1 [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT * FROM `shop_category` WHERE  (  1=1 and pid=0 ) ORDER BY id desc LIMIT 0,10 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000622s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000192s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shopcategory' and action='lists' ) LIMIT 1 [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000577s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000666s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shopcategory' and action='lists' ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shopcategory' and action='lists' ) LIMIT 1 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000149s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shopcategory' and action='lists' ) LIMIT 1 [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shopcategory' and action='lists' ) LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shopcategory' and action='lists' ) LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='shopcategory' and action='lists' ) LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `category` [ RunTime:0.000623s ]
+[ sql ] [ SQL ] SELECT * FROM `category` WHERE  (  1=1 and pid=5 ) ORDER BY id desc [ RunTime:0.000145s ]
+[ sql ] [ SQL ] SELECT * FROM `category` WHERE  (  1=1 and pid=4 ) ORDER BY id desc [ RunTime:0.000126s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:10:34+08:00 ] 59.174.107.5 GET /home.php/admin/order/bindlist.html
+[ info ] 122.152.203.216:10000/home.php/admin/order/bindlist.html [运行时间：0.038344s][吞吐率：26.08req/s] [内存消耗：3,569.92kb] [文件加载：61]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'bindlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/shopcategory/lists.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Order->bindlist[ /www/wwwroot/nouser/application/admin/controller/Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] ./application/admin/view/order/bindlist.html [ array (
+  0 => 'count1',
+  1 => 'count2',
+  2 => 'count3',
+  3 => 'count4',
+  4 => 'tkcount',
+  5 => 'page_show',
+  6 => 'lists',
+  7 => 'server_list',
+  8 => 'kefu',
+  9 => 'hourordernum',
+  10 => 'paiming',
+  11 => 'zongshu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000265s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000882s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` `a` INNER JOIN `task` `b` ON `b`.`id`=`a`.`task_id` WHERE  (  1=1  and a.intime>=1573056000 and a.intime<=1573142399 and b.status =3 and a.worktype=1 and a.aid=0 ) LIMIT 1 [ RunTime:0.000208s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (  1=1  and worktime >= '1573056000' and worktime <= '1573228799' and aid>=0 and type=1 and status1 in(2,3) ) LIMIT 1 [ RunTime:0.000162s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (  1=1  and worktime >= '1573056000' and worktime <= '1573228799' and aid>=0 and type=1 and status1 in(4) ) LIMIT 1 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (  1=1  and worktime >= '1573056000' and worktime <= '1573228799' and aid>=0 and type in(3) ) LIMIT 1 [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (  1=1  and finishtime >= '1573056000' and finishtime <= '1573228799' and aid>=0 and type=2 and status1=4 ) LIMIT 1 [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (  1=1  and worktime >= '1573056000' and worktime <= '1573228799' and aid>=0 and type=1 and status1 in(1,2,3,6) ) LIMIT 1 [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE  (  1=1  and worktime >= '1573056000' and worktime <= '1573228799' and aid>=0 and type=1 and status1 in(1,2,3,6) ) ORDER BY status1 desc,aidtime asc LIMIT 0,10 [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=2 ) ORDER BY id desc [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `a`.*,( SELECT count(b.id) FROM `order` `b` WHERE  (  b.aid=a.id  and b.finishtime>=1573056000 and b.finishtime<=1573142399 and status1=4 and type=1 ) ) as ordernum FROM `admin` `a` WHERE  (  1=1 and role_id=2 ) ORDER BY ordernum desc LIMIT 0,3 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000158s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='bindlist' ) LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000162s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000125s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000127s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000118s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='bindlist' ) LIMIT 1 [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='bindlist' ) LIMIT 1 [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='bindlist' ) LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='bindlist' ) LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='bindlist' ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='bindlist' ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000144s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:10:42+08:00 ] 59.174.107.5 GET /home.php/admin/task/lists.html
+[ info ] 122.152.203.216:10000/home.php/admin/task/lists.html [运行时间：0.035532s][吞吐率：28.14req/s] [内存消耗：3,194.04kb] [文件加载：59]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'task',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/order/bindlist.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Task->lists[ /www/wwwroot/nouser/application/admin/controller/Task.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/task/lists.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+  2 => 'merchant_list',
+  3 => 'shop_list',
+  4 => 'enum_status_arr',
+  5 => 'teacher_list',
+  6 => 'counttask',
+  7 => 'countorder',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000255s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `task` [ RunTime:0.000773s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `task` WHERE  (  1=1  and intime >= '1573056000' and intime <= '1573142399' ) LIMIT 1 [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SELECT * FROM `task` WHERE  (  1=1  and intime >= '1573056000' and intime <= '1573142399' ) ORDER BY status<>2,intime desc LIMIT 0,10 [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `merchant` [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `merchant` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shop` [ RunTime:0.000491s ]
+[ sql ] [ SQL ] SELECT * FROM `shop` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000576s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=5 ) ORDER BY id desc [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `task` WHERE  (  1=1  and intime >= '1573056000' and intime <= '1573142399' ) LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT `id` FROM `task` WHERE  (  1=1  and intime >= '1573056000' and intime <= '1573142399' ) [ RunTime:0.000156s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000667s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='task' and action='lists' ) LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000651s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000123s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='task' and action='lists' ) LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='task' and action='lists' ) LIMIT 1 [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='task' and action='lists' ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='task' and action='lists' ) LIMIT 1 [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='task' and action='lists' ) LIMIT 1 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000127s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='task' and action='lists' ) LIMIT 1 [ RunTime:0.000179s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000129s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:13+08:00 ] 59.174.107.5 GET /home.php/admin/order/offlists2.html?status2=1
+[ info ] 122.152.203.216:10000/home.php/admin/order/offlists2.html?status2=1 [运行时间：0.038000s][吞吐率：26.32req/s] [内存消耗：3,529.03kb] [文件加载：59]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'offlists2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/task/lists.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+  'status2' => '1',
+)
+[ info ] [ RUN ] app\admin\controller\Order->offlists2[ /www/wwwroot/nouser/application/admin/controller/Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/order/offlists2.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+  2 => 'status2',
+  3 => 'merchant_list',
+  4 => 'shop_list',
+  5 => 'enum_status2_arr',
+  6 => 'server_list',
+  7 => 'teacher_list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000302s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000861s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (  1=1 and type=2 and exceptioninfo='申请下架' and status2 = '1' ) LIMIT 1 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE  (  1=1 and type=2 and exceptioninfo='申请下架' and status2 = '1' ) ORDER BY id desc LIMIT 0,10 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `merchant` [ RunTime:0.000663s ]
+[ sql ] [ SQL ] SELECT * FROM `merchant` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shop` [ RunTime:0.000531s ]
+[ sql ] [ SQL ] SELECT * FROM `shop` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000546s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=2 ) ORDER BY id desc [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=5 ) ORDER BY id desc [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000622s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000183s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000513s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='offlists2' ) LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000157s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000124s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='offlists2' ) LIMIT 1 [ RunTime:0.000185s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='offlists2' ) LIMIT 1 [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='offlists2' ) LIMIT 1 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='offlists2' ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='offlists2' ) LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='offlists2' ) LIMIT 1 [ RunTime:0.000147s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000134s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:15+08:00 ] 59.174.107.5 GET /home.php/admin/order/lists3.html?status3=1
+[ info ] 122.152.203.216:10000/home.php/admin/order/lists3.html?status3=1 [运行时间：0.040048s][吞吐率：24.97req/s] [内存消耗：3,530.70kb] [文件加载：59]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'lists3',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/order/offlists2.html?status2=1',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+  'status3' => '1',
+)
+[ info ] [ RUN ] app\admin\controller\Order->lists3[ /www/wwwroot/nouser/application/admin/controller/Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/order/lists3.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+  2 => 'merchant_list',
+  3 => 'shop_list',
+  4 => 'enum_status3_arr',
+  5 => 'server_list',
+  6 => 'teacher_list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000282s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000868s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (  1=1  and status3 = '1' ) LIMIT 1 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE  (  1=1  and status3 = '1' ) ORDER BY id desc LIMIT 0,10 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `merchant` [ RunTime:0.000567s ]
+[ sql ] [ SQL ] SELECT * FROM `merchant` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shop` [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SELECT * FROM `shop` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000571s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=2 ) ORDER BY id desc [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=5 ) ORDER BY id desc [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000564s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='lists3' ) LIMIT 1 [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000125s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000120s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='lists3' ) LIMIT 1 [ RunTime:0.000147s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='lists3' ) LIMIT 1 [ RunTime:0.000127s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='lists3' ) LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000185s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='lists3' ) LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000126s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='lists3' ) LIMIT 1 [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000127s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='lists3' ) LIMIT 1 [ RunTime:0.000495s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000147s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:17+08:00 ] 59.174.107.5 GET /home.php/admin/order/comment.html
+[ info ] 122.152.203.216:10000/home.php/admin/order/comment.html [运行时间：0.037959s][吞吐率：26.34req/s] [内存消耗：3,531.22kb] [文件加载：59]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'comment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/order/lists3.html?status3=1',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Order->comment[ /www/wwwroot/nouser/application/admin/controller/Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/order/comment.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+  2 => 'merchant_list',
+  3 => 'shop_list',
+  4 => 'enum_status3_arr',
+  5 => 'server_list',
+  6 => 'teacher_list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000279s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000863s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (  1=1  and iscomment =2 ) LIMIT 1 [ RunTime:0.000196s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE  (  1=1  and iscomment =2 ) ORDER BY iscomment ASC,comtime DESC,intime desc LIMIT 0,10 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `merchant` [ RunTime:0.000572s ]
+[ sql ] [ SQL ] SELECT * FROM `merchant` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shop` [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SELECT * FROM `shop` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000589s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=2 ) ORDER BY id desc [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=5 ) ORDER BY id desc [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000567s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='comment' ) LIMIT 1 [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000124s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000124s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='comment' ) LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='comment' ) LIMIT 1 [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='comment' ) LIMIT 1 [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='comment' ) LIMIT 1 [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='comment' ) LIMIT 1 [ RunTime:0.000147s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='comment' ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000175s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:19+08:00 ] 59.174.107.5 GET /home.php/admin/order/zuzhang.html
+[ info ] 122.152.203.216:10000/home.php/admin/order/zuzhang.html [运行时间：0.039853s][吞吐率：25.09req/s] [内存消耗：3,537.59kb] [文件加载：59]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'zuzhang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/order/comment.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Order->zuzhang[ /www/wwwroot/nouser/application/admin/controller/Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/order/zuzhang.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+  2 => 'total',
+  3 => 'todypayprice',
+  4 => 'todywithout_price',
+  5 => 'todywithin_price',
+  6 => 'todyrefund',
+  7 => 'todyrefundwithout_price',
+  8 => 'todyrefundwithin_price',
+  9 => 'merchant_list',
+  10 => 'shop_list',
+  11 => 'enum_type_arr',
+  12 => 'server_list',
+  13 => 'teacher_list',
+  14 => 'limit',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000251s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000813s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (  1=1  and status1=4 and finishtime >= '1573056000' and finishtime <= '1573142399' ) LIMIT 1 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT * FROM `order` WHERE  (  1=1  and status1=4 and finishtime >= '1573056000' and finishtime <= '1573142399' ) ORDER BY finishtime desc,id desc LIMIT 0,10 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT SUM(payprice) AS tp_sum FROM `order` WHERE  (  1=1  and status1=4 and finishtime >= '1573056000' and finishtime <= '1573142399'  ) LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT SUM(without_price) AS tp_sum FROM `order` WHERE  (  1=1  and status1=4 and finishtime >= '1573056000' and finishtime <= '1573142399'  ) LIMIT 1 [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SELECT SUM(within_price) AS tp_sum FROM `order` WHERE  (  1=1  and status1=4 and finishtime >= '1573056000' and finishtime <= '1573142399'  ) LIMIT 1 [ RunTime:0.000127s ]
+[ sql ] [ SQL ] SELECT SUM(payprice) AS tp_sum FROM `order` WHERE  (  1=1  and status1=4 and finishtime >= '1573056000' and finishtime <= '1573142399'  and type=2 and status2=3 ) LIMIT 1 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT SUM(without_price) AS tp_sum FROM `order` WHERE  (  1=1  and status1=4 and finishtime >= '1573056000' and finishtime <= '1573142399'  and type=2 and status2=3 ) LIMIT 1 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SELECT SUM(within_price) AS tp_sum FROM `order` WHERE  (  1=1  and status1=4 and finishtime >= '1573056000' and finishtime <= '1573142399'  and type=2 and status2=3 ) LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `merchant` [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `merchant` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `shop` [ RunTime:0.000585s ]
+[ sql ] [ SQL ] SELECT * FROM `shop` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000644s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=2 ) ORDER BY id desc [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  isdel=1 and role_id=5 ) ORDER BY id desc [ RunTime:0.000179s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000647s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000518s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='zuzhang' ) LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000124s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000125s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='zuzhang' ) LIMIT 1 [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='zuzhang' ) LIMIT 1 [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='zuzhang' ) LIMIT 1 [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='zuzhang' ) LIMIT 1 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='zuzhang' ) LIMIT 1 [ RunTime:0.000155s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='order' and action='zuzhang' ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000129s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:30+08:00 ] 59.174.107.5 GET /home.php/admin/config/edit.html
+[ info ] 122.152.203.216:10000/home.php/admin/config/edit.html [运行时间：0.031440s][吞吐率：31.81req/s] [内存消耗：2,835.12kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'config',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/order/zuzhang.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Config->edit[ /www/wwwroot/nouser/application/admin/controller/Config.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/config/edit.html [ array (
+  0 => 'find',
+  1 => 'enum_synchro_arr',
+  2 => 'enum_acolor_arr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000350s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000865s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000595s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.001028s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000707s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000197s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000147s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000156s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000144s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:31+08:00 ] 59.174.107.5 GET /home.php/admin/role/lists.html
+[ info ] 122.152.203.216:10000/home.php/admin/role/lists.html [运行时间：0.032025s][吞吐率：31.23req/s] [内存消耗：2,983.96kb] [文件加载：57]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'role',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/config/edit.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Role->lists[ /www/wwwroot/nouser/application/admin/controller/Role.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/role/lists.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000273s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.000648s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `role` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000162s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  (  1=1  ) ORDER BY id desc LIMIT 0,10 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000576s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000613s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000127s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000123s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000127s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000160s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:38+08:00 ] 59.174.107.5 GET /home.php/admin/role/edit.html?id=5
+[ info ] 122.152.203.216:10000/home.php/admin/role/edit.html?id=5 [运行时间：0.033822s][吞吐率：29.57req/s] [内存消耗：2,973.30kb] [文件加载：56]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'role',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/role/lists.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ RUN ] app\admin\controller\Role->edit[ /www/wwwroot/nouser/application/admin/controller/Role.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/role/edit.html [ array (
+  0 => 'find',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000293s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.000761s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  (  1=1 and id=5 ) LIMIT 1 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000743s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000187s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000516s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='edit' ) LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='edit' ) LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='edit' ) LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='edit' ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='edit' ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='edit' ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000188s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='edit' ) LIMIT 1 [ RunTime:0.000157s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000145s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:41+08:00 ] 59.174.107.5 GET /home.php/admin/role/lists.html
+[ info ] 122.152.203.216:10000/home.php/admin/role/lists.html [运行时间：0.031861s][吞吐率：31.39req/s] [内存消耗：2,983.96kb] [文件加载：57]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'role',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/config/edit.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Role->lists[ /www/wwwroot/nouser/application/admin/controller/Role.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/role/lists.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000255s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.000654s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `role` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  (  1=1  ) ORDER BY id desc LIMIT 0,10 [ RunTime:0.000179s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000639s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000516s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000595s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000659s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000156s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000147s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='role' and action='lists' ) LIMIT 1 [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000133s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:46+08:00 ] 59.174.107.5 GET /home.php/admin/config/edit.html
+[ info ] 122.152.203.216:10000/home.php/admin/config/edit.html [运行时间：0.030443s][吞吐率：32.85req/s] [内存消耗：2,835.12kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'config',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/role/lists.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Config->edit[ /www/wwwroot/nouser/application/admin/controller/Config.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/config/edit.html [ array (
+  0 => 'find',
+  1 => 'enum_synchro_arr',
+  2 => 'enum_acolor_arr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000251s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000851s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000574s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000611s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000198s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000183s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000179s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000149s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000158s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='config' and action='edit' ) LIMIT 1 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000144s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:48+08:00 ] 59.174.107.5 GET /home.php/admin/admin/lists.html
+[ info ] 122.152.203.216:10000/home.php/admin/admin/lists.html [运行时间：0.036183s][吞吐率：27.64req/s] [内存消耗：3,114.58kb] [文件加载：58]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'rmbUser=false; PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/config/edit.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Admin->lists[ /www/wwwroot/nouser/application/admin/controller/Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/admin/lists.html [ array (
+  0 => 'page_show',
+  1 => 'lists',
+  2 => 'totalmoney',
+  3 => 'role_list',
+  4 => 'bank_list',
+  5 => 'enum_iswork_arr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000267s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000773s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  (  1=1 and isdel=1 ) LIMIT 1 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and isdel=1 ) ORDER BY id desc LIMIT 0,10 [ RunTime:0.000206s ]
+[ sql ] [ SQL ] SELECT SUM(money) AS tp_sum FROM `admin` ORDER BY id desc LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.000523s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bank` [ RunTime:0.000491s ]
+[ sql ] [ SQL ] SELECT * FROM `bank` WHERE  (  1=1  ) ORDER BY sort asc,id desc [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000198s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000469s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='lists' ) LIMIT 1 [ RunTime:0.000147s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000631s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000123s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='lists' ) LIMIT 1 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='lists' ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='lists' ) LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='lists' ) LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='lists' ) LIMIT 1 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='lists' ) LIMIT 1 [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  (  1=1 and id=5 ) LIMIT 1 [ RunTime:0.000122s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  (  1=1 and id=0 ) LIMIT 1 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  (  1=1 and id=1 ) LIMIT 1 [ RunTime:0.000120s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000145s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000129s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:11:51+08:00 ] 59.174.107.5 GET /home.php/admin/admin/edit.html?id=5
+[ info ] 122.152.203.216:10000/home.php/admin/admin/edit.html?id=5 [运行时间：0.033919s][吞吐率：29.48req/s] [内存消耗：2,953.63kb] [文件加载：55]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'rmbUser=false; PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/admin/lists.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ RUN ] app\admin\controller\Admin->edit[ /www/wwwroot/nouser/application/admin/controller/Admin.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] ./application/admin/view/admin/edit.html [ array (
+  0 => 'find',
+  1 => 'auths',
+  2 => 'role_list',
+  3 => 'bank_list',
+  4 => 'enum_iswork_arr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000321s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000771s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id=5 ) LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  (  1=1  ) ORDER BY id desc [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bank` [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `bank` WHERE  (  1=1  ) ORDER BY sort asc,id desc [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `menu` [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit' ) LIMIT 1 [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  (  1=1 and id='1' ) LIMIT 1 [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000185s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=2 and status2=1 and exceptioninfo ='申请下架'  ) LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type=3 and status3=1 and exceptioninfo !='申请下架'  ) LIMIT 1 [ RunTime:0.000124s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `order` WHERE  (   type in (1,3) and iscomment=2  ) LIMIT 1 [ RunTime:0.000122s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit' ) LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000162s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit' ) LIMIT 1 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit' ) LIMIT 1 [ RunTime:0.000177s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit' ) LIMIT 1 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit' ) LIMIT 1 [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and control='admin' and action='edit' ) LIMIT 1 [ RunTime:0.000127s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and isshow=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000157s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=0 ) ORDER BY sort asc,name asc [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=1 ) ORDER BY sort asc,name asc [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=2 ) ORDER BY sort asc,name asc [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=3 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=4 ) ORDER BY sort asc,name asc [ RunTime:0.000177s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=6 ) ORDER BY sort asc,name asc [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `menu` WHERE  (  1=1 and pid=5 ) ORDER BY sort asc,name asc [ RunTime:0.000141s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:12:21+08:00 ] 59.174.107.5 GET /home.php/admin/admin/logout.html
+[ info ] 122.152.203.216:10000/home.php/admin/admin/logout.html [运行时间：0.014911s][吞吐率：67.06req/s] [内存消耗：1,731.54kb] [文件加载：42]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'logout',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'rmbUser=false; PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/admin/edit.html?id=5',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Admin->logout[ /www/wwwroot/nouser/application/admin/controller/Admin.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T20:12:21+08:00 ] 59.174.107.5 GET /home.php/admin/admin/login.html
+[ info ] 122.152.203.216:10000/home.php/admin/admin/login.html [运行时间：0.022877s][吞吐率：43.71req/s] [内存消耗：2,797.86kb] [文件加载：51]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'rmbUser=false; PHPSESSID=e6udpef9kctve0eiieokpu7cmo',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/admin/edit.html?id=5',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Admin->login[ /www/wwwroot/nouser/application/admin/controller/Admin.php ]
+[ info ] [ VIEW ] ./application/admin/view/admin/login.html [ array (
+  0 => 'module',
+  1 => 'control',
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000240s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000726s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000218s ]
+---------------------------------------------------------------
+[ 2019-11-07T20:20:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.012662s][吞吐率：78.98req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T20:30:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.020278s][吞吐率：49.31req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T20:40:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.012509s][吞吐率：79.94req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T20:50:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.015561s][吞吐率：64.26req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T21:00:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.043981s][吞吐率：22.74req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T21:10:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.015929s][吞吐率：62.78req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T21:20:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.015613s][吞吐率：64.05req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T21:30:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.012000s][吞吐率：83.33req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T21:37:58+08:00 ] 219.134.182.119 GET /home.php/admin/config/edit.html
+[ info ] 122.152.203.216:10000/home.php/admin/config/edit.html [运行时间：0.015095s][吞吐率：66.25req/s] [内存消耗：1,702.69kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'config',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=q37rqdhp9t0gstt4ooktc9r8nu',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-Hans-CN,zh-Hans;q=0.5',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ VIEW ] /www/wwwroot/nouser/thinkphp/tpl/dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T21:38:04+08:00 ] 219.134.182.119 GET /home.php/admin/admin/login.html
+[ info ] 122.152.203.216:10000/home.php/admin/admin/login.html [运行时间：0.023597s][吞吐率：42.38req/s] [内存消耗：2,798.18kb] [文件加载：51]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'rmbUser=false; PHPSESSID=q37rqdhp9t0gstt4ooktc9r8nu',
+  'connection' => 'Keep-Alive',
+  'host' => '122.152.203.216:10000',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-Hans-CN,zh-Hans;q=0.5',
+  'referer' => 'http://122.152.203.216:10000/home.php/admin/config/edit.html',
+  'accept' => 'text/html, application/xhtml+xml, image/jxr, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Admin->login[ /www/wwwroot/nouser/application/admin/controller/Admin.php ]
+[ info ] [ VIEW ] ./application/admin/view/admin/login.html [ array (
+  0 => 'module',
+  1 => 'control',
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000317s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000859s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  (  1=1  ) LIMIT 1 [ RunTime:0.000219s ]
+---------------------------------------------------------------
+[ 2019-11-07T21:40:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.023044s][吞吐率：43.40req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T21:50:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.036260s][吞吐率：27.58req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T22:00:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.015141s][吞吐率：66.05req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T22:10:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.019359s][吞吐率：51.66req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T22:20:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.014192s][吞吐率：70.46req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T22:30:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.011992s][吞吐率：83.39req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T22:40:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.032397s][吞吐率：30.87req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T22:50:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.031332s][吞吐率：31.92req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T23:00:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.015417s][吞吐率：64.86req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T23:10:02+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.019686s][吞吐率：50.80req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T23:20:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.016079s][吞吐率：62.19req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T23:30:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.015229s][吞吐率：65.66req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T23:40:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.015942s][吞吐率：62.73req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T23:50:01+08:00 ] 122.152.203.216 GET /home.php/home.php/commang/index/act_jisuan
+[ info ] 122.152.203.216:10000/home.php/home.php/commang/index/act_jisuan [运行时间：0.024509s][吞吐率：40.80req/s] [内存消耗：1,389.11kb] [文件加载：37]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home.php',
+    1 => 'commang',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-11-07T23:50:01+08:00 ] 122.152.203.216 GET /home.php/commang/Index/index
+[ info ] 122.152.203.216:10000/home.php/commang/Index/index [运行时间：0.044082s][吞吐率：22.69req/s] [内存消耗：2,873.92kb] [文件加载：51]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'commang',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\commang\controller\Index->index[ /www/wwwroot/nouser/application/commang/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008606s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `order` [ RunTime:0.000926s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`status` FROM `order` `a` INNER JOIN `task` `c` ON `a`.`task_id`=`c`.`id` WHERE  (  a.type in (1,2) and a.status1 in(1,2,3) and a.status2 = 0 and c.status in(1,2,3) and c.worktype = 1 and a.worktime >= '1573056000' and a.worktime <= '1573142399' ) ORDER BY a.id desc [ RunTime:0.000427s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `task` [ RunTime:0.004472s ]
+[ sql ] [ SQL ] SELECT * FROM `task` WHERE  (  1=1  and status =3 and worktype = 1 and worktime >= '1573056000' and worktime <= '1573142399' ) ORDER BY id desc [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `merchant` [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SELECT * FROM `merchant` WHERE  (  1=1 and loans_money >0 ) ORDER BY id desc [ RunTime:0.000266s ]
+---------------------------------------------------------------
+[ 2019-11-07T23:58:01+08:00 ] 122.152.203.216 GET /home.php/commang/Index/refund
+[ info ] 122.152.203.216:10000/home.php/commang/Index/refund [运行时间：0.026948s][吞吐率：37.11req/s] [内存消耗：2,732.09kb] [文件加载：50]
+[ info ] [ LANG ] /www/wwwroot/nouser/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'commang',
+    1 => 'Index',
+    2 => 'refund',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '122.152.203.216:10000',
+  'user-agent' => 'curl/7.29.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\commang\controller\Index->refund[ /www/wwwroot/nouser/application/commang/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000921s ] mysql:host=127.0.0.1;port=3306;dbname=nouser;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `merchant` [ RunTime:0.000757s ]
+[ sql ] [ SQL ] SELECT * FROM `merchant` WHERE  (  1=1 and loans_money >0 ) ORDER BY id desc [ RunTime:0.000241s ]

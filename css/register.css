@@ -1,0 +1,237 @@
+@charset "UTF-8";
+/* 雪碧图引入 同时设置宽高*/
+.register {
+  min-height: 100vh;
+  color: #ffffff;
+}
+.register .section {
+  padding: 0;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.register .section .logo {
+  width: 3.33333rem;
+  margin-top: 0.53333rem;
+  margin-bottom: 0.53333rem;
+}
+.register .section .logo img {
+  width: 100%;
+}
+.register .section .register_form {
+  font-size: 0.37333rem;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  padding: 0;
+}
+.register .section .register_form .form_item {
+  margin-top: 0.4rem;
+  width: 8.45333rem;
+  height: 1.06667rem;
+}
+.register .section .register_form .form_item input {
+  font-size: 0.32rem;
+  border: 2px solid #a1a1a1;
+  border-radius: 0.4rem;
+  width: 7.92rem;
+  height: 0.53333rem;
+  line-height: 0.53333rem;
+  padding: 0.26667rem;
+}
+.iphone-data-dir-2 .register .section .register_form .form_item input {
+  border: 1px solid #a1a1a1;
+}
+.iphone-data-dir-3 .register .section .register_form .form_item input {
+  border: 0.66667px solid #a1a1a1;
+}
+.android-data-dir-2 .register .section .register_form .form_item input {
+  border: 1px solid #a1a1a1;
+}
+.android-data-dir-3 .register .section .register_form .form_item input {
+  border: 0.66667px solid #a1a1a1;
+}
+.register .section .register_form .form_item select {
+  font-size: 0.32rem;
+  border: 2px solid #a1a1a1;
+  border-radius: 0.4rem;
+  width: 8.5rem;
+  line-height: 0.53333rem;
+  padding: 0.26667rem;
+  background: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.iphone-data-dir-2 .register .section .register_form .form_item select {
+  border: 1px solid #a1a1a1;
+}
+.iphone-data-dir-3 .register .section .register_form .form_item select {
+  border: 0.66667px solid #a1a1a1;
+}
+.android-data-dir-2 .register .section .register_form .form_item select {
+  border: 1px solid #a1a1a1;
+}
+.android-data-dir-3 .register .section .register_form .form_item select {
+  border: 0.66667px solid #a1a1a1;
+}
+.register .section .register_form .form_item .input_group {
+  width: 5.86667rem;
+}
+.register .section .register_form .form_item .input_group input {
+  width: 5.33333rem;
+}
+.register .section .register_form .form_item .submit_btn {
+  width: 2.45333rem;
+  margin-top: 0;
+}
+.register .section .register_form .form_item .mao_select {
+  position: relative;
+}
+.register .section .register_form .form_item .mao_select .drop {
+  position: absolute;
+  top: 1.06667rem;
+  left: 0;
+  z-index: 0;
+  background-color: #fff;
+  border-radius: 0.10667rem;
+  border: 2px solid #a1a1a1;
+  box-shadow: 0px 0.02667rem 0.13333rem #dbe2e9;
+}
+.iphone-data-dir-2 .register .section .register_form .form_item .mao_select .drop {
+  border: 1px solid #a1a1a1;
+}
+.iphone-data-dir-3 .register .section .register_form .form_item .mao_select .drop {
+  border: 0.66667px solid #a1a1a1;
+}
+.android-data-dir-2 .register .section .register_form .form_item .mao_select .drop {
+  border: 1px solid #a1a1a1;
+}
+.android-data-dir-3 .register .section .register_form .form_item .mao_select .drop {
+  border: 0.66667px solid #a1a1a1;
+}
+.register .section .register_form .form_item .mao_select .drop .drop_item {
+  border-bottom: 2px solid #a1a1a1;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  width: 8.13333rem;
+  height: 0.53333rem;
+  color: #838383;
+  padding: 0.13333rem;
+}
+.iphone-data-dir-2 .register .section .register_form .form_item .mao_select .drop .drop_item {
+  border-bottom: 1px solid #a1a1a1;
+}
+.iphone-data-dir-3 .register .section .register_form .form_item .mao_select .drop .drop_item {
+  border-bottom: 0.66667px solid #a1a1a1;
+}
+.android-data-dir-2 .register .section .register_form .form_item .mao_select .drop .drop_item {
+  border-bottom: 1px solid #a1a1a1;
+}
+.android-data-dir-3 .register .section .register_form .form_item .mao_select .drop .drop_item {
+  border-bottom: 0.66667px solid #a1a1a1;
+}
+.register .section .register_form .form_item .mao_select .drop .drop_item:last-child {
+  border-bottom: none;
+}
+.register .section .register_form .agree_box {
+  margin-top: 0.93333rem;
+  margin-bottom: 0.32rem;
+}
+.register .section .register_form .agree_box .text {
+  margin-left: 0.24rem;
+}
+.register .section .register_form .agree_box .agree_group {
+  position: relative;
+}
+.register .section .register_form .agree_box .agree_group .check {
+  display: inline-block;
+  width: 0.33333rem;
+  height: 0.24rem;
+  padding: 0.06667rem 0;
+}
+.register .section .register_form .agree_box .agree_group.active .icon_check {
+  background: url("../images/icon.png") no-repeat;
+  background-position: 0 -3.34667rem;
+  background-size: 13.33333rem 13.33333rem;
+  display: inline-block;
+  width: 0.33333rem;
+  height: 0.24rem;
+}
+.register .section .register_form .agree_box .agree_group input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.06667rem 0;
+  width: 0.29333rem;
+  height: 0.29333rem;
+  border: 2px solid #fa6c62;
+  background-color: transparent;
+}
+.iphone-data-dir-2 .register .section .register_form .agree_box .agree_group input {
+  border: 1px solid #fa6c62;
+}
+.iphone-data-dir-3 .register .section .register_form .agree_box .agree_group input {
+  border: 0.66667px solid #fa6c62;
+}
+.android-data-dir-2 .register .section .register_form .agree_box .agree_group input {
+  border: 1px solid #fa6c62;
+}
+.android-data-dir-3 .register .section .register_form .agree_box .agree_group input {
+  border: 0.66667px solid #fa6c62;
+}
+.register .section .btn_url {
+  margin-top: 0.66667rem;
+}
+.register .modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.register .modal .modal_body {
+  background-color: #f1f1f1;
+  border-radius: 0.4rem;
+  width: 6rem;
+  height: 4rem;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+}
+.register .modal .modal_body .img {
+  position: absolute;
+  top: -2.93333rem;
+  left: -1.29333rem;
+  width: 8.45333rem;
+}
+.register .modal .modal_body .img img {
+  width: 100%;
+}
+.register .modal .modal_body .modal_warp {
+  width: 5.49333rem;
+  height: 3.49333rem;
+  background-color: #fff;
+  border-radius: 0.26667rem;
+}
+.register .modal .modal_body .modal_warp .suc {
+  margin-top: 1.46667rem;
+  font-size: 0.48rem;
+  text-align: center;
+}
+.register .modal .modal_body .modal_warp .text {
+  font-size: 0.36rem;
+  text-align: center;
+  margin-top: 0.4rem;
+}

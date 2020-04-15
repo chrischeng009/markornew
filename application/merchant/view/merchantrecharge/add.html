@@ -1,0 +1,114 @@
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" style="width:800px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">{$menu_name}-新增</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <form action="/home.php/{$module}/{$control}/act_add.html" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">充值方式</label>
+                            <div class="col-sm-4" style="padding-top:7px;">
+                                <?php foreach($enum_type_arr as $k=>$v){?>
+                                <input name="type" value="{$k}"  type="radio" onclick="javascript:chgtype({$k});" <?php if($k==1){ echo 'checked';}?> style="height:15px;">{$v}
+                                <?php }?>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            </div>
+
+                                <div  class="col-sm-10" style="margin-top: 12px;">
+                                    <span id="type2" style="display:none;   color: #f72811;font-size: 16px;font-weight: bold; margin-left: 21%">
+                                    {$find_config['bankname']}-{$find_config['realname']}-{$find_config['bankcode']}
+                                </span>
+                                </div>
+                                <div id="type1"  style=" position: absolute; width: 200px;float: right;right: 12%;display: none;"><img  src="{$find_config['zfbmoneycode']}" style="width: 100%;" ><span style="color: #f72811;text-align: center;display: block;">扫一扫付款</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">充值金额</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="money" value="" placeholder="50元起充">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">交易单号</label>
+                            <div class="col-sm-4">
+                                <input type="text"  placeholder="填写订单号后6位" class="form-control" name="tradeno" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">充值截图</label>
+                            <div class="col-sm-8">
+                                <input type="file" id="dx_file" name="dx_file" onchange="sc('tradeimg');" style="display:none"/>
+                                <img src="/img/moren.png" id="imgView" style="height:100px;">
+                                <input type="hidden" name="tradeimg" value=""/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file.click()">点击上传</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <input type="hidden" class="form-control" name="zfbmoneycode" value="{$find_config['zfbmoneycode']}">
+                                <input type="hidden" class="form-control" name="bankname" value="{$find_config['bankname']}">
+                                <input type="hidden" class="form-control" name="realname" value="{$find_config['realname']}">
+                                <input type="hidden" class="form-control" name="bankcode" value="{$find_config['bankcode']}">
+                                <button type="button" class="btn btn-primary" id="sub">提交</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    var type2=$("[name='type']:checked").val();
+    if(type2==1){
+        $("#type1").show();
+        $("#type2").hide();
+    }
+    function chgtype(type){
+        if(type==1){
+            $("#type1").show();
+            $("#type2").hide();
+            $("[name='tradeno']").attr('placeholder','填写订单号后6位');
+        }
+        if(type==2){
+            $("#type1").hide();
+            $("#type2").show();
+            $("[name='tradeno']").attr('placeholder','填写交易单号后6位');
+        }
+    }
+    $("#sub").on('click',function(){
+       var money=$('[name=money]').val();
+        if(money <50){
+            $("#addModal").hide();
+            $("#tipBtn").click();
+            $("#tipText").html('充值金额最少50！');
+            return;
+        }
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_add.html',
+            dataType:'text',
+            data:$("#dx_form").serialize(),
+            success:function(data)
+            {
+                if(data=='success'){
+                    window.location.reload();
+                }else{
+                    $("#tipBtn").click();$("#tipText").html(data);
+                }
+            }
+        });
+    });
+</script>

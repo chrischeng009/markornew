@@ -1,0 +1,275 @@
+@charset "UTF-8";
+.myOrder .header .text, .myOrder .section .content .item .msg p, .myOrder .section .content .item .order .top_con .money p, .myOrder .section .content .item .order .top_con .info p, .myOrder .section .content .item .order .state p, .myOrder .section .content .item .order .reason {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 雪碧图引入 同时设置宽高*/
+.myOrder {
+  background-color: #f6f6f6;
+  font-size: 0.29333rem;
+  padding-bottom: 0.66667rem;
+}
+.myOrder .header {
+  padding: 0 0.26667rem;
+}
+.myOrder .header .text {
+  width: 100%;
+  padding: 0.13333rem 0;
+  color: #f25f55;
+  font-size: 0.29333rem;
+}
+.myOrder .section {
+  margin-bottom: 1.41333rem;
+}
+.myOrder .section .tabs {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+  height: 0.86667rem;
+  line-height: 0.86667rem;
+  font-size: 0.37333rem;
+  background-color: #fff;
+}
+.myOrder .section .tabs .tabs-item {
+  width: 100%;
+  text-align: center;
+}
+.myOrder .section .tabs .active {
+  color: #f25f55;
+  border-bottom: 4px solid #f25f55;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .myOrder .section .tabs .active {
+  border-bottom: 2px solid #f25f55;
+}
+.iphone-data-dir-3 .myOrder .section .tabs .active {
+  border-bottom: 1.33333px solid #f25f55;
+}
+.android-data-dir-2 .myOrder .section .tabs .active {
+  border-bottom: 2px solid #f25f55;
+}
+.android-data-dir-3 .myOrder .section .tabs .active {
+  border-bottom: 1.33333px solid #f25f55;
+}
+.myOrder .section .tabs span {
+  display: inline-block;
+}
+.myOrder .section .content {
+  width: 100%;
+  padding: 0 0.26667rem;
+}
+.myOrder .section .content .item {
+  margin-top: 0.46667rem;
+}
+.myOrder .section .content .item .msg {
+  padding: 0 0.24rem;
+  padding-bottom: 0.13333rem;
+  color: #c6c6c6;
+  width: 100%;
+}
+.myOrder .section .content .item .msg p {
+  width: 48%;
+}
+.myOrder .section .content .item .order {
+  background-color: #fff;
+  width: 100%;
+}
+.myOrder .section .content .item .order .top_con {
+  padding: 0.36rem;
+}
+.myOrder .section .content .item .order .top_con .text {
+  color: #737373;
+}
+.myOrder .section .content .item .order .top_con .text.link {
+  color: #f25f55;
+}
+.myOrder .section .content .item .order .top_con .text.lv {
+  color: #3fc147;
+}
+.myOrder .section .content .item .order .top_con .money {
+  margin-left: 0.53333rem;
+  max-width: 2.77333rem;
+  margin-right: 0.4rem;
+}
+.myOrder .section .content .item .order .top_con .money p {
+  width: 100%;
+  font-size: 0.32rem;
+  line-height: 0.61333rem;
+}
+.myOrder .section .content .item .order .top_con .info {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.myOrder .section .content .item .order .top_con .info p {
+  line-height: 0.61333rem;
+}
+.myOrder .section .content .item .order .footer_con {
+  border-top: 2px solid #f6f6f6;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  padding: 0.36rem;
+}
+.iphone-data-dir-2 .myOrder .section .content .item .order .footer_con {
+  border-top: 1px solid #f6f6f6;
+}
+.iphone-data-dir-3 .myOrder .section .content .item .order .footer_con {
+  border-top: 0.66667px solid #f6f6f6;
+}
+.android-data-dir-2 .myOrder .section .content .item .order .footer_con {
+  border-top: 1px solid #f6f6f6;
+}
+.android-data-dir-3 .myOrder .section .content .item .order .footer_con {
+  border-top: 0.66667px solid #f6f6f6;
+}
+.myOrder .section .content .item .order .footer_con .text {
+  color: #737373;
+  font-size: 0.32rem;
+}
+.myOrder .section .content .item .order .footer_con .btns span {
+  border-radius: 0.66667rem;
+  text-align: center;
+  font-size: 0.32rem;
+  padding: 0.13333rem 0.21333rem;
+  margin-left: 0.13333rem;
+}
+.myOrder .section .content .item .order .footer_con .btns span.cancel {
+  color: #f25f55;
+  border: 2px solid #f25f55;
+}
+.iphone-data-dir-2 .myOrder .section .content .item .order .footer_con .btns span.cancel {
+  border: 1px solid #f25f55;
+}
+.iphone-data-dir-3 .myOrder .section .content .item .order .footer_con .btns span.cancel {
+  border: 0.66667px solid #f25f55;
+}
+.android-data-dir-2 .myOrder .section .content .item .order .footer_con .btns span.cancel {
+  border: 1px solid #f25f55;
+}
+.android-data-dir-3 .myOrder .section .content .item .order .footer_con .btns span.cancel {
+  border: 0.66667px solid #f25f55;
+}
+.myOrder .section .content .item .order .footer_con .btns span.start {
+  color: #ff8b01;
+  border: 2px solid #ff8b01;
+}
+.iphone-data-dir-2 .myOrder .section .content .item .order .footer_con .btns span.start {
+  border: 1px solid #ff8b01;
+}
+.iphone-data-dir-3 .myOrder .section .content .item .order .footer_con .btns span.start {
+  border: 0.66667px solid #ff8b01;
+}
+.android-data-dir-2 .myOrder .section .content .item .order .footer_con .btns span.start {
+  border: 1px solid #ff8b01;
+}
+.android-data-dir-3 .myOrder .section .content .item .order .footer_con .btns span.start {
+  border: 0.66667px solid #ff8b01;
+}
+.myOrder .section .content .item .order .footer_con .btns span.disabled {
+  color: #737373;
+  border: 2px solid #737373;
+}
+.iphone-data-dir-2 .myOrder .section .content .item .order .footer_con .btns span.disabled {
+  border: 1px solid #737373;
+}
+.iphone-data-dir-3 .myOrder .section .content .item .order .footer_con .btns span.disabled {
+  border: 0.66667px solid #737373;
+}
+.android-data-dir-2 .myOrder .section .content .item .order .footer_con .btns span.disabled {
+  border: 1px solid #737373;
+}
+.android-data-dir-3 .myOrder .section .content .item .order .footer_con .btns span.disabled {
+  border: 0.66667px solid #737373;
+}
+.myOrder .section .content .item .order .state {
+  padding: 0.26667rem 0.4rem;
+  border-top: 2px solid #f7f7f7;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .myOrder .section .content .item .order .state {
+  border-top: 1px solid #f7f7f7;
+}
+.iphone-data-dir-3 .myOrder .section .content .item .order .state {
+  border-top: 0.66667px solid #f7f7f7;
+}
+.android-data-dir-2 .myOrder .section .content .item .order .state {
+  border-top: 1px solid #f7f7f7;
+}
+.android-data-dir-3 .myOrder .section .content .item .order .state {
+  border-top: 0.66667px solid #f7f7f7;
+}
+.myOrder .section .content .item .order .state p {
+  line-height: 0.50667rem;
+  height: 0.50667rem;
+  margin-left: 0.2rem;
+}
+.myOrder .section .content .item .order .state .lv {
+  color: #4ec962;
+}
+.myOrder .section .content .item .order .reason {
+  border-top: 2px solid #f6f6f6;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  padding: 0.36rem;
+  width: 100%;
+  color: #737373;
+}
+.iphone-data-dir-2 .myOrder .section .content .item .order .reason {
+  border-top: 1px solid #f6f6f6;
+}
+.iphone-data-dir-3 .myOrder .section .content .item .order .reason {
+  border-top: 0.66667px solid #f6f6f6;
+}
+.android-data-dir-2 .myOrder .section .content .item .order .reason {
+  border-top: 1px solid #f6f6f6;
+}
+.android-data-dir-3 .myOrder .section .content .item .order .reason {
+  border-top: 0.66667px solid #f6f6f6;
+}

@@ -1,0 +1,329 @@
+@charset "UTF-8";
+.orderConfirm .header .pro_detail .intr p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 雪碧图引入 同时设置宽高*/
+.orderConfirm {
+  background-color: #fff;
+  min-height: 100vh;
+}
+.orderConfirm .header {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: 0.36rem;
+}
+.orderConfirm .header .top_tip {
+  height: 0.66667rem;
+  background-color: rgba(242, 95, 85, 0.7);
+  font-size: 0.37333rem;
+  width: 100%;
+}
+.orderConfirm .header .top_tip .text {
+  color: #fff;
+  margin-left: 0.21333rem;
+}
+.orderConfirm .header .name {
+  padding: 0.32rem 0;
+  font-size: 0.37333rem;
+  color: #717371;
+  border-bottom: 2px solid #ececec;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  width: 100%;
+}
+.iphone-data-dir-2 .orderConfirm .header .name {
+  border-bottom: 1px solid #ececec;
+}
+.iphone-data-dir-3 .orderConfirm .header .name {
+  border-bottom: 0.66667px solid #ececec;
+}
+.android-data-dir-2 .orderConfirm .header .name {
+  border-bottom: 1px solid #ececec;
+}
+.android-data-dir-3 .orderConfirm .header .name {
+  border-bottom: 0.66667px solid #ececec;
+}
+.orderConfirm .header .name span {
+  margin-left: 0.36rem;
+}
+.orderConfirm .header .pro_detail {
+  padding: 0.41333rem 0.36rem;
+  background-color: #fff;
+}
+.orderConfirm .header .pro_detail .img {
+  width: 2.26667rem;
+  height: 2.58667rem;
+}
+.orderConfirm .header .pro_detail .img img {
+  width: 100%;
+}
+.orderConfirm .header .pro_detail .intr {
+  margin-left: 0.32rem;
+}
+.orderConfirm .header .pro_detail .intr p {
+  font-size: 0.32rem;
+  -webkit-flex: 1;
+  flex: 1;
+  color: #666666;
+  line-height: 0.48rem;
+}
+.orderConfirm .header .pro_detail .intr .title {
+  color: #333333;
+  margin-bottom: 0.32rem;
+}
+.orderConfirm .section {
+  margin: 0.77333rem;
+  border-left: 6px solid #ececec;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .orderConfirm .section {
+  border-left: 3px solid #ececec;
+}
+.iphone-data-dir-3 .orderConfirm .section {
+  border-left: 2px solid #ececec;
+}
+.android-data-dir-2 .orderConfirm .section {
+  border-left: 3px solid #ececec;
+}
+.android-data-dir-3 .orderConfirm .section {
+  border-left: 2px solid #ececec;
+}
+.orderConfirm .section .intr_detail {
+  padding-left: 0.33333rem;
+  width: 100%;
+}
+.orderConfirm .section .intr_detail .item {
+  -webkit-flex: 1;
+  flex: 1;
+  border-bottom: 2px solid #ececec;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  padding-top: 0.32rem;
+  padding-bottom: 0.32rem;
+}
+.iphone-data-dir-2 .orderConfirm .section .intr_detail .item {
+  border-bottom: 1px solid #ececec;
+}
+.iphone-data-dir-3 .orderConfirm .section .intr_detail .item {
+  border-bottom: 0.66667px solid #ececec;
+}
+.android-data-dir-2 .orderConfirm .section .intr_detail .item {
+  border-bottom: 1px solid #ececec;
+}
+.android-data-dir-3 .orderConfirm .section .intr_detail .item {
+  border-bottom: 0.66667px solid #ececec;
+}
+.orderConfirm .section .intr_detail .item:first-child {
+  padding-top: 0;
+}
+.orderConfirm .section .intr_detail .item .title {
+  color: #090b09;
+  margin-bottom: 0.26667rem;
+  font-size: 0.37333rem;
+  position: relative;
+}
+.orderConfirm .section .intr_detail .item .title i.circle {
+  position: absolute;
+  left: -0.42667rem;
+  top: 0.18667rem;
+  width: 0.17333rem;
+  height: 0.17333rem;
+  background-color: #f25f55;
+  border-radius: 50%;
+}
+.orderConfirm .section .intr_detail .item .text {
+  font-size: 0.30667rem;
+  line-height: 0.56rem;
+  width: 100%;
+  margin-bottom: 0.34667rem;
+  color: #828182;
+}
+.orderConfirm .section .intr_detail .item .text .lan{
+color: #004eff;
+text-decoration: underline;
+margin-left: 0.13333rem;
+}
+.orderConfirm .section .intr_detail .item .confirm:before, .orderConfirm .section .intr_detail .item .confirm:after {
+  content: "";
+  display: table;
+}
+.orderConfirm .section .intr_detail .item .confirm:after {
+  clear: both;
+}
+.orderConfirm .section .intr_detail .item .check_group {
+  font-size: 0.30667rem;
+  margin-top: 0.4rem;
+  min-width: 4rem;
+  color: #767676;
+}
+.orderConfirm .section .intr_detail .item .check_group::-webkit-input-placeholder {
+  font-size: 0.26667rem;
+}
+.orderConfirm .section .intr_detail .item .check_group i {
+  border: 2px solid #666;
+  width: 0.4rem;
+  height: 0.4rem;
+  position: relative;
+  margin-right: 0.06667rem;
+  top: 0.06667rem;
+}
+.iphone-data-dir-2 .orderConfirm .section .intr_detail .item .check_group i {
+  border: 1px solid #666;
+}
+.iphone-data-dir-3 .orderConfirm .section .intr_detail .item .check_group i {
+  border: 0.66667px solid #4a9aff;
+}
+.android-data-dir-2 .orderConfirm .section .intr_detail .item .check_group i {
+  border: 1px solid #666;
+}
+.android-data-dir-3 .orderConfirm .section .intr_detail .item .check_group i {
+  border: 0.66667px solid #666;
+}
+.orderConfirm .section .intr_detail .item .check_group i.active {
+  background-color: #4a9aff;
+  border-radius: 0.08rem;
+}
+.orderConfirm .section .intr_detail .item .check_group:first-child i {
+  top: 0;
+}
+.orderConfirm .section .intr_detail .item.item3 .payWay:before, .orderConfirm .section .intr_detail .item.item3 .payWay:after {
+  content: "";
+  display: table;
+}
+.orderConfirm .section .intr_detail .item.item3 .payWay:after {
+  clear: both;
+}
+.orderConfirm .section .intr_detail .item.item3 .payWay .lf {
+  font-size: 0.30667rem;
+  color: #767676;
+  line-height: 0.8rem;
+}
+.orderConfirm .section .intr_detail .item.item3 .payWay .lf .link {
+  font-size: 0.30667rem;
+  color: #f25f55;
+}
+.orderConfirm .section .intr_detail .item.item3 .text {
+  margin-bottom: 0;
+}
+.orderConfirm .section .intr_detail .item.item3 .tips {
+  font-size: 0.24rem;
+  color: #666;
+}
+.orderConfirm .section .intr_detail .item .error {
+  font-size: 0.26667rem;
+  color: #f25f55;
+  line-height: 0.50667rem;
+}
+.orderConfirm .section .intr_detail .item .error .icon_error {
+  position: relative;
+  top: 0.06667rem;
+  left: 0.06667rem;
+}
+.orderConfirm .section .intr_detail .item.item4 .item_con:before, .orderConfirm .section .intr_detail .item.item4 .item_con:after {
+  content: "";
+  display: table;
+}
+.orderConfirm .section .intr_detail .item.item4 .item_con:after {
+  clear: both;
+}
+.orderConfirm .section .intr_detail .item.item4 .item_con .lf {
+  font-size: 0.30667rem;
+  color: #666;
+  line-height: 0.8rem;
+}
+.orderConfirm .section .intr_detail .item.item4 .item_con .lf.rt_input {
+  width: 4.8rem;
+}
+.orderConfirm .section .intr_detail .item.item4 .item_con .lf.rt_input .input_group {
+  display: inline-block;
+}
+.orderConfirm .section .intr_detail .item.item4 .item_con .lf.rt_input .input_group input {
+  width: 3.2rem;
+  height: 0.73333rem;
+  font-size: 0.30667rem;
+  color: #666;
+  border-radius: 0.05333rem;
+  padding: 0 0.13333rem;
+  border: 2px solid #c9c9c9;
+}
+.iphone-data-dir-2 .orderConfirm .section .intr_detail .item.item4 .item_con .lf.rt_input .input_group input {
+  border: 1px solid #c9c9c9;
+}
+.iphone-data-dir-3 .orderConfirm .section .intr_detail .item.item4 .item_con .lf.rt_input .input_group input {
+  border: 0.66667px solid #c9c9c9;
+}
+.android-data-dir-2 .orderConfirm .section .intr_detail .item.item4 .item_con .lf.rt_input .input_group input {
+  border: 1px solid #c9c9c9;
+}
+.android-data-dir-3 .orderConfirm .section .intr_detail .item.item4 .item_con .lf.rt_input .input_group input {
+  border: 0.66667px solid #c9c9c9;
+}
+.orderConfirm .section .intr_detail .item.item5:before, .orderConfirm .section .intr_detail .item.item5:after {
+  content: "";
+  display: table;
+}
+.orderConfirm .section .intr_detail .item.item5:after {
+  clear: both;
+}
+.orderConfirm .section .intr_detail .item.item5 .upload {
+  width: 4.8rem;
+}
+.orderConfirm .section .intr_detail .item.item5 .upload_warp {
+  position: relative;
+}
+.orderConfirm .section .intr_detail .item.item5 .upload_warp img, .orderConfirm .section .intr_detail .item.item5 .upload_warp input {
+  width: 1.82667rem;
+  height: 1.82667rem;
+}
+.orderConfirm .section .intr_detail .item.item5 .upload_warp input {
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.orderConfirm .footer {
+  width: 100%;
+  height: 1.28rem;
+  line-height: 1.28rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 0.38667rem;
+  text-align: center;
+}

@@ -1,0 +1,235 @@
+/*goods 列表页*/
+.myOrder .section .content .item .order .top_con .list{
+    margin-left: 0.53333rem;
+    margin-right: 0.4rem;
+}
+.myOrder .section .content .item .order .top_con .list h5{
+    font-size: 0.35rem;
+    font-weight: bold;
+    margin-top: 0.3rem;
+    margin-bottom: 0.4rem;
+}
+.myOrder .section .content .item .order .top_con .list .text{
+    font-size: 0.3rem;
+}
+.myOrder .section .content .item .order .top_con .list .text span i{
+    font-size: 0.35rem;
+    font-style: normal;
+}
+.myOrder .section .content .item .order .top_con .list .link span{
+    font-size: 0.4rem;
+}
+.myOrder .section .content .item .order .top_con .list .text .right{
+    float: right;
+}
+.myOrder .section .content .item .order .top_con .list .text .quan{
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    zoom: 1;
+    top: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+.myOrder .section .content .item .order .top_con .list .text .quan i{
+    background: linear-gradient(to left,#FF5E5E 0,#FF927C 100%);
+    font-size: .35rem;
+    min-width: 3rem;
+    text-align: center;
+    color: #fff;
+    padding: 3px 10px;
+}
+.myOrder .section .content .item .order .top_con .list .text .quan  i:after, .myOrder .section .content .item .order .top_con .list .text .quan i:before {
+    position: absolute;
+    z-index: 1;
+    zoom: 1;
+    left: -4px;
+    top: 50%;
+    margin-top: -3px;
+    background: #fff;
+    display: block;
+    width: 10px;
+    height: 10px;
+    content: "";
+    border-radius: 10px;
+    border: 1px solid #fff;
+}
+.myOrder .section .content .item .order .top_con .list .text .quan  i:before {
+    left: auto;
+    right: -4px;
+}
+
+/*goods_detail*/
+img {
+    border: 0;
+}
+.index .banner{
+    height: 10rem;
+}
+.goods_info{
+    background: #fff;
+}
+.goods_info h3{
+    font-size: 0.45rem;
+    padding: .4rem  0 .4rem;
+}
+.goods_info h3 span{
+    border: 1px solid #FC3F78;
+    color: #FC3F78;
+    -webkit-border-radius:2px;
+    padding: 0 5px;
+    margin-right: 5px;
+    font-size: 0.45rem;
+    top:-1px;
+
+
+}
+.row-s .col-12-6 {
+    width: 50%;
+    float: left;
+    display: block;
+
+}
+.row-s .col-12-4 {
+    width: 33.33333333%;
+}
+.row-s .col-12-8 {
+    width: 66.66666667%;
+}
+.col-mar{
+    margin: 0 0.6rem;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.goods_info>.info .col-money{
+    color: #FC4D52;
+}
+.goods_info>.info .col-money span {
+    font-size: 0.45rem;
+}
+.goods_info>.info>div {
+    font-size: .35rem;
+    height: 0.55rem;
+    line-height: 0.55rem;
+    color: #666;
+}
+.goods_info>.info .col-money i {
+    font-style: normal;
+    font-size: .35rem;
+    margin-right: .1rem;
+}
+.goods_info>.info>div {
+    font-size: .35rem;
+    height: .55rem;
+    line-height: .55rem;
+    color: #666;
+}
+.goods_info>.info .col-888 {
+    color: #888;
+}
+.goods_info>.info .auth span {
+    margin-left: .1rem;
+}
+.goods_info>.info .auth i {
+    font-size: .45rem;
+    margin-right: .1rem;
+}
+.goods_info h1 span, .goods_quan {
+    position: relative;
+    z-index: 1;
+    zoom: 1;
+}
+.goods_quan .row {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    zoom: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.goods_quan .row .money {
+    font-size: .35rem;
+    color: rgba(255,255,255,.6);
+    padding-top: 5%;
+    line-height: .5rem;
+    position: relative;
+    z-index: 1;
+    zoom: 1;
+}
+
+.goods_quan .row .money p {
+    font-size: 0.35rem;
+    font-weight: 600;
+    color: #fff;
+}
+.goods_quan .row .money p span {
+    font-size: 0.55rem;
+    position: relative;
+    z-index: 1;
+    zoom: 1;
+    top: .1rem;
+}
+.goods_quan .row .name {
+    line-height: 100%;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    zoom: 1;
+    top: 50%;
+    margin-top: -.6rem;
+    text-align: left;
+    font-weight: 600;
+}
+.goods_quan .row .name {
+    line-height: 100%;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    zoom: 1;
+    top: 50%;
+    margin-top: -.3rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: .40rem;
+}
+.goods_quan .row .name span {
+    margin-left: 15%;
+}
+.goods_quan img {
+    display: block;
+    width: 100%;
+}
+.goods_desc {
+    font-size: .35rem;
+    line-height: .45rem;
+    padding: .4rem 0 .4rem;
+}
+.ov_h, .row-s:after, .row-s:before {
+    height: 0;
+    overflow: hidden;
+    clear: both;
+}
+
+.goods_quan:before {
+    content: "";
+    width: 5px;
+    height: 55%;
+    background: url('http://cmsstatic.dataoke.com/wap_new/main/images/hr.png?v=2019-04-18');
+    -webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    background-size: auto 100%;
+    position: absolute;
+    z-index: 1;
+    zoom: 1;
+    left: 64%;
+    top: 20%;
+    display: block;
+}

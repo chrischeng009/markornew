@@ -1,0 +1,301 @@
+@charset "UTF-8";
+.user .section .tips {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 雪碧图引入 同时设置宽高*/
+/* @include display-flex;
+            @include justify-content(space-around);
+            @include align-items(center);
+            @include wh(100%, 65); */
+.user {
+  background-color: #f7f7f7;
+  font-size: 0.32rem;
+  color: #6c6c6c;
+}
+.user .header {
+  width: 100%;
+  padding: 0 0.26667rem;
+  margin-bottom: 0.4rem;
+}
+.user .header .img_bg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.user .header .content {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  margin-top: 1.18667rem;
+  margin-left: 0.26667rem;
+  margin-right: 0.26667rem;
+  width: 100%;
+}
+.user .header .content .item {
+  padding: 0.26667rem;
+  width: 100%;
+}
+.user .header .content .item:not(:last-child) {
+  border-bottom: 2px solid #f7f7f7;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .user .header .content .item:not(:last-child) {
+  border-bottom: 1px solid #f7f7f7;
+}
+.iphone-data-dir-3 .user .header .content .item:not(:last-child) {
+  border-bottom: 0.66667px solid #f7f7f7;
+}
+.android-data-dir-2 .user .header .content .item:not(:last-child) {
+  border-bottom: 1px solid #f7f7f7;
+}
+.android-data-dir-3 .user .header .content .item:not(:last-child) {
+  border-bottom: 0.66667px solid #f7f7f7;
+}
+.user .header .content .item.item1 {
+  position: relative;
+}
+.user .header .content .item.item1 img {
+  width: 2.02667rem;
+  height: 2.02667rem;
+  border-radius: 50%;
+  position: absolute;
+  top: -1rem;
+}
+.user .header .content .item.item1 .auth {
+  margin-top: 0.93333rem;
+}
+.user .header .content .item.item1 .auth .btn {
+  width: 1.70667rem;
+  height: 0.73333rem;
+  background-color: #f25f55;
+  border-radius: 0.36rem;
+  color: #fff;
+  font-size: 0.37333rem;
+  line-height: 0.73333rem;
+  text-align: center;
+  margin-right: 0.38667rem;
+}
+.user .header .content .item.item1 .auth .text {
+  font-size: 0.34667rem;
+}
+.user .header .content .item.item2 {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+  height: 1.93333rem;
+}
+.user .header .content .item.item2 .num {
+  margin-bottom: 0.4rem;
+  color: #ff8642;
+  font-size: 0.48rem;
+}
+.user .header .content .item.item2 .num.lv {
+  color: #4ec962;
+}
+.user .header .content .item.item3 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.user .header .content .item.item3 .item_list {
+  padding: 0.4rem 0;
+  width: 50%;
+}
+.user .header .content .item.item3 .item_list.one {
+  border-right: 2px solid #f7f7f7;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .user .header .content .item.item3 .item_list.one {
+  border-right: 1px solid #f7f7f7;
+}
+.iphone-data-dir-3 .user .header .content .item.item3 .item_list.one {
+  border-right: 0.66667px solid #f7f7f7;
+}
+.android-data-dir-2 .user .header .content .item.item3 .item_list.one {
+  border-right: 1px solid #f7f7f7;
+}
+.android-data-dir-3 .user .header .content .item.item3 .item_list.one {
+  border-right: 0.66667px solid #f7f7f7;
+}
+.user .header .content .item.item3 .item_list .text {
+  margin-left: 0.18667rem;
+  font-size: 0.4rem;
+  color: #505050;
+}
+.user .section {
+  margin-bottom: 1.94667rem;
+  padding: 0 0.26667rem;
+}
+.user .section > div {
+  width: 100%;
+}
+.user .section .tips {
+  background-color: #ffc0bc;
+  width: 9.46667rem;
+  height: 0.62667rem;
+  line-height: 0.62667rem;
+  font-size: 0.26667rem;
+  color: #f2635a;
+  padding: 0 0.26667rem;
+}
+.user .section .tips .icon_notice_2 {
+  margin-right: 0.26667rem;
+  position: relative;
+  top: 0.13333rem;
+}
+.user .section .disc {
+  background-color: #fff;
+}
+.user .section .disc .title {
+  padding: 0.26667rem;
+  border-bottom: 2px solid #f7f7f7;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  font-size: 0.34667rem;
+  color: #6c6c6c;
+}
+.iphone-data-dir-2 .user .section .disc .title {
+  border-bottom: 1px solid #f7f7f7;
+}
+.iphone-data-dir-3 .user .section .disc .title {
+  border-bottom: 0.66667px solid #f7f7f7;
+}
+.android-data-dir-2 .user .section .disc .title {
+  border-bottom: 1px solid #f7f7f7;
+}
+.android-data-dir-3 .user .section .disc .title {
+  border-bottom: 0.66667px solid #f7f7f7;
+}
+.user .section .disc .disc_section {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+  height: 1.93333rem;
+}
+.user .section .disc .disc_section .item {
+  width: 25%;
+}
+.user .section .disc .disc_section .item .text {
+  margin-top: 0.21333rem;
+}
+.user .section .fun_section {
+  background-color: #fff;
+  margin-top: 0.21333rem;
+  width: 100%;
+}
+.user .section .fun_section:before, .user .section .fun_section:after {
+  content: "";
+  display: table;
+}
+.user .section .fun_section:after {
+  clear: both;
+}
+.user .section .fun_section .item {
+  float: left;
+  width: 33.3%;
+  height: 3.08rem;
+  padding: 0.77333rem;
+  text-align: center;
+}
+.user .section .fun_section .item.rt_border {
+  border-right: 2px solid #f7f7f7;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .user .section .fun_section .item.rt_border {
+  border-right: 1px solid #f7f7f7;
+}
+.iphone-data-dir-3 .user .section .fun_section .item.rt_border {
+  border-right: 0.66667px solid #f7f7f7;
+}
+.android-data-dir-2 .user .section .fun_section .item.rt_border {
+  border-right: 1px solid #f7f7f7;
+}
+.android-data-dir-3 .user .section .fun_section .item.rt_border {
+  border-right: 0.66667px solid #f7f7f7;
+}
+.user .section .fun_section .item.bt_border {
+  border-bottom: 2px solid #f7f7f7;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .user .section .fun_section .item.bt_border {
+  border-bottom: 1px solid #f7f7f7;
+}
+.iphone-data-dir-3 .user .section .fun_section .item.bt_border {
+  border-bottom: 0.66667px solid #f7f7f7;
+}
+.android-data-dir-2 .user .section .fun_section .item.bt_border {
+  border-bottom: 1px solid #f7f7f7;
+}
+.android-data-dir-3 .user .section .fun_section .item.bt_border {
+  border-bottom: 0.66667px solid #f7f7f7;
+}
+.user .section .fun_section .item .text {
+  margin-top: 0.28rem;
+  text-align: center;
+}

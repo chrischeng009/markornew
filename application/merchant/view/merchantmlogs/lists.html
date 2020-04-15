@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo qtitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <div class="col-lg-2">
+                        <h5>事由</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="type">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_type_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['type']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>收支</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="algorithm">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_algorithm2_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['algorithm']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>店铺名称</td>
+                <td>事由</td>
+                <td>操作前金额</td>
+                <td>变动金额</td>
+                <td>操作后金额</td>
+                <td>时间</td>
+                <td>详情</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\MerchantmlogsModel;
+                use app\common\model\ShopModel;
+                foreach($lists as $v){
+                $find_shop = ShopModel::find("and id=".$v['shop_id']);
+                $type_name = MerchantmlogsModel::enum_type_text($v['type']);
+                $algorithm_name = MerchantmlogsModel::enum_algorithm_text($v['algorithm']);
+                ?>
+                <tr>
+                    <td>{$find_shop['name']}</td>
+                    <td>{$type_name}</td>
+                    <td>{$v['startmoney']}</td>
+                    <td>{$algorithm_name}{$v['money']}</td>
+                    <td>{$v['endmoney']}</td>
+                    <td><?php echo date('Y-m-d H:i:s',$v['intime']);?></td>
+                    <td>{$v['remark']}</td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+<script type="text/javascript">
+    
+</script>
+
+</body>
+</html>
+

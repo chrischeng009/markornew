@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo qtitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <div class="col-lg-2">
+                        <h5>状态</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="status">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_status_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['status']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="col-lg-2">
+                        <h5>操作</h5>
+                        <div class="form-group">
+                            <button class="btn btn-default" data-toggle="modal" data-target="#addModal">贷款</button>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#refundModal">还款</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>贷款金额</td>
+                <td>状态</td>
+                <td>申请时间</td>
+                <td>处理时间</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\MerchantrechargeModel;
+                foreach($lists as $v){
+                $find_merchant = MerchantModel::find("and id=".$v['merchant_id']);
+                $status_name = MerchantrechargeModel::enum_status_text($v['status']);
+                ?>
+                <tr>
+                    <td>{$v['money']}</td>
+                    <td>{$status_name}</td>
+                    <td><?php echo date('Y-m-d H:i:s',$v['intime']);?></td>
+                    <td><?php if(!empty($v['uptime'])){ echo date('Y-m-d H:i:s',$v['uptime']);}?></td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+{include file="parent/add"/}
+{include file="parent/refund"/}
+
+<script type="text/javascript">
+    
+</script>
+
+</body>
+</html>
+

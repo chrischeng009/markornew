@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><?php echo qtitle();?></title>
+    <link href="/css/root.css" rel="stylesheet">
+    <style type="text/css">
+        .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+            width: 100%;
+            height: 228px;
+        }
+
+        .panel > .table-responsive ul {
+            list-style: none;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .panel > .table-responsive ul li {
+            position: relative;
+            float: left;
+            width: 33.33%;
+            height: 81%;
+            margin: 20px 0;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .panel > .table-responsive ul li:first-child {
+            padding: 0 calc((33.33% - 288px) / 2);
+        }
+
+        .panel > .table-responsive ul li img {
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin-top: 25px;
+            margin-right: 6px;
+            border-radius: 50%;
+            /* margin: 0 4%; */
+        }
+
+        .panel > .table-responsive ul li .user-name {
+            float: left;
+            width: 198px;
+            height: 80px;
+            padding-top: 18px;
+            text-align: left;
+        }
+
+        .panel > .table-responsive ul li .user-name span {
+            display: inline-block;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .panel > .table-responsive ul li .update {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            margin-left: -139px;
+            /* width: 180px; */
+            height: 25px;
+            /* margin-left: 23%; */
+        }
+
+        .panel > .table-responsive ul li .update span {
+            float: left;
+            width: 82px;
+            border-radius: 4px;
+            color: #fff;
+            line-height: 25px;
+            background-color: #ff7679;
+            margin-right: 16px;
+            display: block;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        @media screen and (min-width: 1440px){
+            .panel > .table-responsive ul li .update span{
+                margin-right: 40px;
+            }
+        }
+
+        .panel > .table-responsive ul li .update span :last-child {
+            /* background-color: #1ecc80; */
+            margin-right: 0;
+
+        }
+
+        .panel > .table-responsive ul li .update span a {
+            color: #fff;
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+
+        .panel > .table-responsive ul li ul.money {
+            padding-top: 18px;
+        }
+
+        .panel > .table-responsive ul li ul.money li {
+            margin: 0;
+            float: left;
+            width: 100%;
+            height: 30px;
+            border-right: none;
+            padding-left: 25%;
+            text-align: left;
+            font-size: 16px;;
+        }
+
+        .panel > .table-responsive ul li ul.money li .account-money {
+            color: #fd0137;
+        }
+
+        .panel > .table-responsive ul li ul.money li .task-dongjie {
+            color: #cc9d1e;
+        }
+
+        .panel > .table-responsive ul li ul.money li .jifen {
+            color: #0cff33;
+        }
+         .news {
+            margin-right: 19px;
+        }
+         .dynamic {
+            width: calc((100% - 20px)/2);
+            /*height: 220px;*/
+            float: left;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 30px 27px;
+             background: #fff;
+        }
+
+       .wrap-border {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 0 6px #e0e0e0;
+        }
+        .dynamic ul {
+            text-align: left;
+        }
+
+        .dynamic ul .title{
+            height: 30px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eaeaea;
+            color: #282828;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 20px;
+        }
+        .dynamic ul .title span{
+            float: left;
+            height: 20px;
+            border-left: 2px solid #ff0c40;
+            text-indent: 3px;
+        }
+        .dynamic ul li{
+            width: 100%;
+            height: 35px;
+            color: #282828;
+            border-right: none;
+            line-height: 15px;
+            list-style-type: none;
+            cursor: pointer;
+        }
+        .dynamic ul li:before{
+            content: "\2022";
+            color: #ff0c40;
+            font-size: 16px;
+        }
+        .dynamic ul li span{
+            max-width: 95%;
+            margin-left: 5px;
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #tuanchuang .info{
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+    <div class="container-padding">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <!--轮播图位置-->
+
+                        <div id="myCarousel" class="carousel slide">
+                            <!-- 轮播（Carousel）指标 -->
+                            <ol class="carousel-indicators">
+                                <?php $a=-1;?>
+                                <?php foreach($banner as $k=>$v){?>
+                                <?php $a++;?>
+                                <li data-target="#myCarousel" data-slide-to="{$a}" data-interval="1000"></li>
+                                <?php }?>
+                            </ol>
+
+                            <!-- 轮播（Carousel）项目 -->
+                            <div class="carousel-inner">
+                                <?php foreach($banner as $k=>$v){?>
+                                <div class="item ">
+                                    <img src="{$v['img']}" alt="{$v['title']}">
+                                </div>
+                                <?php }?>
+                            </div>
+                            <!-- 轮播（Carousel）导航 -->
+                        </div>
+
+                        <!--轮播图位置 end-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body table-responsive">
+                        <ul style=" height: 220px;">
+                            <li>
+                                <img src="/images/logo.jpg" alt="">
+                                <div class="user-name" id="userRank" data-shoprank="0">
+                                    <span>用户名:{$find['mobile']}</span>
+                                    <span>注册时间:<?php echo date("Y-m-d H:i:s",$find['intime']);?></span>
+                                    <span>商家等级： {$type_name}</span>
+                                </div>
+                                <div class="update">
+                                    <span><a href="/home.php/merchant/task/add.html">发布任务</a></span>
+                                    <span><a href="/home.php/merchant/merchantrecharge/lists.html">充值</a></span>
+                                    <span><a href="/home.php/merchant/merchantcash/lists.html">提现</a></span>
+                                    <span><a href="/home.php/merchant/merchantmlogs/lists.html">明细</a></span>
+                                    <span><a href="/home.php/merchant/merchantloans/lists.html">贷款</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <ul class="money">
+                                    <li>账户余额： <span class="account-money">{$find['money']}</span></li>
+                                    <li>任务冻结： <span class="task-dongjie">{$find['freeze_money']}</span></li>
+                                    <li>贷款金额： <span class="task-dongjie">{$find['loans_money']}</span></li>
+                                    <li>已发任务：<span class="" style="color:red;">{$hastask}</span>&nbsp;|&nbsp;完结任务：<span
+                                            class="jifen">{$finishtask}</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="money info">
+                                    <li>负责导师：{$findTeacher['name']}</li>
+                                    <li>微信：{$findTeacher['weixin']}</li>
+                                    <li>电话：{$findTeacher['mobile']}</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wrap-border dynamic news">
+                    <ul>
+                        <div class="title"><span>最新动态</span></div>
+                        <?php foreach($articlearr as $ar=>$at){?>
+                        <li onclick="article({$at.id})"><span>{$at.title}</span></li>
+                        <?php }?>
+                    </ul>
+                </div>
+                <div class="wrap-border dynamic">
+                    <ul>
+                        <div class="title"><span>公告</span></div>
+                        <?php foreach($announcearr as $an=>$v){?>
+                        <li onclick="article({$v.id})"><span>{$v.title}</span></li>
+                        <?php }?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tanchuang" style="padding-top:5%;background: rgba(0, 0, 0, 0.5);overflow-x: hidden;overflow-y: auto;position: fixed;top: 0%;right: 0;bottom: 0;left: 0%;display: none;"></div>
+
+{include file="common/footer"/}
+<script>
+    $(function () {
+        // 初始化轮播
+        $("#myCarousel").carousel({interval: 3000});
+        $('.carousel-indicators li').eq(0).addClass('active');
+        $('.carousel-inner > .item').eq(0).addClass('active');
+    });
+    function article(id) {
+        $.ajax({
+            type:'POST',
+            cache:true,
+            url:'/home.php/{$module}/{$control}/article.html',
+            dataType:'json',
+            data:"id="+id,
+            success:function(data){
+                $('#tanchuang').show();
+             $('#tanchuang').html(
+                     '<div class="modal-dialog" style="width:800px;">'+
+                         '<div class="modal-content">'+
+                             '<div class="modal-header">'+
+                                 '<button type="button"  class="close" onClick="guanbi()" >&times;</button>'+
+                                 '<h4 class="modal-title">信息展示</h4>'+
+                             '</div>'+
+                             '<div class="modal-body">'+
+                                 '<div class="row">'+
+                                     '<div class="col-md-12">'+
+                                         '<div class="panel panel-default" style="padding-top:15px;">'+
+                                             '<h5 style="text-align: center;">'+data.title+'</h5>'+
+                                             '<div class="info" style="padding: 10px;">'+data.content+'</div>'+
+                                         '</div>'+
+                                         '</div>'+
+                                         '</div>'+
+                                         '</div>'+
+                                         '</div>'+
+                                         '</div>'
+
+             );
+                }
+        });
+    }
+    function guanbi() {
+      $('#tanchuang').hide();
+    }
+</script>
+</body>
+</html>
+

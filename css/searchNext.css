@@ -1,0 +1,229 @@
+@charset "UTF-8";
+/* 雪碧图引入 同时设置宽高*/
+.searchNext {
+  background-color: #fff;
+  min-height: 100vh;
+}
+.searchNext .header {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: 0.36rem;
+}
+.searchNext .header .top_tip {
+  height: 0.66667rem;
+  background-color: rgba(242, 95, 85, 0.7);
+  font-size: 0.37333rem;
+  width: 100%;
+}
+.searchNext .header .top_tip .text {
+  color: #fff;
+  margin-left: 0.21333rem;
+}
+.searchNext .section {
+  margin: 0.77333rem;
+  border-left: 6px solid #ececec;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .searchNext .section {
+  border-left: 3px solid #ececec;
+}
+.iphone-data-dir-3 .searchNext .section {
+  border-left: 2px solid #ececec;
+}
+.android-data-dir-2 .searchNext .section {
+  border-left: 3px solid #ececec;
+}
+.android-data-dir-3 .searchNext .section {
+  border-left: 2px solid #ececec;
+}
+.searchNext .section .intr_detail {
+  padding-left: 0.33333rem;
+  width: 100%;
+}
+.searchNext .section .intr_detail .item {
+  -webkit-flex: 1;
+  flex: 1;
+  border-bottom: 2px solid #ececec;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  padding-top: 0.32rem;
+}
+.iphone-data-dir-2 .searchNext .section .intr_detail .item {
+  border-bottom: 1px solid #ececec;
+}
+.iphone-data-dir-3 .searchNext .section .intr_detail .item {
+  border-bottom: 0.66667px solid #ececec;
+}
+.android-data-dir-2 .searchNext .section .intr_detail .item {
+  border-bottom: 1px solid #ececec;
+}
+.android-data-dir-3 .searchNext .section .intr_detail .item {
+  border-bottom: 0.66667px solid #ececec;
+}
+.searchNext .section .intr_detail .item:first-child {
+  padding-top: 0;
+}
+.searchNext .section .intr_detail .item .title {
+  color: #090b09;
+  margin-bottom: 0.26667rem;
+  font-size: 0.37333rem;
+  position: relative;
+}
+.searchNext .section .intr_detail .item .title i.circle {
+  position: absolute;
+  left: -0.42667rem;
+  top: 0.18667rem;
+  width: 0.17333rem;
+  height: 0.17333rem;
+  background-color: #f25f55;
+  border-radius: 50%;
+}
+.searchNext .section .intr_detail .item .text {
+  font-size: 0.30667rem;
+  line-height: 0.56rem;
+  width: 100%;
+  /*margin-bottom: 0.34667rem;*/
+  color: #828182;
+}
+.searchNext .section .intr_detail .item .text .lan {
+  color: #004eff;
+  text-decoration: underline;
+  margin-left: 0.13333rem;
+}
+.searchNext .section .intr_detail .item .content {
+  margin-top: 0.4rem;
+  margin-bottom: 0.53333rem;
+}
+.searchNext .section .intr_detail .item .content .keyword {
+  border: 2px solid #a0a0a0;
+  border-radius: 0.08rem;
+  width: 3.37333rem;
+  height: 0.77333rem;
+  line-height: 0.77333rem;
+  padding: 0 0.26667rem;
+  text-align: center;
+  font-size: 0.33333rem;
+  color: #f25f55;
+  opacity: 1;
+}
+.iphone-data-dir-2 .searchNext .section .intr_detail .item .content .keyword {
+  border: 1px solid #a0a0a0;
+}
+.iphone-data-dir-3 .searchNext .section .intr_detail .item .content .keyword {
+  border: 0.66667px solid #a0a0a0;
+}
+.android-data-dir-2 .searchNext .section .intr_detail .item .content .keyword {
+  border: 1px solid #a0a0a0;
+}
+.android-data-dir-3 .searchNext .section .intr_detail .item .content .keyword {
+  border: 0.66667px solid #a0a0a0;
+}
+.searchNext .section .intr_detail .item .content .keyword::-webkit-input-placeholder {
+  font-size: 0.33333rem;
+  color: #f25f55;
+}
+.searchNext .section .intr_detail .item .content .keyword:disabled {
+  background-color: #fff;
+}
+.searchNext .section .intr_detail .item .content .img {
+  width: 2.17333rem;
+  height: 2.45333rem;
+  margin-right: 0.66667rem;
+}
+.searchNext .section .intr_detail .item .content .img span{
+  text-align: center;
+  display: block;
+  font-size: 0.4rem;
+  background: #c9c9c9;
+  padding: 0 10px;
+  color: #fff;
+}
+.searchNext .section .intr_detail .item .content .img img {
+  width: 100%;
+}
+.searchNext .section .intr_detail .item .content .check_btn {
+  margin-left: 0.69333rem;
+}
+.searchNext .section .intr_detail .item .content .msg_con p {
+  font-size: 0.28rem;
+  /*line-height: 0.8rem;*/
+  line-height:0.48rem;
+}
+.searchNext .section .intr_detail .item .content .msg_con p.link {
+  font-size: 0.28rem;
+  color: #f25f55;
+}
+.searchNext .section .intr_detail .item .check_btn {
+  width: 1.54667rem;
+  height: 0.68rem;
+  border-radius: 0.13333rem;
+  line-height: 0.68rem;
+  color: #fff;
+  margin-top: 0;
+  font-size: 0.29333rem;
+  margin-left: 1.70667rem;
+  margin-top: 0.32rem;
+  margin-bottom: 0.18667rem;
+}
+.searchNext .section .intr_detail .item .input_group {
+  margin-top: 0.4rem;
+  border: 2px solid #b5b4b5;
+  width: 6rem;
+  height: 2rem;
+  padding: 0.32rem;
+  font-size: 0.32rem;
+  border-radius: 0.08rem;
+  display: block;
+  line-height: 0.53333rem;
+  color: #a2a2a2;
+}
+.iphone-data-dir-2 .searchNext .section .intr_detail .item .input_group {
+  border: 1px solid #b5b4b5;
+}
+.iphone-data-dir-3 .searchNext .section .intr_detail .item .input_group {
+  border: 0.66667px solid #b5b4b5;
+}
+.android-data-dir-2 .searchNext .section .intr_detail .item .input_group {
+  border: 1px solid #b5b4b5;
+}
+.android-data-dir-3 .searchNext .section .intr_detail .item .input_group {
+  border: 0.66667px solid #b5b4b5;
+}
+.searchNext .section .intr_detail .item .input_group:active, .searchNext .section .intr_detail .item .input_group:focus {
+  border-color: #3a8ee6;
+}
+.searchNext .section .intr_detail .item textarea::-webkit-input-placeholder {
+  font-size: 0.22667rem;
+}
+.searchNext .footer {
+  width: 100%;
+  height: 1.28rem;
+  line-height: 1.28rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 0.38667rem;
+  text-align: center;
+}

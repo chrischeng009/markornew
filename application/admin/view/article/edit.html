@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+<script src="/editor/kindeditor.js"></script>
+<script type="text/javascript">
+    KE.show({
+        id : 'content',
+        imageUploadJson : '/editor/php/upload_json.php',
+        fileManagerJson : '/editor/php/file_manager_json.php',
+        allowFileManager : true,
+        afterCreate : function(id) {
+            KE.event.ctrl(document, 13, function() {
+                KE.util.setData(id);
+                document.forms['example'].submit();
+            });
+            KE.event.ctrl(KE.g[id].iframeDoc, 13, function() {
+                KE.util.setData(id);
+                document.forms['example'].submit();
+            });
+        }
+    });
+</script>
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+    <div class="container-padding">
+        <div class="row">
+            <form action="/home.php/{$module}/{$control}/act_edit.html" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">标题</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="title" value="{$find.title}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">分类</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" name="category_id">
+                                    <option value="">请选择</option>
+                                    <?php
+                                    use app\common\model\CategoryModel;
+                                    foreach($category_list as $v){
+                                    $child = CategoryModel::select("and pid=".$v['id']);
+                                    ?>
+                                    <option value="{$v['id']}" <?php if($v['id']==$find['category_id']){ echo 'selected';}?>>{$v['name']}</option>
+                                    <?php if($child){ foreach($child as $vv){ ?>
+                                    <option value="{$vv['id']}" <?php if($vv['id']==$find['category_id']){ echo 'selected';}?>>|______{$vv['name']}</option>
+                                    <?php } }?>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">标识</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" name="flag">
+                                    <option value="">请选择</option>
+                                    <?php foreach($enum_flag_arr as $k=>$v){?>
+                                    <option value="{$k}" <?php if($k==$find['flag']){ echo 'selected';}?>>{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">图片</label>
+                            <div class="col-sm-8">
+                                <input type="file" id="dx_file" name="dx_file" onchange="sc('img');" style="display:none"/>
+                                <img src="{$find['img']}" id="imgView" style="height:100px;">
+                                <input type="hidden" name="img" value="{$find['img']}"/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file.click()">点击上传</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">描述</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="description" value="{$find.description}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">内容</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" style="height:600px;" id="content" name="content">{$find.content}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">作者</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="author" value="{$find.author}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">排序</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="sort" value="{$find.sort}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <input type="hidden" class="form-control" name="id" value="{$find.id}">
+                                <button type="submit" class="btn btn-primary" id="sub">提交</button>
+                                <button type="button" class="btn btn-default" onclick="javascript:history.back(-1)">返回</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{include file="common/footer"/}
+<script type="text/javascript">
+    function sc(name){
+        var animateimg = $("#dx_file").val(); //获取上传的图片名 带//  
+        var imgarr=animateimg.split('\\'); //分割  
+        var myimg=imgarr[imgarr.length-1]; //去掉 // 获取图片名  
+        var houzui = myimg.lastIndexOf('.'); //获取 . 出现的位置  
+        var ext = myimg.substring(houzui, myimg.length).toUpperCase();  //切割 . 获取文件后缀  
+        var file = $('#dx_file').get(0).files[0]; //获取上传的文件
+        var fileSize = file.size;           //获取上传的文件大小
+        var maxSize = 5148576;              //最大5MB 1MB=1048576
+        if(ext !='.PNG' && ext !='.GIF' && ext !='.JPG' && ext !='.JPEG' && ext !='.BMP'){
+            $("#tipBtn").click();$("#tipText").html("文件类型错误,请上传图片类型");
+            return false;
+        }
+        if(parseInt(fileSize) >= parseInt(maxSize)){
+            $("#tipBtn").click();$("#tipText").html("上传的文件不能超过5MB");
+            return false;
+        }
+        var data = new FormData($('#dx_form')[0]);
+        $.ajax({
+            url: "/home.php/{$module}/config/uploadify.html",   
+            type: 'POST',
+            data: data,
+            dataType: 'text',
+            processData: false,
+            contentType: false,
+            success:function(res)
+            {
+                var jsonobj=JSON.parse(res);
+                if(jsonobj.code=='success'){
+                    var imgUrl = jsonobj.msg;
+                    $('#imgView').attr('src',imgUrl);
+                    $('[name="'+name+'"]').val(imgUrl);
+                }else{
+                    $("#tipBtn").click();$("#tipText").html("上传失败");
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

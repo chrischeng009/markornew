@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                        <?php if($_SESSION['role_id']==1 || $_SESSION['role_id']==3 ){?>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>客服</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="admin_id">
+                                <option value="">请选择</option>
+                                <?php foreach($admin_list as $k=>$v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['admin_id']){ echo 'selected';}?>>{$v['realname']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>收款人</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="realname" value="{$_GET['realname']}">
+                        </div>
+                    </div>
+                        <?php }?>
+                    </form>
+                    <?php if($_SESSION['role_id']==2){?>
+                    <div class="col-md-12 col-lg-1">
+                        <h5>操作</h5>
+                        <div class="form-group">
+                            <button class="btn btn-default" data-toggle="modal" data-target="#addModal">添加银行卡</button>
+                        </div>
+                    </div>
+                    <?php }?>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>客服</td>
+                <td>收款银行</td>
+                <td>银行卡号</td>
+                <td>收款人</td>
+                <td>添加时间</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\AdmincashModel;
+                foreach($lists as $v){
+                $find_admin = AdminModel::find("and id=".$v['admin_id']);
+                ?>
+                <tr>
+                    <td>{$find_admin['admin_name']}</td>
+                    <td>{$v['bank_name']}</td>
+                    <td>{$v['bankcode']}</td>
+                    <td>{$v['realname']}</td>
+                    <td >
+                        <?php echo date('Y-m-d H:i:s',$v['intime']);?>
+                    </td>
+                    <td>
+                        <a href="/home.php/{$module}/{$control}/edit.html?id={$v['id']}"><span class="label label-success">编辑</span></a>
+                        <a href="javascript:;" onclick="javascript:del({$v['id']});"><span class="label label-danger">删除</span></a>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+{include file="parent/add"/}
+<script src="/js/dateCalendar/WdatePicker.js"></script>
+<script type="text/javascript">
+    function del(id){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/del.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+</script>
+</body>
+</html>
+

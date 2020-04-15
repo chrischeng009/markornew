@@ -1,0 +1,80 @@
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" style="width:800px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button"  id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">{$menu_name}-新增</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <form action="/home.php/{$module}/{$control}/act_add.html" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">提现银行</label>
+                            <div class="col-sm-8" style="padding-top:7px;">
+                                {$find_merchant['bankname']}&nbsp;{$find_merchant['realname']}&nbsp;{$find_merchant['bankcode']}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">提现金额</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="money" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">备注</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" name="remark"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <input type="hidden" name="bankname" value="{$find_merchant['bankname']}">
+                                <input type="hidden" name="realname" value="{$find_merchant['realname']}">
+                                <input type="hidden" name="bankcode" value="{$find_merchant['bankcode']}">
+                                <button type="button" class="btn btn-primary" id="sub">提交</button>
+                                <button type="button"   class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    $("#sub").on('click',function(){
+        var bankname = $("[name='bankname']").val();
+        var realname = $("[name='realname']").val();
+        var bankcode = $("[name='bankcode']").val();
+        if(bankname=="" || realname=="" || bankcode==""){
+            $("#tipBtn").click();$("#tipText").html("请先绑定银行卡信息");
+            setTimeout(function(){
+                window.location.href='/home.php/merchant/merchant/edit_self.html';
+            },2000);
+        }
+        $("#addModal").hide();
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_add.html',
+            dataType:'text',
+            data:$("#dx_form").serialize(),
+            success:function(data)
+            {
+                if(data=='success'){
+                    $("#tipBtn").click();$("#tipText").html(data);
+                    window.location.reload();
+                }else{
+                    $("#tipBtn").click();$("#tipText").html(data);
+                }
+            }
+        });
+    });
+</script>

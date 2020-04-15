@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists2.html" method="get" autocomplete="off">
+                    <div class="col-lg-1">
+                        <h5>Id</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="id" value="{$_GET['id']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>手机号</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="mobile" value="{$_GET['mobile']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <h5>旺旺号</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="wangwang" value="{$_GET['wangwang']}">
+                        </div>
+                    </div>
+                        <?php if($_SESSION['role_id']==1){?>
+                    <div class="col-lg-1">
+                        <h5>所属客服</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="aid">
+                                <option value="">请选择</option>
+                                <?php foreach($server_list as $v){?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['aid']){ echo 'selected';}?>>{$v['name']}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                        <?php }?>
+                        <div class="col-lg-1">
+                            <h5>审核状态</h5>
+                            <div class="form-group">
+                                <select class="form-control" name="status">
+                                    <option value="">请选择 </option>
+                                    <?php foreach($enum_status_arr as $k=>$v){?>
+                                    <?php if($k== 2 || $k==4){?>
+                                    <option value="{$k}" <?php if($k==$_GET['status']){ echo 'selected';}?>>{$v}</option>
+                                    <?php }}?>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="col-lg-1">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>Id</td>
+                <td>所属客服</td>
+                <td>手机号</td>
+                <td>姓名</td>
+                <td>旺旺号</td>
+                <td>支付宝帐号截图</td>
+                <td>淘气值</td>
+                <td>淘气值截图</td>
+                <td>性别</td>
+                <td>买家等级</td>
+                <td>状态</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\UserModel;
+                use app\common\model\ConfigModel;
+                foreach($lists as $v){
+                $find_server = AdminModel::find("and id=".$v['aid']);
+                $find_server['name'] = isset($find_server['name'])?$find_server['name']:'';
+                $sex_name = UserModel::enum_sex_text($v['sex']);
+                $status_name = UserModel::enum_status_text($v['status']);
+                $tbgrade_name = UserModel::enum_tbgrade_text($v['tbgrade']);
+                ?>
+                <tr>
+                    <td>{$v['id']}</td>
+                    <td>{$find_server['name']}</td>
+                    <td>{$v['mobile']}</td>
+                    <td>{$v['realname']}</td>
+                    <td>{$v['wangwang']}</td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['zfbimg']);?>');"><img src="{$v['zfbimg']}" style="height:30px;"/></a></td>
+                    <td>{$v['taoqi']}</td>
+                    <td><a href="javascript:;" onclick="javascript:imger('<?php echo urlencode($v['taoqiimg']);?>');"><img src="{$v['taoqiimg']}" style="height:30px;"/></a></td>
+                    <td>{$sex_name}</td>
+                    <td>{$tbgrade_name}</td>
+                    <td>{$status_name}</td>
+                    <td>
+                        <a href="javascript:;" onclick="javascript:edit_tbgrade({$v['id']},{$v['status']});"><span class="label label-warning">等级</span></a>
+                        <a href="javascript:;" onclick="javascript:edit({$v['id']},3);"><span class="label label-success">同意</span></a>
+                        <a href="javascript:;" onclick="javascript:edit({$v['id']},4);"><span class="label label-danger">拒绝</span></a>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+{include file="parent/edit2"/}
+
+</body>
+</html>
+

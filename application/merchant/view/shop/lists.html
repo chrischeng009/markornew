@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo qtitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <div class="col-lg-2">
+                        <h5>审核状态</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="status">
+                                <option value="">请选择</option>
+                                <?php foreach($enum_status_arr as $k=>$v){?>
+                                <option value="{$k}" <?php if($k==$_GET['status']){ echo 'selected';}?>>{$v}</option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>店铺名称</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="name" value="{$_GET['name']}">
+                        </div>
+                    </div>
+                        <div class="col-sm-2">
+                            <h5>所属分类</h5>
+                            <div class="form-group">
+                                <select class="form-control" name="category_id">
+                                    <option value="">请选择</option>
+                                    <?php foreach($category_list as $v){?>
+                                    <option value="{$v['id']}" <?php if($v['id']==$_GET['category_id']){ echo 'selected';}?>>{$v['name']}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                            </div>
+                    <div class="col-lg-2">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="col-lg-2">
+                        <h5>操作</h5>
+                        <div class="form-group">
+                            <button class="btn btn-default" data-toggle="modal" data-target="#addModal">绑定店铺</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td width="60">Id</td>
+                <td>店铺名称</td>
+                <td>旺旺号</td>
+                <td>店铺网址</td>
+                <td>状态</td>
+                <td>分类</td>
+                <td>添加时间</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\ShopModel;
+                use app\common\model\ShopcategoryModel;
+                foreach($lists as $v){
+                $status_name = ShopModel::enum_status_text($v['status']);
+                  if($v['category_id']){
+                $cate_name = ShopcategoryModel::find(" and id=".$v['category_id']);
+                }else{
+                $cate_name['name']='';
+                }
+                ?>
+                <tr>
+                    <td>{$v['id']}</td>
+                    <td>{$v['name']}</td>
+                    <td>{$v['wangwang']}</td>
+                    <td><a target="_blank" href="{$v['url']}"><?php echo mb_substr($v['url'],0,30);?>....</a></td>
+                    <td>{$status_name}</td>
+                    <td>{$cate_name['name']}</td>
+                    <td><?php echo date('Y-m-d',$v['intime']);?></td>
+                    <td>
+                        <?php if( $v['status']==1){?>
+                        <a href="/home.php/{$module}/{$control}/edit.html?id={$v['id']}"><span class="label label-primary">编辑</span></a>
+                         <?php }?>
+                        <a href="javascript:;" onclick="act_del({$v['id']})"><span class="label label-danger">删除</span></a>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+          {$page_show}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+{include file="parent/add"/}
+
+<script type="text/javascript">
+    
+    
+</script>
+<script type="text/javascript">
+    function act_del(id){
+        if(confirm('确定操作吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_del.html',
+                dataType:'text',
+                data:"id="+id+"&status="+status,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload();
+                    }else{
+                        $("#tipBtn").click();$("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+</script>
+</body>
+</html>
+

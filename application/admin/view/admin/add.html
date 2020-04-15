@@ -1,0 +1,172 @@
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" style="width:800px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">{$menu_name}-新增</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <form action="/home.php/{$module}/{$control}/act_add.html" class="form-horizontal" method="post" id="dx_form" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="padding-top:15px;">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">用户名</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="admin_name">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">密码</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="password" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">昵称</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">角色</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="role_id">
+                                    <option value="">请选择</option>
+                                    <?php foreach($role_list as $v){?>
+                                    <option value="{$v['id']}">{$v['name']}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">姓名</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="realname" value="">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">领取任务</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="iswork">
+                                    <option value="">请选择</option>
+                                    <?php foreach($enum_iswork_arr as $k=>$v){?>
+                                    <option value="{$k}">{$v}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">手机号</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="mobile" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">QQ号</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="qq" value="">
+                            </div>
+                            <label class="col-sm-2 control-label form-label">微信号</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="weixin" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">开户银行</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="bankname">
+                                    <option value="">请选择</option>
+                                    <?php foreach($bank_list as $k=>$v){?>
+                                    <option value="{$v['name']}">{$v['name']}</option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                            <label class="col-sm-2 control-label form-label">银行卡号</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="bankcode" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">微信二维码</label>
+                            <div class="col-sm-3">
+                                <input type="file" id="dx_file" name="dx_file" onchange="sc('qrcode');" style="display:none"/>
+                                <img src="/img/moren.png" id="imgView" style="height:100px;">
+                                <input type="hidden" name="qrcode" value=""/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file.click()">点击上传</button>
+                            </div>
+                            <label class="col-sm-2 control-label form-label">微信收款码</label>
+                            <div class="col-sm-3">
+                                <input type="file" id="dx_file2" name="dx_file2" onchange="sc2('weixinmoneycode');" style="display:none"/>
+                                <img src="/img/moren.png" id="imgView2" style="height:100px;">
+                                <input type="hidden" name="weixinmoneycode" value=""/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file2.click()">点击上传</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">支付宝收款码</label>
+                            <div class="col-sm-3">
+                                <input type="file" id="dx_file3" name="dx_file3" onchange="sc3('zfbmoneycode');" style="display:none"/>
+                                <img src="/img/moren.png" id="imgView3" style="height:100px;">
+                                <input type="hidden" name="zfbmoneycode" value=""/>
+                                <button type="button" class="btn btn-danger" onclick="dx_file3.click()">点击上传</button>
+                            </div>
+                            <label class="col-sm-2 control-label form-label">备注</label>
+                            <div class="col-sm-3">
+                                <textarea class="form-control" name="remark"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label"><b>权限控制</b></label>
+                            <div class="col-sm-8" style="padding-top:7px;">------------------------------------------------------------------------------------------------------------------------------</div>
+                        </div>
+                        <?php
+                        $menu_lists = MenuModel::select("and pid=0");
+                        foreach($menu_lists as $v){
+                        $auth_name = $v['control']."-".$v['action'];
+                        $child = MenuModel::select("and pid=".$v['id']);
+                        ?>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">
+                                <input name="auths[]" value="{$auth_name}" type="checkbox" style="height:15px;">{$v.name}
+                            </label>
+                            <div class="col-sm-8" style="padding-top:7px;">
+                                <?php if($child){ foreach($child as $vv){ $child_auth_name = $vv['control']."-".$vv['action']; ?>
+                                <input name="auths[]" value="{$child_auth_name}" type="checkbox" style="height:15px;">{$vv.name}
+                                <?php } }?>
+                            </div>
+                        </div>
+                        <?php }?>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <button type="button" class="btn btn-primary" id="sub">提交</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    $("#sub").on('click',function(){
+        $('#addModal').hide();
+        $.ajax({
+            type:'POST',
+            cache:false,
+            url:'/home.php/{$module}/{$control}/act_add.html',
+            dataType:'text',
+            data:$("#dx_form").serialize(),
+            success:function(data)
+            {
+                if(data=='success'){
+                    window.location.reload();
+                }else{
+                    $("#tipBtn").click();
+                    $("#tipText").html(data);
+                }
+            }
+        });
+    });
+</script>

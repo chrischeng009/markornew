@@ -1,0 +1,474 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 612258 */
+  src: url('//at.alicdn.com/t/font_612258_r1835qwpuehlg14i.eot');
+  src: url('//at.alicdn.com/t/font_612258_r1835qwpuehlg14i.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_612258_r1835qwpuehlg14i.woff') format('woff'),
+  url('//at.alicdn.com/t/font_612258_r1835qwpuehlg14i.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_612258_r1835qwpuehlg14i.svg#iconfont') format('svg');
+}
+
+*{
+	padding:0;
+	margin:0;
+}
+body{
+	font-size:13px;
+	font-family: 'Montserrat','Open Sans', sans-serif;
+}
+a{
+	text-decoration: none;
+	color:#000;
+}
+ul,li{
+	list-style: none;
+}
+.icon{
+	font-family: "iconfont";
+	font-style: normal;
+}
+
+
+.lineInfo{
+	height:25px;
+	background-color:#3a3a3a;
+	color:#fff;
+	position:relative;
+	white-space:nowrap;  
+}
+.lineInfo:after{
+	clear: both;
+	content: "";
+	display:block;
+}
+.lineInfo .item{
+	display:inline-block;
+	line-height:25px;
+	margin:0 3px;
+	vertical-align: middle;
+}
+.lineInfo .item.lineName{
+	font-size:20px;
+	font-weight: bold;
+}
+.lineInfo .item .icon{
+	color:#8d8d8d;
+	margin-right:3px;
+}
+
+.lineInfo .rightBlock{
+	position:absolute;
+	right:0;
+	top:0;
+	height:100%;
+	background-color:#3a3a3a;
+	box-sizing:border-box;
+	padding-top:2px; 
+	padding-right:4px;
+}
+.lineInfo .rightBlock .button{
+	display:inline-block;
+	color:#fff;
+	height:20px;
+	line-height:20px;
+	width:20px;
+	text-align: center;
+	border-radius: 5px;
+	background-color:#4c4c4c;
+	cursor: pointer;
+}
+.lineInfo .rightBlock .button.arrow{
+	transition: all 1s;
+}
+.lineInfo .rightBlock .button.blue{
+	background-color:#2e8ade;
+}
+.lineInfo .rightBlock .button.blue:hover{
+	background-color:#4fa5f3;
+}
+.lineInfo .rightBlock .button.green{
+	background-color:#179019;
+}
+.lineInfo .rightBlock .button.green:hover{
+	background-color:#27af2a;
+}
+.lineInfo .rightBlock .button.red{
+	background-color:#c52f2f;
+}
+.lineInfo .rightBlock .button.red:hover{
+	background-color:#db4f4f;
+}
+.lineInfo .remarkBox{
+	position:absolute;
+	top:25px;
+	left:0;
+	width:100%;
+	height:0;
+	z-index:100;
+	background-color:#646464;
+	overflow: hidden;
+	transition: all 1s;
+}
+.lineInfo .remarkBox form{
+	padding:10px;
+}
+.lineInfo .remarkBox form textarea{
+	display:block;
+	width:100%;
+	height:40px;
+	border-radius: 5px;
+}
+.lineInfo .remarkBox form .buttonGroup{
+	text-align:right;
+	padding-top:5px;
+}
+.lineInfo .remarkBox form .button{
+	display:inline-block;
+	border-radius: 5px;
+	cursor: pointer;
+	padding:5px 10px;
+}
+.lineInfo .remarkBox form .button.submit{
+	background-color:#2e8ade;
+}
+.lineInfo .remarkBox form .button.cancel{
+	background-color:#9f9f9f;
+}
+
+
+.lineInfo.opened .remarkBox{
+	height:95px;
+}
+.lineInfo.opened .rightBlock .arrow{
+	transform:rotate(180deg);
+}
+
+
+.operationBody{
+	height:90px;
+}
+.taskChoice{
+	height:100%;
+}
+.taskChoice .menu{
+	display:block;
+	height:100%;
+	margin:0 auto;
+	max-width:510px;
+}
+.taskChoice .menu:after{
+	content: ""
+	display:block;
+	clear: both;
+}
+.taskChoice .menu li{
+	float:left;
+	width:25%;
+	box-sizing: border-box;
+	padding:10px;
+}
+.taskChoice .menu li .itemBlock{
+	display:block;
+	text-align: center;
+	border-radius: 5px;
+	padding:10px 0;
+	position:relative;
+	background-color:#c6c6c6;
+	color:#8c8c8c;
+	cursor:default;
+}
+.taskChoice .menu li .itemBlock .icon{
+	font-size:20px;
+	color:;
+}
+.taskChoice .menu li .itemBlock .itemName{
+	margin-top:10px;
+}
+.taskChoice .menu li .itemBlock .roundSum{
+	position:absolute;
+	right:5px;
+	top:5px;
+	width:14px;
+	height:14px;
+	line-height:14px;
+	font-size:12px;
+	font-weight: bold;
+	border-radius: 50%;
+	background-color:#d11212;
+	color:#fff;
+	display:none;
+}
+.taskChoice .menu li.active .itemBlock{
+	color:#325d84;
+	background-color:#fff;
+}
+.taskChoice .menu li.active .itemBlock:hover{
+	color:#fff;
+	background-color:#3971a4;
+	cursor:pointer;
+}
+.taskChoice .menu li.active .itemBlock .roundSum{
+	display:block;
+}
+
+
+.operationBody .gettask{
+	height:100%;
+	display:none;
+	overflow: auto;
+}
+.operationBody .gettask ul{
+	display:block;
+	margin:5px;
+	
+}
+.operationBody .gettask ul li{
+	display:inline-block;
+	margin:5px;
+	position:relative;
+}
+.operationBody .gettask ul li .remarkBox{
+	display:none;
+}
+.operationBody .gettask ul li a{
+	background-color:#fff;
+	display:inline-block;
+	border-radius: 5px;
+	padding:5px;
+}
+.operationBody .gettask ul li a:hover{
+	cursor: pointer;
+	background-color:#3185b0;
+	color:#fff;
+}
+.operationBody .gettask ul li a .icon{
+	margin-right:5px;
+	color:#9f9f9f;
+}
+.operationBody .gettask ul li a .item{
+	margin-left:5px;
+}
+.operationBody .gettask ul li a .item:first-child{
+	margin-left:0;
+}
+.operationBody .gettask ul li.remark a:after{
+	content: '\e612';
+	font-family: "iconfont";
+	color:#e50909;
+	margin-left:5px;
+}
+.operationBody .gettask ul li.remark:hover .remarkBox{
+	display:block;
+	position:absolute;
+	top:100%;
+	left:0;
+	width:100%;
+	color:#3185b0;
+	background-color:#bedae8;
+	padding:5px;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+
+
+
+.rg-accountBox{
+	height:100%;
+	overflow: auto;
+}
+.rg-accountBox ul{
+	display:block;
+	padding:2px;
+}
+.rg-accountBox ul:after{
+	clear: both;
+	display:block;
+	content: '';
+}
+.rg-accountBox ul li{
+	display:block;
+	margin:2px;
+	padding-left:30px;
+	padding-right:5px;
+	float:left;
+	background-color:#fff;
+	border-radius: 5px;
+	overflow: hidden;
+	position:relative;
+	height:24px;
+	line-height:24px;
+}
+.rg-accountBox ul li .itemTitle{
+	font-size:12px;
+	text-align:center;
+	background-color:#89b5de;
+	color:#fff;
+	position: absolute;
+	left:0;
+	top:0;
+	height:100%;
+	width:24px;
+}
+.rg-accountBox ul li:hover .itemTitle{
+	background-color:#6694c0;
+}
+
+.rg-accountBox ul li .itemBlock{
+
+}
+.rg-accountBox ul li.on .itemBlock{
+	max-width:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.btn{
+	padding:5px 5px;
+	background-color:#c6c6c6;
+	border-radius: 5px;
+	display:inline-block;
+}
+.btn .icon{
+	margin-right:2px;
+}
+.btn-green{
+	background-color:#26a65b;
+	color:#fff;
+}
+.btn-red{
+	background-color:#ef4836;
+	color:#fff;
+}
+.rg-drivebody{
+	width:1020px;
+	height:115px;
+	background-color:#d9d9d9;
+	position:relative;
+	overflow: hidden;
+	margin:20px;
+}
+
+.rg-body-left{
+	width:50%;
+	height:100%;
+	float:left;
+}
+.rg-body-right{
+	width:50%;
+	height:100%;
+	float:right;
+}
+.rg-body{
+	height:100%;
+	position:relative;
+}
+.rg-body-right .rg-body{
+	margin-left:50px;
+	padding-left:50px;
+}
+.rg-body-left .rg-body{
+	margin-right:50px;
+	padding-right:50px;
+}
+.rg-userBox{
+	position:absolute;
+	top:0;
+	width:50px;
+	height:100%;
+	background: #6e6e6e;
+}
+.rg-body-left .rg-userBox{
+	right:0;
+}
+.rg-body-right .rg-userBox{
+	left:0;
+}
+.rg-userBox .rg-lineName{
+	margin:10px;
+	background-color:#3e3e3e;
+	border-radius: 5px;
+	text-align: center;
+	font-size:20px;
+	font-weight: bold;
+	color:#fff;
+	line-height:35px;
+}
+.rg-userBox .rg-userName{
+	text-align: center;
+	color:#fff;
+}
+
+
+
+
+.inputBlock{
+
+}
+.inputBlock input{
+	background-color:#c4dbf0;
+	border:none;
+	height:18px;
+	display:inline-block;
+	width:60px;
+	outline: 0;
+	border-radius: 3px;
+	text-align:center;
+}
+.inputBlock .button{
+	height:18px;
+	width:18px;
+	border:none;
+	line-height:18px;
+	background-color:#006ed5;
+	color:#fff;
+	border-radius:3px;
+	outline: 0;
+	display:none;
+}
+.inputBlock input:focus~.button{
+	display:inline-block;
+}
+
+
+.rg-body-center{
+	position:absolute;
+	top:0;
+	left:50%;
+	width:100px;
+	margin-left:-50px;
+	height:100%;
+	background-color:#3e3e3e;
+}
+.rg-body-center .rg-switchBox{
+	text-align: center;
+	margin-top:5px;
+}
+.rg-body-center .rg-switchBox .btn{
+	margin:2px;
+}
+.rg-body-center .rg-groupid{
+	text-align:center;
+	font-size:30px;
+	color:#fff;
+	font-weight: bold;
+	line-height:50px;
+	margin-top:5px;
+}
+.rg-body-center .rg-time{
+	text-align:center;
+	font-size:18px;
+	color:#fff;
+	line-height:20px;
+}
+.rg-body-center .rg-time .icon{
+	margin-right:3px;
+	color:#9b9b9b;
+}

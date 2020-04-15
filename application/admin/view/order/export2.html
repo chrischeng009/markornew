@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>导出</title>
+    <style type="text/css">
+        table tr td{
+            width: 120px;
+            height: 25px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<?php
+        if(!empty($intime)){
+        $name = $intime.$shop_name.$task_id;
+        }else{
+        $name = date("Y-m-d",time()).$shop_name.$task_id;
+        }
+    header("Content-type:application/vnd.ms-excel;charset=UTF-8");
+    header("Content-Disposition:attachment;filename=".$name.".xls");
+    /*header("Content-Disposition:attachment;filename=店铺订单汇总导出".$name.".xls");*/
+?>
+
+<table border="1">
+    <tr>
+        <td style="font-weight:bold;">任务id</td>
+        <td style="font-weight:bold;">店铺名</td>
+        <td style="font-weight:bold;">链接</td>
+        <td style="font-weight:bold;">关键词</td>
+        <td style="font-weight:bold;">单数</td>
+        <td style="font-weight:bold;">价格</td>
+        <td style="font-weight:bold;"></td>
+    </tr>
+    <?php foreach($taskdetailorder as $v){?>
+    <tr>
+
+
+        <td style="text-align:left;" >{$task_id}</td>
+        <td style="text-align:left;" ><?php echo $v['shop_name']?></td>
+        <td style="text-align:left;" ><?php echo $v['goodsurl']?></td>
+        <td style="text-align:center;" >{$v['searchkeywords']}</td>
+        <td style="text-align:center;" >{$v['num']}</td>
+        <td style="text-align:center;" >{$v['price']}</td>
+         <td style="text-align:center;" ></td>
+    </tr>
+    <?php }?>
+    <tr>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+    </tr>
+    <tr>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;"></td>
+    </tr>
+
+</table>
+</body>
+</html>
+
+    

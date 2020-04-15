@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title><?php echo atitle();?></title>
+<link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+{include file="common/menu"/}
+
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">{$menu_name}</h1>
+    </div>
+<div class="container-padding">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/home.php/{$module}/{$control}/lists.html" method="get" autocomplete="off">
+                    <div class="col-lg-2">
+                        <h5>标题</h5>
+                        <div class="form-group">              
+                            <input type="text" class="form-control" name="title" value="{$_GET['title']}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>分类</h5>
+                        <div class="form-group">              
+                            <select class="form-control" name="category_id">
+                                <option value="">请选择</option>
+                                <?php
+                                use app\common\model\CategoryModel;
+                                foreach($category_list as $v){
+                                $child = CategoryModel::select("and pid=".$v['id']);
+                                ?>
+                                <option value="{$v['id']}" <?php if($v['id']==$_GET['category_id']){ echo 'selected';}?>>{$v['name']}</option>
+                                <?php if($child){ foreach($child as $vv){ ?>
+                                <option value="{$vv['id']}" <?php if($vv['id']==$_GET['category_id']){ echo 'selected';}?>>|______{$vv['name']}</option>
+                                <?php } }?>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>搜索</h5>
+                        <div class="form-group">              
+                            <button type="submit" class="btn btn-success">搜索</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5>操作</h5>
+                        <div class="form-group">              
+                            <a href="/home.php/{$module}/{$control}/add.html" class="btn btn-default">新增</a>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td width="60">Id</td>
+                <td>分类</td>
+                <td>标题</td>
+                <td>内容</td>
+                <td>标识</td>
+                <td>更新时间</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                use app\common\model\ArticleModel;
+                foreach($lists as $v){
+                $find_category = CategoryModel::find("and id=".$v['category_id']);
+                $flag_name = ArticleModel::enum_flag_text($v['flag']);
+                ?>
+                <tr>
+                    <td>{$v['id']}</td>
+                    <td>{$find_category['name']}</td>
+                    <td>{$v['title']}</td>
+                    <td><?php echo mb_substr(dostr($v['content']),0,40);?></td>
+                    <td>{$flag_name}</td>
+                    <td title="添加时间：<?php echo date('Y-m-d H:i:s',$v['intime']);?>">
+                        <?php echo date('Y-m-d H:i:s',$v['uptime']);?>
+                    </td>
+                    <td>
+                        <a href="/home.php/{$module}/{$control}/edit.html?id={$v['id']}"><span class="label label-primary">编辑</span></a>
+                        <a href="javascript:;" onclick="javascript:copy({$v['id']});"><span class="label label-success">复制</span></a>
+                        <a href="javascript:;" onclick="javascript:del({$v['id']});"><span class="label label-danger">删除</span></a>
+                    </td>
+                </tr>
+                <?php }?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{include file="common/footer"/}
+<script type="text/javascript">
+    function del(id){
+        if(confirm('确定删除吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_del.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload(); 
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+    function copy(id){
+        if(confirm('确定复制吗!')){
+            $.ajax({
+                type:'POST',
+                cache:false,
+                url:'/home.php/{$module}/{$control}/act_copy.html',
+                dataType:'text',
+                data:"id="+id,
+                success:function(data){
+                    if(data=='success'){
+                        window.location.reload(); 
+                    }else{
+                        $("#tipBtn").click();
+                        $("#tipText").html(data);
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
+

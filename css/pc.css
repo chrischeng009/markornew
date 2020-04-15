@@ -1,0 +1,282 @@
+@charset "UTF-8";
+.pc .list_data .item .item_con p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 雪碧图引入 同时设置宽高*/
+html, body, h1, h2, h3, h4,  h6, div, dl, dt, dd, ul, ol, li, p, blockquote, pre, hr, figure, table, caption, th, td, form, fieldset, legend, input, button, textarea, menu {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, div {
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th {
+  text-align: left;
+  font-weight: normal;
+}
+
+html, body, fieldset, img, iframe, abbr {
+  border: 0;
+}
+
+i, cite, em, var, address, dfn {
+  font-style: normal;
+}
+
+[hidefocus], summary {
+  outline: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, small {
+  font-size: 100%;
+}
+
+sup, sub {
+  font-size: 83%;
+}
+
+pre, code, kbd, samp {
+  font-family: inherit;
+}
+
+q:before, q:after {
+  content: none;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+}
+
+label, summary {
+  cursor: default;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6, em, strong, b {
+  font-weight: bold;
+}
+
+del, ins, u, s, a, a:hover {
+  text-decoration: none;
+}
+
+body, textarea, input, button, select, keygen, legend {
+  
+  color: #333;
+  outline: 0;
+}
+
+input, textarea {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  border: none;
+}
+
+body {
+  background: #fff;
+}
+
+a, a:hover {
+  color: #333;
+}
+
+/* 雪碧图引入 同时设置宽高*/
+div, body, p, ul, li {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  min-height: 100vh;
+  width: 100%;
+}
+
+p {
+  max-height: 13333.32rem;
+}
+
+.pc .list_data {
+  background-color: #fff;
+  padding: 10px 0;
+  border: 1px solid #aaaaaa;
+}
+.pc .list_data:before, .pc .list_data:after {
+  content: "";
+  display: table;
+}
+.pc .list_data:after {
+  clear: both;
+}
+.pc .list_data .item {
+  width: 176px;
+  float: left;
+  border: 1px solid #aaaaaa;
+  padding: 12px;
+  margin: 8px 10px;
+  padding-top: 40px;
+  line-height: 48px;
+}
+.pc .list_data .item:before, .pc .list_data .item:after {
+  content: "";
+  display: table;
+}
+.pc .list_data .item:after {
+  clear: both;
+}
+.pc .list_data .item .item_con {
+  float: right;
+}
+.pc .list_data .item .item_con p {
+  font-size: 16px;
+  color: #3b3b3b;
+  line-height: 26px;
+  text-align: right;
+  max-width: 100px;
+}
+.pc .list_data .item .icon_total {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: 0 0;
+  width: 28px;
+  height: 41px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_today {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -87px 0;
+  width: 37px;
+  height: 40px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_strengthen {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -192px 0;
+  width: 56px;
+  height: 43px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_complete {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -321px 0;
+  width: 39px;
+  height: 38px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_abnormal {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -469px 0;
+  width: 41px;
+  height: 41px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_toAudit {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: 0 -77px;
+  width: 41px;
+  height: 41px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_shops_recharge {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -87px -78px;
+  width: 46px;
+  height: 42px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_shops_withDraw {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -192px -84px;
+  width: 42px;
+  height: 43px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_fans_withDraw {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -321px -77px;
+  width: 38px;
+  height: 41px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_fans_withDraw_corpus {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -469px -86px;
+  width: 32px;
+  height: 41px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_fans_withDraw_income {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: 0 -159px;
+  width: 41px;
+  height: 41px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_new_fans {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -87px -159px;
+  width: 41px;
+  height: 43px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_aplay {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -192px -165px;
+  width: 42px;
+  height: 43px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_new_shops {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -321px -159px;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-top: 8px;
+}
+.pc .list_data .item .icon_shops_loans {
+  background: url("/img/icon_icon.png") no-repeat;
+  background-position: -469px -166px;
+  width: 45px;
+  height: 42px;
+  float: left;
+  margin-top: 8px;
+}

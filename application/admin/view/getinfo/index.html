@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><?php echo qtitle();?></title>
+    <link href="/css/root.css" rel="stylesheet">
+</head>
+<body>
+{include file="common/header"/}
+<div class="content">
+    <div class="page-header">
+        <h1 class="title">信息获取中心</h1>
+    </div>
+    <div class="container-padding">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="" method="get" autocomplete="off">
+                            <div class="col-lg-1">
+                                <h5>获取类型</h5>
+                                <div class="form-group">
+                                    <select class="form-control" name="type">
+                                        <option value="">请选择</option>
+                                        <option value="1" <?php if(1==$_GET['type']){ echo 'selected';}?>>任务完成情况获取</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <h5>开始时间</h5>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="starttime" value="{$_GET['starttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <h5>结束时间</h5>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="lasttime" value="{$_GET['lasttime']}" onclick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',onpicked:null})">
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <h5>搜索</h5>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success">搜索</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <?php if($type==1){?>
+                    <tr> 已完成任务：</tr>
+                    <?php foreach($gettaskinfo as $v){?>
+                    <tr>
+                        <td>
+                            编号：{$v.tasksn}<br />
+                            金额：{$v['order_money']}/数量：{$v['order_num']}/服务费：{$v['without_money']}/佣金：{$v['within_money']}<br/>
+                            店铺名称：{$v['shop_name']}
+                        </td>
+                    </tr>
+                    <?php }}elseif($type==2){?>
+                    <tr> 已完成任务：</tr>
+                    <?php foreach($gettaskinfo as $v){?>
+                    <tr>
+                        <td>
+                            编号：{$v.tasksn}<br />
+                            金额：{$v['order_money']}/数量：{$v['order_num']}<br/>
+                            服务费：{$v['without_money']}/佣金：{$v['within_money']}
+                        </td>
+                    </tr>
+                    <?php }}?>
+                    </thead>
+                    </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<script src="/js/dateCalendar/WdatePicker.js"></script>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/plugins.js"></script>
+</body>
+</html>
+

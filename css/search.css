@@ -1,0 +1,336 @@
+@charset "UTF-8";
+.search .header .pro_detail .intr p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 雪碧图引入 同时设置宽高*/
+.search {
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+.search .header {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  width: 100%;
+  margin-bottom: 0.36rem;
+}
+.search .header .top_tip {
+  height: 0.66667rem;
+  background-color: rgba(242, 95, 85, 0.7);
+  font-size: 0.37333rem;
+  width: 100%;
+}
+.search .header .top_tip .text {
+  color: #fff;
+  margin-left: 0.21333rem;
+}
+.search .header .name {
+  padding: 0.32rem 0;
+  font-size: 0.37333rem;
+  color: #717371;
+  border-bottom: 2px solid #ececec;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  width: 100%;
+}
+.iphone-data-dir-2 .search .header .name {
+  border-bottom: 1px solid #ececec;
+}
+.iphone-data-dir-3 .search .header .name {
+  border-bottom: 0.66667px solid #ececec;
+}
+.android-data-dir-2 .search .header .name {
+  border-bottom: 1px solid #ececec;
+}
+.android-data-dir-3 .search .header .name {
+  border-bottom: 0.66667px solid #ececec;
+}
+.search .header .name span {
+  margin-left: 0.36rem;
+}
+.search .header .pro_detail {
+  padding: 0.41333rem 0.36rem;
+  background-color: #fff;
+}
+.search .header .pro_detail .img {
+  width: 2.26667rem;
+  height: 2.58667rem;
+}
+.search .header .pro_detail .img img {
+  width: 100%;
+}
+.search .header .pro_detail .img span {
+  text-align: center;
+  display: block;
+  font-size: 0.4rem;
+  background: #c9c9c9;
+  padding: 0 10px;
+  color: #fff;
+}
+.search .header .pro_detail .intr {
+  margin-left: 0.32rem;
+}
+.search .header .pro_detail .intr p {
+  font-size: 0.32rem;
+  -webkit-flex: 1;
+  flex: 1;
+  color: #666666;
+  line-height: 0.48rem;
+}
+.search .header .pro_detail .intr .title {
+  color: #333333;
+  margin-bottom: 0.32rem;
+}
+.search .section {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+}
+.search .section .intr_detail {
+  padding: 0.41333rem 0.36rem;
+  width: 100%;
+  background-color: #fff;
+  font-size: 0.32rem;
+}
+.search .section .intr_detail .item {
+  margin: 0 0.21333rem;
+  padding: 0.4rem 0;
+  padding-left: 0.32rem;
+  -webkit-flex: 1;
+  flex: 1;
+  border-bottom: 2px solid #ececec;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+  border-left: 6px solid #ececec;
+  /*} @else{
+      .iphone-data-dir-2 & ,.android-data-dir-2 & ,.other-data-dir-2 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.5);
+          }
+      }
+      .iphone-data-dir-3 & ,.android-data-dir-3 & ,.other-data-dir-3 & {
+          @each $v in $direction {
+              @include border_dir_scale($px, $color, $v, 0.333);
+          }
+      }
+  } */
+}
+.iphone-data-dir-2 .search .section .intr_detail .item {
+  border-bottom: 1px solid #ececec;
+}
+.iphone-data-dir-3 .search .section .intr_detail .item {
+  border-bottom: 0.66667px solid #ececec;
+}
+.android-data-dir-2 .search .section .intr_detail .item {
+  border-bottom: 1px solid #ececec;
+}
+.android-data-dir-3 .search .section .intr_detail .item {
+  border-bottom: 0.66667px solid #ececec;
+}
+.iphone-data-dir-2 .search .section .intr_detail .item {
+  border-left: 3px solid #ececec;
+}
+.iphone-data-dir-3 .search .section .intr_detail .item {
+  border-left: 2px solid #ececec;
+}
+.android-data-dir-2 .search .section .intr_detail .item {
+  border-left: 3px solid #ececec;
+}
+.android-data-dir-3 .search .section .intr_detail .item {
+  border-left: 2px solid #ececec;
+}
+.search .section .intr_detail .item:last-child {
+  border-bottom: none;
+}
+.search .section .intr_detail .item .title {
+  color: #090b09;
+  margin-bottom: 0.26667rem;
+  font-size: 0.37333rem;
+  position: relative;
+}
+.search .section .intr_detail .item .title i.circle {
+  position: absolute;
+  left: -0.4rem;
+  top: 0.18667rem;
+  width: 0.17333rem;
+  height: 0.17333rem;
+  background-color: #f25f55;
+  border-radius: 50%;
+}
+.search .section .intr_detail .item .text {
+  font-size: 0.32rem;
+  line-height: 0.61333rem;
+  width: 100%;
+}
+.search .section .intr_detail .item .text .lan {
+  color: #004eff;
+  text-decoration: underline;
+  margin-left: 0.13333rem;
+}
+.search .section .intr_detail .item2 .tabs_box .tabs {
+  margin: 0.41333rem;
+  border-radius: 0.13333rem;
+  border: 2px solid #f25f55;
+}
+.iphone-data-dir-2 .search .section .intr_detail .item2 .tabs_box .tabs {
+  border: 1px solid #f25f55;
+}
+.iphone-data-dir-3 .search .section .intr_detail .item2 .tabs_box .tabs {
+  border: 0.66667px solid #f25f55;
+}
+.android-data-dir-2 .search .section .intr_detail .item2 .tabs_box .tabs {
+  border: 1px solid #f25f55;
+}
+.android-data-dir-3 .search .section .intr_detail .item2 .tabs_box .tabs {
+  border: 0.66667px solid #f25f55;
+}
+.search .section .intr_detail .item2 .tabs_box .tabs .tabs_item {
+  width: 50%;
+  text-align: center;
+  line-height: 0.66667rem;
+  border-radius: 0.13333rem;
+  color: #f25f55;
+}
+.search .section .intr_detail .item2 .tabs_box .tabs .tabs_item.active {
+  background-color: #f25f55;
+  color: #fff;
+}
+.search .section .intr_detail .item2 .tabs_section .check_box {
+  margin-top: 0.82667rem;
+  margin-bottom: 0.22667rem;
+}
+.search .section .intr_detail .item2 .tabs_section .check_box .check_btn {
+  width: 1.94667rem;
+  height: 0.85333rem;
+  border-radius: 0.13333rem;
+  line-height: 0.85333rem;
+  color: #fff;
+  margin-top: 0;
+}
+.search .section .intr_detail .item2 .tabs_section .check_box .input_group input, .search .section .intr_detail .item2 .tabs_section .check_box .input_group textarea {
+  margin-right: 0.32rem;
+  width: 3.06667rem;
+  height: 0.76rem;
+  padding: 0.2rem;
+  border: 3px solid #c9c9c9;
+  border-radius: 0.10667rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 0.32rem;
+}
+.iphone-data-dir-2 .search .section .intr_detail .item2 .tabs_section .check_box .input_group input, .iphone-data-dir-2 .search .section .intr_detail .item2 .tabs_section .check_box .input_group textarea {
+  border: 1.5px solid #c9c9c9;
+}
+.iphone-data-dir-3 .search .section .intr_detail .item2 .tabs_section .check_box .input_group input, .iphone-data-dir-3 .search .section .intr_detail .item2 .tabs_section .check_box .input_group textarea {
+  border: 1px solid #c9c9c9;
+}
+.android-data-dir-2 .search .section .intr_detail .item2 .tabs_section .check_box .input_group input, .android-data-dir-2 .search .section .intr_detail .item2 .tabs_section .check_box .input_group textarea {
+  border: 1.5px solid #c9c9c9;
+}
+.android-data-dir-3 .search .section .intr_detail .item2 .tabs_section .check_box .input_group input, .android-data-dir-3 .search .section .intr_detail .item2 .tabs_section .check_box .input_group textarea {
+  border: 1px solid #c9c9c9;
+}
+.search .section .intr_detail .item2 .tabs_section .check_box .input_group .error{
+  margin-top: 0.18667rem;
+  color: #f25f55;
+}
+.search .section .intr_detail .item2 .tabs_section .check_box .input_group .correct{
+	margin-top: 0.18667rem;
+	/*color:#3fc147;*/
+	color: #f25f55;
+}
+.search .section .intr_detail .item2 .tabs_section .ex {
+  margin-top: 0.22667rem;
+}
+.search .section .intr_detail .item2 .tabs_section .ex .img {
+  width: 4.8rem;
+  height: 1.30667rem;
+}
+.search .section .intr_detail .item2 .tabs_section .ex .img img {
+  width: 100%;
+}
+.search .section .intr_detail .item3 .check_box {
+  margin-top: 0.26667rem;
+}
+.search .section .intr_detail .item3 .check_box .check_group.left {
+  margin-right: 0.61333rem;
+}
+.search .section .intr_detail .item3 .check_box .check_group .input_group {
+  position: relative;
+  font-size: 0.32rem;
+  margin-bottom: 0.16rem;
+}
+.search .section .intr_detail .item3 .check_box .check_group .input_group i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 2px solid #4a9aff;
+  width: 0.4rem;
+  height: 0.4rem;
+}
+.iphone-data-dir-2 .search .section .intr_detail .item3 .check_box .check_group .input_group i {
+  border: 1px solid #4a9aff;
+}
+.iphone-data-dir-3 .search .section .intr_detail .item3 .check_box .check_group .input_group i {
+  border: 0.66667px solid #4a9aff;
+}
+.android-data-dir-2 .search .section .intr_detail .item3 .check_box .check_group .input_group i {
+  border: 1px solid #4a9aff;
+}
+.android-data-dir-3 .search .section .intr_detail .item3 .check_box .check_group .input_group i {
+  border: 0.66667px solid #4a9aff;
+}
+.search .section .intr_detail .item3 .check_box .check_group .input_group i.active {
+  background-color: #4a9aff;
+  border-radius: 0.08rem;
+}
+.search .section .intr_detail .item3 .check_box .check_group .input_group input {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.2rem;
+}
+.search .section .intr_detail .item3 .check_box .check_group .input_group input:checked {
+  background-color: transparent;
+}
+.search .section .intr_detail .item3 .img {
+  width: 5.22667rem;
+  height: 1.50667rem;
+  margin-top: 0.72rem;
+}
+.search .section .intr_detail .item3 .img img {
+  width: 100%;
+}
+.search .footer {
+  width: 100%;
+  height: 1.28rem;
+  line-height: 1.28rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  /*background-color: rgb(242, 95, 85);*/
+  color: #fff;
+  font-size: 0.38667rem;
+  text-align: center;
+}
